@@ -8,8 +8,350 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- ملف الـ CSS الخارجي -->
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --navy-dark: #0A1D37;
+            --navy-light: #132D52;
+            --gold-primary: #D4AF37;
+            --yellow-warm: #F4C430;
+            --gold-soft: #FAF6ED;
+            --rose-accent: #F9EBEA;
+            --bg-light: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --shadow: 0 6px 20px rgba(10, 29, 55, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding-bottom: 110px !important;
+            line-height: 1.7;
+        }
+
+        .top-bar {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .lang-switch {
+            color: var(--gold-primary);
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            background: var(--navy-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow-warm);
+            font-weight: 800;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .brand-title h1 {
+            font-size: 0.95rem;
+            color: var(--navy-dark);
+            font-weight: 800;
+        }
+
+        .brand-title span {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .btn-install {
+            background: linear-gradient(135deg, var(--gold-primary), var(--yellow-warm));
+            color: var(--navy-dark);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(212, 175, 55, 0.25);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 18px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .section-subtitle {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            color: var(--navy-dark);
+            font-size: 1.35rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .highlight-box {
+            background-color: var(--gold-soft);
+            border-right: 4px solid var(--gold-primary);
+            padding: 16px;
+            border-radius: 12px;
+            margin: 14px 0;
+            font-size: 0.92rem;
+            color: var(--navy-dark);
+        }
+
+        .hero-logo-card {
+            text-align: center;
+            padding: 30px 18px;
+            background: radial-gradient(circle, #ffffff 60%, var(--rose-accent) 100%);
+        }
+
+        .hero-emblem {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            border: 4px solid var(--gold-primary);
+            background: var(--navy-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .sector-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid transparent;
+        }
+
+        .sector-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold-soft);
+            color: var(--gold-primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.2rem;
+        }
+
+        .sector-card h3 {
+            font-size: 1.05rem;
+            color: var(--navy-dark);
+            margin-bottom: 4px;
+        }
+
+        .sector-card .en-sub {
+            font-size: 0.78rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .navy-section {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 26px 20px;
+            margin: 22px 0;
+        }
+
+        .navy-subcard {
+            background-color: var(--navy-light);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 14px;
+            padding: 18px;
+            margin-top: 14px;
+        }
+
+        .digital-banner {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, #163763 100%);
+            color: var(--white);
+            padding: 26px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 4px solid var(--gold-primary);
+        }
+
+        .email-box {
+            background: #F1F5F9;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--navy-dark);
+            display: block;
+            text-decoration: none;
+            margin: 12px 0;
+            border: 1px dashed var(--gold-primary);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--navy-dark);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--navy-dark);
+            color: var(--yellow-warm);
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 18px;
+            margin-top: 26px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* شريط التنقل السفلي الثابت في أعلى طبقة لكي لا يختفي نهائياً */
+        .bottom-nav {
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: var(--white) !important;
+            display: flex !important;
+            justify-content: space-around !important;
+            padding: 12px 0 16px !important;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15) !important;
+            z-index: 99999 !important;
+            border-top: 1px solid #eee !important;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+        }
+
+        .nav-item.active {
+            color: var(--gold-primary);
+        }
+
+        /* تنسيقات اللغة الإنجليزية LTR */
+        [dir="ltr"] {
+            text-align: left;
+        }
+        [dir="ltr"] .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--gold-primary);
+            text-align: left !important;
+        }
+        [dir="ltr"] ul {
+            padding-right: 0 !important;
+            padding-left: 20px !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,7 +372,7 @@
                 <span data-ar="AFRODAR FOR MULTI ACTIVITIES CO. LTD" data-en="AFRODAR FOR MULTI ACTIVITIES CO. LTD">AFRODAR FOR MULTI ACTIVITIES CO. LTD</span>
             </div>
         </div>
-        <button class="btn-install" id="install-btn" onclick="alert('لإضافة الموقع للشاشة الرئيسية: اضغط على خيارات المتصفح ثم اختر (إضافة إلى الشاشة الرئيسية / Add to Home Screen)')" data-ar="إضافة للشاشة الرئيسية" data-en="Add to Home">
+        <button class="btn-install" onclick="alert('لإضافة الموقع للشاشة الرئيسية: اضغط على خيارات المتصفح ثم اختر (إضافة إلى الشاشة الرئيسية / Add to Home Screen)')" data-ar="إضافة للشاشة الرئيسية" data-en="Add to Home">
             إضافة للشاشة الرئيسية
         </button>
     </header>
@@ -49,167 +391,97 @@
                 <h2 class="section-title" data-ar="شركة أفرودار للأنشطة المتعددة المحدودة" data-en="Afrodar For Multi Activities Co. Ltd">شركة أفرودار للأنشطة المتعددة المحدودة</h2>
                 <p style="font-size: 0.95rem; color: var(--text-dark); text-align: justify;"
                    data-ar="أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية."
-                   data-en="Afrodar For Multi Activities Co. Ltd is a Sudanese multi-activity company operating in the fields of engineering, telecommunications, energy, oilfield services, mining, contracting, technology, trade, and investment services.">
+                   data-en="Afrodar For Multi Activities Co. Ltd is a Sudanese multi-activity company operating in engineering, telecommunications, energy, oilfield services, mining, contracting, technology, trade, and investment services.">
                     أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية.
                 </p>
-                <div class="highlight-box" style="text-align: right;"
-                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان."
-                     data-en="The company was established based on an ambitious vision aiming to build an integrated institution capable of providing practical and professional solutions that meet the needs of productive and service sectors, and contributing to infrastructure development and economic growth in Sudan.">
-                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان.
-                </div>
-            </div>
-
-            <!-- الرؤية والرسالة -->
-            <p class="section-subtitle" data-ar="هويتنا واستراتيجيتنا" data-en="Our Identity & Strategy">هويتنا واستراتيجيتنا</p>
-            <h2 class="section-title" data-ar="رؤيتنا ورسالتنا" data-en="Our Vision & Mission">رؤيتنا ورسالتنا</h2>
-
-            <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رؤيتنا | Our Vision" data-en="Our Vision">رؤيتنا | Our Vision</h3>
-                <p style="color: var(--text-muted); font-size: 0.93rem;"
-                   data-ar="أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية."
-                   data-en="To be one of the leading and integrated Sudanese companies in the fields of engineering, energy, telecommunications, mining, industrial, and commercial services, establishing a regional and international presence based on efficiency, innovation, and strategic partnerships.">
-                    أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رسالتنا | Our Mission" data-en="Our Mission">رسالتنا | Our Mission</h3>
-                <p style="color: var(--text-muted); font-size: 0.93rem;"
-                   data-ar="تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها."
-                   data-en="Providing integrated and reliable solutions and services by deploying technical expertise, modern technologies, qualified human resources, and specialized partnerships, contributing to efficient project execution and creating sustainable value for our clients, partners, and communities.">
-                    تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها.
-                </p>
-            </div>
-
-            <!-- القيم المؤسسية -->
-            <div class="card">
-                <p class="section-subtitle" data-ar="مبادئ العمل" data-en="Core Principles">مبادئ العمل</p>
-                <h2 class="section-title" data-ar="قيمنا المؤسسية | Our Core Values" data-en="Our Core Values">قيمنا المؤسسية | Our Core Values</h2>
-                <div class="grid-2">
-                    <div class="highlight-box"><strong data-ar="1. الجودة والتميز:" data-en="1. Quality & Excellence:">1. الجودة والتميز:</strong> <span data-ar="الالتزام بأفضل الممارسات والمعايير المهنية." data-en="Commitment to best practices and professional standards.">الالتزام بأفضل الممارسات والمعايير المهنية.</span></div>
-                    <div class="highlight-box"><strong data-ar="2. النزاهة والشفافية:" data-en="2. Integrity & Transparency:">2. النزاهة والشفافية:</strong> <span data-ar="بناء علاقات عمل تقوم على الثقة والمصداقية." data-en="Building business relationships based on trust and credibility.">بناء علاقات عمل تقوم على الثقة والمصداقية.</span></div>
-                    <div class="highlight-box"><strong data-ar="3. السلامة والمسؤولية:" data-en="3. Safety & Responsibility:">3. السلامة والمسؤولية:</strong> <span data-ar="إعطاء الأولوية لسلامة العاملين والبيئة." data-en="Prioritizing the safety of workers and the environment.">إعطاء الأولوية لسلامة العاملين والبيئة.</span></div>
-                    <div class="highlight-box"><strong data-ar="4. الابتكار والتطوير:" data-en="4. Innovation & Development:">4. الابتكار والتطوير:</strong> <span data-ar="توظيف التكنولوجيا والحلول الحديثة." data-en="Employing technology and modern solutions.">توظيف التكنولوجيا والحلول الحديثة.</span></div>
-                    <div class="highlight-box"><strong data-ar="5. الشراكة والتعاون:" data-en="5. Partnership & Cooperation:">5. الشراكة والتعاون:</strong> <span data-ar="بناء علاقات استراتيجية تحقق المصالح المشتركة." data-en="Building strategic relationships that achieve mutual interests.">بناء علاقات استراتيجية تحقق المصالح المشتركة.</span></div>
-                    <div class="highlight-box"><strong data-ar="6. الكفاءة والإنجاز:" data-en="6. Efficiency & Achievement:">6. الكفاءة والإنجاز:</strong> <span data-ar="الاستخدام الأمثل للموارد وتحقيق النتائج." data-en="Optimal use of resources and achieving results.">الاستخدام الأمثل للموارد وتحقيق النتائج.</span></div>
-                </div>
-            </div>
-
-            <!-- نموذج أعمالنا -->
-            <div class="navy-section">
-                <span class="tag" data-ar="نموذج أعمالنا | Our Business Model" data-en="Our Business Model">نموذج أعمالنا | Our Business Model</span>
-                <h2 data-ar="إدارة متخصصة وشراكات استراتيجية" data-en="Specialized Management & Strategic Partnerships">إدارة متخصصة وشراكات استراتيجية</h2>
-                <p style="font-size: 0.92rem; color: #E2E8F0;"
-                   data-ar="نعمل وفق نموذج أعمال مرن يجمع بين الإدارة المتخصصة والتنفيذ الفني والشراكات الاستراتيجية، مع الاستفادة من الخبرات المحلية والإقليمية والدولية."
-                   data-en="We operate under a flexible business model combining specialized management, technical execution, and strategic partnerships, leveraging local, regional, and international expertise.">
-                    نعمل وفق نموذج أعمال مرن يجمع بين الإدارة المتخصصة والتنفيذ الفني والشراكات الاستراتيجية، مع الاستفادة من الخبرات المحلية والإقليمية والدولية.
-                </p>
-                <div class="navy-subcard">
-                    <h4 data-ar="التنفيذ المباشر والشراكات المتكاملة" data-en="Direct Execution & Integrated Partnerships">التنفيذ المباشر والشراكات المتكاملة</h4>
-                    <p style="font-size: 0.88rem; color: #CBD5E1;"
-                       data-ar="تنفيذ الأعمال التي تتوفر للشركة بشأنها القدرات الفنية والموارد والتعاون مع مزودي الخدمات المعتمدين."
-                       data-en="Executing works for which the company has the technical capabilities and resources, and cooperating with certified service providers.">
-                        تنفيذ الأعمال التي تتوفر للشركة بشأنها القدرات الفنية والموارد والتعاون مع مزودي الخدمات المعتمدين.
-                    </p>
-                </div>
-            </div>
-
-            <!-- مجالات وأنشطة أفرودار -->
-            <p class="section-subtitle" data-ar="مجالات العمل والقطاعات" data-en="Sectors & Activities">مجالات العمل والقطاعات</p>
-            <h2 class="section-title" data-ar="مجالات وأنشطة أفرودار" data-en="Afrodar Sectors & Activities">مجالات وأنشطة أفرودار</h2>
-            <div class="grid-2">
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
-                    <h3 data-ar="الهندسة والاتصالات" data-en="Engineering & Telecom">الهندسة والاتصالات</h3>
-                    <span class="en-sub">Engineering & Telecom</span>
-                    <p data-ar="الهندسة والاتصالات وتقنيات الألياف الضوئية." data-en="Engineering, telecommunications, and fiber optics technologies.">الهندسة والاتصالات وتقنيات الألياف الضوئية.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
-                    <h3 data-ar="خدمات آبار النفط" data-en="Oilfield Services">خدمات آبار النفط</h3>
-                    <span class="en-sub">Oilfield Services</span>
-                    <p data-ar="خدمات آبار النفط والحلول النفطية المتكاملة." data-en="Oilfield services and integrated petroleum solutions.">خدمات آبار النفط والحلول النفطية المتكاملة.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-gem"></i></div>
-                    <h3 data-ar="التعدين والمعادن" data-en="Mining & Minerals">التعدين والمعادن</h3>
-                    <span class="en-sub">Mining & Minerals</span>
-                    <p data-ar="التعدين واستكشاف ومعالجة المعادن." data-en="Mining, exploration, and mineral processing.">التعدين واستكشاف ومعالجة المعادن.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Power">الطاقة والكهرباء</h3>
-                    <span class="en-sub">Energy & Power</span>
-                    <p data-ar="الطاقة وأنظمة الكهرباء والحلول الهجينة." data-en="Energy, power systems, and hybrid solutions.">الطاقة وأنظمة الكهرباء والحلول الهجينة.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h3 data-ar="المقاولات والإنشاءات" data-en="Contracting & Civil Works">المقاولات والإنشاءات</h3>
-                    <span class="en-sub">Contracting & Civil Works</span>
-                    <p data-ar="المقاولات والأعمال المدنية والإنشاءات." data-en="Contracting, civil works, and construction.">المقاولات والأعمال المدنية والإنشاءات.</p>
-                </div>
-                <div class="sector-card" onclick="switchTab('digital')" style="cursor: pointer; border: 1px solid var(--gold-primary);">
-                    <div class="sector-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3 data-ar="تقنية المعلومات والحلول الرقمية" data-en="IT & Software Solutions">تقنية المعلومات والحلول الرقمية</h3>
-                    <span class="en-sub">IT & Software Solutions</span>
-                    <p data-ar="تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل)." data-en="IT, networking, software, and digital marketing (Click for details).">تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل).</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
-                    <h3 data-ar="التجارة والخدمات الاستثمارية" data-en="Trade & Investment Services">التجارة والخدمات الاستثمارية</h3>
-                    <span class="en-sub">Trade & Investment Services</span>
-                    <p data-ar="التجارة الخارجية والتسهيلات التجارية والاستثمار." data-en="Foreign trade, commercial facilities, and investment.">التجارة الخارجية والتسهيلات التجارية والاستثمار.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-seedling"></i></div>
-                    <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
-                    <span class="en-sub">Agricultural Services</span>
-                    <p data-ar="الخدمات والحلول المتعلقة بالأنشطة الزراعية." data-en="Services and solutions related to agricultural activities.">الخدمات والحلول المتعلقة بالأنشطة الزراعية.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-                    <h3 data-ar="الاستشارات والتدريب" data-en="Consulting & Training">الاستشارات والتدريب</h3>
-                    <span class="en-sub">Consulting & Training</span>
-                    <p data-ar="الاستشارات وتطوير القدرات المؤسسية والبشرية." data-en="Consulting and institutional/human capacity building.">الاستشارات وتطوير القدرات المؤسسية والبشرية.</p>
-                </div>
             </div>
 
         </div>
 
-        <!-- ==================== تبويب قسم البرمجيات والحلول الرقمية ==================== -->
+        <!-- ==================== تبويب أقسام الشركة ==================== -->
         <div id="tab-digital" class="tab-content">
-            
             <div class="digital-banner">
-                <span>SOFTWARE, WEB & DIGITAL MARKETING DEPARTMENT</span>
-                <h2 style="margin: 8px 0; font-size: 1.4rem;" data-ar="قسم البرمجيات والحلول الرقمية والتسويق" data-en="Software, Web & Digital Marketing Department">قسم البرمجيات والحلول الرقمية والتسويق</h2>
-                <p style="font-size: 0.88rem; color: #CBD5E1;">AFRODAR DIGITAL — Building Digital Solutions. Connecting Markets. Enabling Growth.</p>
+                <h2 data-ar="قسم البرمجيات والحلول الرقمية والتسويق" data-en="Software, Web & Digital Marketing Department">قسم البرمجيات والحلول الرقمية والتسويق</h2>
+                <p>AFRODAR DIGITAL</p>
             </div>
+        </div>
 
-            <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 10px;" data-ar="1. التعريف بالقسم" data-en="1. Department Overview"><i class="fa-solid fa-circle-info" style="color: var(--gold-primary);"></i> 1. التعريف بالقسم</h3>
-                <p style="font-size: 0.92rem; color: var(--text-dark); margin-bottom: 10px;"
-                   data-ar="يُعد قسم البرمجيات والحلول الرقمية والتسويق أحد الأقسام المتخصصة والاستراتيجية في شركة أفرودار للأنشطة المتعددة المحدودة، ويختص بتطوير وإدارة وتشغيل الحلول الرقمية، المواقع، التطبيقات، التجارة الإلكترونية، والتسويق الرقمي والذكاء الاصطناعي."
-                   data-en="The Software, Web, and Digital Marketing Department is one of the specialized and strategic departments at Afrodar, focusing on developing and managing digital solutions, websites, applications, e-commerce, digital marketing, and AI.">
-                    يُعد قسم البرمجيات والحلول الرقمية والتسويق أحد الأقسام المتخصصة والاستراتيجية في شركة أفرودار للأنشطة المتعددة المحدودة، ويختص بتطوير وإدارة وتشغيل الحلول الرقمية، المواقع، التطبيقات، التجارة الإلكترونية، والتسويق الرقمي والذكاء الاصطناعي.
-                </p>
-                <div class="highlight-box"
-                     data-ar="يمثل القسم الذراع الرقمي لشركة أفرودار، ويتولى إدارة وتطوير الموقع الرسمي وأصول الشركة الرقمية."
-                     data-en="The department represents Afrodar's digital arm, managing and developing the official website and digital assets.">
-                    يمثل القسم الذراع الرقمي لشركة أفرودار، ويتولى إدارة وتطوير الموقع الرسمي وأصول الشركة الرقمية.
-                </div>
-            </div>
+        <!-- ==================== تبويب التواصل ==================== -->
+        <div id="tab-contact" class="tab-content">
+            <h2 class="section-title" data-ar="تواصل مع أفرودار" data-en="Contact Afrodar">تواصل مع أفرودار</h2>
+            <a href="mailto:afrodar.co@gmail.com" class="email-box">afrodar.co@gmail.com</a>
+        </div>
 
-            <div class="grid-2">
-                <div class="card">
-                    <h4 style="color: var(--navy-dark); margin-bottom: 6px;" data-ar="2. رؤية القسم" data-en="2. Department Vision">2. رؤية القسم</h4>
-                    <p style="font-size: 0.88rem; color: var(--text-muted);"
-                       data-ar="أن يصبح مركزًا متقدمًا لتطوير الحلول والمنتجات الرقمية وشريكًا موثوقًا للشركات والمؤسسات محلياً وإقليمياً وعالمياً."
-                       data-en="To become an advanced center for developing digital solutions and products, and a trusted partner for companies and institutions locally, regionally, and globally.">
-                        أن يصبح مركزًا متقدمًا لتطوير الحلول والمنتجات الرقمية وشريكًا موثوقًا للشركات والمؤسسات محلياً وإقليمياً وعالمياً.
-                    </p>
-                </div>
-                <div class="card">
-                    <h4 style="color: var(--navy-dark); margin-bottom: 6px;" data-ar="3. رسالة القسم" data-en="3. Department Mission">3. رسالة القسم</h4>
-                    <p style="font-size: 0.88rem; color: var(--text-muted);"
-                       data-ar="تقديم حلول رقمية متكاملة وقابلة للتوسع تجمع بين البرمجيات والتسويق والإعلام الرقمي والذكاء الاصطناعي لتحقيق النمو للعملاء."
-                       data-en="Providing integrated and scalable digital soluti
+        <footer>
+            <p>AFRODAR. All rights reserved 2026 ©</p>
+        </footer>
+
+    </div>
+
+    <!-- شريط التنقل السفلي الثابت -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('home', this)">
+            <i class="fa-solid fa-house"></i>
+            <span data-ar="الرئيسية" data-en="Home">الرئيسية</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('digital', this)">
+            <i class="fa-solid fa-layer-group"></i>
+            <span data-ar="أقسام الشركة" data-en="Departments">أقسام الشركة</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('contact', this)">
+            <i class="fa-solid fa-envelope"></i>
+            <span data-ar="التواصل" data-en="Contact">التواصل</span>
+        </div>
+    </nav>
+
+    <!-- سكربت التشغيل واللغة مدمج بالكامل لضمان عمله على GitHub -->
+    <script>
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            const htmlRoot = document.documentElement;
+            const langBtn = document.getElementById('lang-btn');
+            
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                htmlRoot.setAttribute('dir', 'ltr');
+                htmlRoot.setAttribute('lang', 'en');
+                if (langBtn) langBtn.innerText = 'العربية';
+            } else {
+                currentLang = 'ar';
+                htmlRoot.setAttribute('dir', 'rtl');
+                htmlRoot.setAttribute('lang', 'ar');
+                if (langBtn) langBtn.innerText = 'English';
+            }
+
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                const translatedText = el.getAttribute(currentLang === 'en' ? 'data-en' : 'data-ar');
+                if (translatedText) {
+                    el.innerHTML = translatedText;
+                }
+            });
+        }
+
+        function switchTab(tabName, navElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            const targetTab = document.getElementById('tab-' + tabName);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (navElement) {
+                navElement.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
