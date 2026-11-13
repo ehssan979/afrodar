@@ -1,515 +1,215 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="ar" dir="rtl" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AFRODAR DIGITAL | الملف التعريفي</title>
-
+    <title id="page-title" data-ar="شركة أفرودار للأنشطة المتعددة المحدودة | AFRODAR" data-en="Afrodar For Multi Activities Co. Ltd | AFRODAR">شركة أفرودار للأنشطة المتعددة المحدودة | AFRODAR</title>
+    <!-- خط تجوال العربي الاحترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ملف الـ CSS الخارجي -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container nav-container">
+    <!-- الشريط العلوي للغة -->
+    <div class="top-bar">
+        <span data-ar="Building Infrastructure. Powering Connectivity. Enabling Growth." data-en="Building Infrastructure. Powering Connectivity. Enabling Growth.">Building Infrastructure. Powering Connectivity. Enabling Growth.</span>
+        <span class="lang-switch" id="lang-btn" onclick="toggleLanguage()">English</span>
+    </div>
 
-            <a href="#home" class="logo">
-                <span>AFRODAR</span>
-                <small>FOR MULTI ACTIVITIES CO. LTD</small>
-            </a>
-
-            <button class="menu-toggle" id="menuToggle">☰</button>
-
-            <nav class="navigation" id="navigation">
-                <a href="#home">الرئيسية</a>
-                <a href="#company">الشركة</a>
-                <a href="#department">القسم</a>
-                <a href="#services">الخدمات</a>
-                <a href="#strategy">الاستراتيجية</a>
-                <a href="#structure">الهيكل التنظيمي</a>
-            </nav>
-
+    <!-- الهيدر الرئيسي -->
+    <header>
+        <div class="brand-box">
+            <div class="logo-circle">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+            <div class="brand-title">
+                <h1 data-ar="شركة أفرودار للأنشطة المتعددة المحدودة" data-en="Afrodar For Multi Activities Co. Ltd">شركة أفرودار للأنشطة المتعددة المحدودة</h1>
+                <span data-ar="AFRODAR FOR MULTI ACTIVITIES CO. LTD" data-en="AFRODAR FOR MULTI ACTIVITIES CO. LTD">AFRODAR FOR MULTI ACTIVITIES CO. LTD</span>
+            </div>
         </div>
+        <button class="btn-install" id="install-btn" onclick="alert('لإضافة الموقع للشاشة الرئيسية: اضغط على خيارات المتصفح ثم اختر (إضافة إلى الشاشة الرئيسية / Add to Home Screen)')" data-ar="إضافة للشاشة الرئيسية" data-en="Add to Home">
+            إضافة للشاشة الرئيسية
+        </button>
     </header>
 
-    <main>
+    <div class="container">
 
-        <!-- HERO -->
-        <section class="hero" id="home">
-
-            <div class="hero-grid"></div>
-
-            <div class="container hero-content">
-
-                <div class="hero-label">
-                    SOFTWARE, WEB & DIGITAL MARKETING DEPARTMENT
+        <!-- ==================== تبويب الرئيسية (من نحن) ==================== -->
+        <div id="tab-home" class="tab-content active">
+            
+            <div class="card hero-logo-card">
+                <div class="hero-emblem">
+                    <i class="fa-solid fa-compass"></i>
+                    <strong style="font-size: 0.85rem; color: var(--gold-primary);">AFRODAR</strong>
                 </div>
-
-                <div class="hero-line"></div>
-
-                <h1>AFRODAR<br><span>DIGITAL</span></h1>
-
-                <h2>قسم البرمجيات والحلول الرقمية والتسويق</h2>
-
-                <p class="hero-company">
-                    شركة أفرودار للأنشطة المتعددة المحدودة
+                <p class="section-subtitle" data-ar="من نحن | About Us" data-en="About Us">من نحن | About Us</p>
+                <h2 class="section-title" data-ar="شركة أفرودار للأنشطة المتعددة المحدودة" data-en="Afrodar For Multi Activities Co. Ltd">شركة أفرودار للأنشطة المتعددة المحدودة</h2>
+                <p style="font-size: 0.95rem; color: var(--text-dark); text-align: justify;"
+                   data-ar="أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية."
+                   data-en="Afrodar For Multi Activities Co. Ltd is a Sudanese multi-activity company operating in the fields of engineering, telecommunications, energy, oilfield services, mining, contracting, technology, trade, and investment services.">
+                    أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية.
                 </p>
-
-                <p class="hero-english">
-                    AFRODAR FOR MULTI ACTIVITIES CO. LTD
-                </p>
-
-                <div class="hero-slogan">
-                    Building Digital Solutions.<br>
-                    Connecting Markets.<br>
-                    Enabling Growth.
+                <div class="highlight-box" style="text-align: right;"
+                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان."
+                     data-en="The company was established based on an ambitious vision aiming to build an integrated institution capable of providing practical and professional solutions that meet the needs of productive and service sectors, and contributing to infrastructure development and economic growth in Sudan.">
+                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان.
                 </div>
-
-                <a href="#department" class="hero-button">
-                    استكشف القسم
-                </a>
-
             </div>
 
-            <div class="hero-side-number">01 / AFRODAR</div>
+            <!-- الرؤية والرسالة -->
+            <p class="section-subtitle" data-ar="هويتنا واستراتيجيتنا" data-en="Our Identity & Strategy">هويتنا واستراتيجيتنا</p>
+            <h2 class="section-title" data-ar="رؤيتنا ورسالتنا" data-en="Our Vision & Mission">رؤيتنا ورسالتنا</h2>
 
-        </section>
-
-
-        <!-- COMPANY PROFILE -->
-        <section class="section company-section" id="company">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>01 — COMPANY PROFILE</span>
-                    <h2>شركة أفرودار</h2>
-                    <p>AFRODAR FOR MULTI ACTIVITIES CO. LTD</p>
-                </div>
-
-                <div class="company-intro">
-
-                    <div class="intro-number">01</div>
-
-                    <div>
-                        <h3>نبذة عن الشركة</h3>
-
-                        <p>
-                            أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة،
-                            تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين
-                            والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية.
-                        </p>
-
-                        <p>
-                            تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة
-                            قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية
-                            والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية
-                            في السودان، مع التوجه نحو التوسع في الأسواق الإقليمية والدولية.
-                        </p>
-
-                        <p>
-                            نعتمد في نموذج أعمالنا على الجمع بين القدرات الفنية والهندسية
-                            والإدارية، وتطوير الشراكات الاستراتيجية، والتعاون مع الشركات
-                            المتخصصة ومزودي الخدمات المعتمدين، بما يتيح تقديم حلول متكاملة
-                            ومرنة وفق متطلبات كل مشروع.
-                        </p>
-
-                        <p>
-                            نؤمن بأن النجاح في عالم الأعمال لا يقوم فقط على تقديم الخدمات،
-                            بل على بناء علاقات طويلة الأمد، وتحقيق القيمة المضافة، والالتزام
-                            بالجودة والكفاءة والشفافية والمسؤولية المهنية.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <!-- COMPANY VISION AND MISSION -->
-                <div class="two-columns">
-
-                    <article class="dark-card">
-                        <span class="card-index">01 / VISION</span>
-                        <h3>رؤيتنا | Our Vision</h3>
-
-                        <p>
-                            أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة
-                            والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ
-                            حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية.
-                        </p>
-                    </article>
-
-                    <article class="light-card">
-                        <span class="card-index">02 / MISSION</span>
-                        <h3>رسالتنا | Our Mission</h3>
-
-                        <p>
-                            تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية
-                            والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة،
-                            بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا
-                            وشركائنا والمجتمعات التي نعمل فيها.
-                        </p>
-                    </article>
-
-                </div>
-
-
-                <!-- COMPANY VALUES -->
-                <div class="subsection">
-
-                    <div class="subsection-heading">
-                        <span>COMPANY VALUES</span>
-                        <h3>قيمنا المؤسسية | Our Core Values</h3>
-                    </div>
-
-                    <div class="values-grid">
-
-                        <article class="value-card">
-                            <span>01</span>
-                            <h4>الجودة والتميز</h4>
-                            <p>الالتزام بأفضل الممارسات والمعايير المهنية في تقديم الخدمات.</p>
-                        </article>
-
-                        <article class="value-card">
-                            <span>02</span>
-                            <h4>النزاهة والشفافية</h4>
-                            <p>بناء علاقات عمل تقوم على الثقة والمصداقية.</p>
-                        </article>
-
-                        <article class="value-card">
-                            <span>03</span>
-                            <h4>السلامة والمسؤولية</h4>
-                            <p>إعطاء الأولوية لسلامة العاملين والمجتمعات والبيئة.</p>
-                        </article>
-
-                        <article class="value-card">
-                            <span>04</span>
-                            <h4>الابتكار والتطوير</h4>
-                            <p>توظيف التكنولوجيا والحلول الحديثة لتحسين الأداء.</p>
-                        </article>
-
-                        <article class="value-card">
-                            <span>05</span>
-                            <h4>الشراكة والتعاون</h4>
-                            <p>بناء علاقات استراتيجية تحقق المصالح المشتركة.</p>
-                        </article>
-
-                        <article class="value-card">
-                            <span>06</span>
-                            <h4>الكفاءة والإنجاز</h4>
-                            <p>الاستخدام الأمثل للموارد وتحقيق النتائج المستهدفة.</p>
-                        </article>
-
-                    </div>
-                </div>
-
-
-                <!-- COMPANY BUSINESS SECTORS -->
-                <div class="subsection">
-
-                    <div class="subsection-heading">
-                        <span>BUSINESS SECTORS</span>
-                        <h3>مجالات أعمالنا | Our Business Sectors</h3>
-                    </div>
-
-                    <div class="numbered-list">
-
-                        <div>الهندسة والاتصالات وتقنيات الألياف الضوئية.</div>
-                        <div>خدمات آبار النفط والحلول النفطية.</div>
-                        <div>التعدين واستكشاف ومعالجة المعادن.</div>
-                        <div>الطاقة وأنظمة الكهرباء والحلول الهجينة.</div>
-                        <div>المقاولات والأعمال المدنية والإنشاءات.</div>
-                        <div>تقنية المعلومات والشبكات والحلول الرقمية.</div>
-                        <div>التجارة الخارجية والتسهيلات التجارية والخدمات الاستثمارية.</div>
-                        <div>IT</div>
-                        <div>الخدمات الزراعية</div>
-                        <div>الاستشارات والتدريب</div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- COMPANY BUSINESS MODEL -->
-                <div class="two-columns">
-
-                    <article class="light-card">
-                        <span class="card-index">BUSINESS MODEL</span>
-                        <h3>نموذج أعمالنا | Our Business Model</h3>
-
-                        <p>
-                            نعمل وفق نموذج أعمال مرن يجمع بين الإدارة المتخصصة والتنفيذ الفني
-                            والشراكات الاستراتيجية، مع الاستفادة من الخبرات المحلية والإقليمية
-                            والدولية، وتطوير شبكة من الشركاء ومقدمي الخدمات المتخصصين.
-                        </p>
-
-                        <p>
-                            ويتيح لنا هذا النموذج تنسيق الموارد والخبرات وتقديم حلول متكاملة
-                            تتناسب مع طبيعة المشروعات واحتياجات العملاء.
-                        </p>
-                    </article>
-
-                    <article class="dark-card">
-                        <span class="card-index">OUR COMMITMENT</span>
-                        <h3>التزامنا | Our Commitment</h3>
-
-                        <p>
-                            نلتزم ببناء علاقات مهنية مستدامة، وتقديم خدمات قائمة على الكفاءة
-                            والجودة والشفافية، والعمل على تطوير قدراتنا الفنية والإدارية
-                            باستمرار، بما يعزز ثقة العملاء والشركاء ويدعم أهداف التنمية والنمو.
-                        </p>
-                    </article>
-
-                </div>
-
+            <div class="card">
+                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رؤيتنا | Our Vision" data-en="Our Vision">رؤيتنا | Our Vision</h3>
+                <p style="color: var(--text-muted); font-size: 0.93rem;"
+                   data-ar="أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية."
+                   data-en="To be one of the leading and integrated Sudanese companies in the fields of engineering, energy, telecommunications, mining, industrial, and commercial services, establishing a regional and international presence based on efficiency, innovation, and strategic partnerships.">
+                    أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية.
+                </p>
             </div>
-        </section>
 
+            <div class="card">
+                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رسالتنا | Our Mission" data-en="Our Mission">رسالتنا | Our Mission</h3>
+                <p style="color: var(--text-muted); font-size: 0.93rem;"
+                   data-ar="تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها."
+                   data-en="Providing integrated and reliable solutions and services by deploying technical expertise, modern technologies, qualified human resources, and specialized partnerships, contributing to efficient project execution and creating sustainable value for our clients, partners, and communities.">
+                    تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها.
+                </p>
+            </div>
 
-        <!-- DEPARTMENT PROFILE -->
-        <section class="section department-section" id="department">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>02 — DEPARTMENT PROFILE</span>
-                    <h2>قسم البرمجيات والحلول الرقمية والتسويق</h2>
-                    <p>SOFTWARE, WEB & DIGITAL MARKETING DEPARTMENT</p>
+            <!-- القيم المؤسسية -->
+            <div class="card">
+                <p class="section-subtitle" data-ar="مبادئ العمل" data-en="Core Principles">مبادئ العمل</p>
+                <h2 class="section-title" data-ar="قيمنا المؤسسية | Our Core Values" data-en="Our Core Values">قيمنا المؤسسية | Our Core Values</h2>
+                <div class="grid-2">
+                    <div class="highlight-box"><strong data-ar="1. الجودة والتميز:" data-en="1. Quality & Excellence:">1. الجودة والتميز:</strong> <span data-ar="الالتزام بأفضل الممارسات والمعايير المهنية." data-en="Commitment to best practices and professional standards.">الالتزام بأفضل الممارسات والمعايير المهنية.</span></div>
+                    <div class="highlight-box"><strong data-ar="2. النزاهة والشفافية:" data-en="2. Integrity & Transparency:">2. النزاهة والشفافية:</strong> <span data-ar="بناء علاقات عمل تقوم على الثقة والمصداقية." data-en="Building business relationships based on trust and credibility.">بناء علاقات عمل تقوم على الثقة والمصداقية.</span></div>
+                    <div class="highlight-box"><strong data-ar="3. السلامة والمسؤولية:" data-en="3. Safety & Responsibility:">3. السلامة والمسؤولية:</strong> <span data-ar="إعطاء الأولوية لسلامة العاملين والبيئة." data-en="Prioritizing the safety of workers and the environment.">إعطاء الأولوية لسلامة العاملين والبيئة.</span></div>
+                    <div class="highlight-box"><strong data-ar="4. الابتكار والتطوير:" data-en="4. Innovation & Development:">4. الابتكار والتطوير:</strong> <span data-ar="توظيف التكنولوجيا والحلول الحديثة." data-en="Employing technology and modern solutions.">توظيف التكنولوجيا والحلول الحديثة.</span></div>
+                    <div class="highlight-box"><strong data-ar="5. الشراكة والتعاون:" data-en="5. Partnership & Cooperation:">5. الشراكة والتعاون:</strong> <span data-ar="بناء علاقات استراتيجية تحقق المصالح المشتركة." data-en="Building strategic relationships that achieve mutual interests.">بناء علاقات استراتيجية تحقق المصالح المشتركة.</span></div>
+                    <div class="highlight-box"><strong data-ar="6. الكفاءة والإنجاز:" data-en="6. Efficiency & Achievement:">6. الكفاءة والإنجاز:</strong> <span data-ar="الاستخدام الأمثل للموارد وتحقيق النتائج." data-en="Optimal use of resources and achieving results.">الاستخدام الأمثل للموارد وتحقيق النتائج.</span></div>
                 </div>
-
-
-                <!-- 01 DEFINITION -->
-                <article class="content-block">
-
-                    <div class="block-number">01</div>
-
-                    <div class="block-content">
-
-                        <h3>التعريف بالقسم</h3>
-
-                        <p>
-                            يُعد قسم البرمجيات والحلول الرقمية والتسويق أحد الأقسام المتخصصة
-                            والاستراتيجية في شركة أفرودار للأنشطة المتعددة المحدودة، ويختص
-                            بتطوير وإدارة وتشغيل الحلول الرقمية التي تخدم الشركة وعملاءها
-                            وشركاءها، مع التركيز على البرمجيات، المواقع والمنصات الإلكترونية،
-                            التطبيقات، التجارة الإلكترونية، التسويق الرقمي، الإعلام والمحتوى
-                            الرقمي، والذكاء الاصطناعي والأتمتة.
-                        </p>
-
-                        <p>
-                            ويجمع القسم بين القدرات التقنية والإبداعية والتسويقية ضمن منظومة
-                            أعمال واحدة، بهدف مساعدة المؤسسات والشركات على بناء حضور رقمي
-                            احترافي، تطوير عملياتها، الوصول إلى الأسواق والعملاء، وتحقيق
-                            النمو المستدام.
-                        </p>
-
-                        <p>
-                            ولا يقتصر دور القسم على تنفيذ المشاريع الرقمية للعملاء، وإنما
-                            يمثل كذلك الذراع الرقمي لشركة أفرودار، ويتولى إدارة وتطوير الموقع
-                            الإلكتروني الرسمي للشركة، وإدارة وتطوير أصولها ومنصاتها الرقمية،
-                            وإنتاج المحتوى الرقمي، وتطوير المنتجات والمنصات الرقمية الخاصة بها.
-                        </p>
-
-                        <p>
-                            كما يعمل القسم على بناء قاعدة أعمال في السوق السوداني، مع
-                            استراتيجية تدريجية للتوسع في الأسواق الإفريقية والعربية
-                            والإقليمية والعالمية.
-                        </p>
-
-                    </div>
-                </article>
-
-
-                <!-- 02 VISION -->
-                <article class="content-block">
-
-                    <div class="block-number">02</div>
-
-                    <div class="block-content">
-
-                        <h3>الرؤية</h3>
-
-                        <p>
-                            أن يصبح قسم البرمجيات والحلول الرقمية والتسويق في أفرودار مركزًا
-                            متقدمًا لتطوير الحلول والمنتجات الرقمية، وشريكًا موثوقًا للشركات
-                            والمؤسسات في السودان والمنطقة، مع القدرة على تقديم خدمات ومنتجات
-                            رقمية تنافس في الأسواق العالمية.
-                        </p>
-
-                    </div>
-                </article>
-
-
-                <!-- 03 MISSION -->
-                <article class="content-block">
-
-                    <div class="block-number">03</div>
-
-                    <div class="block-content">
-
-                        <h3>الرسالة</h3>
-
-                        <p>
-                            تقديم حلول رقمية متكاملة وعملية وقابلة للتوسع، تجمع بين التكنولوجيا
-                            والبرمجيات والتسويق والإعلام الرقمي والذكاء الاصطناعي، بما يساعد
-                            العملاء على تطوير أعمالهم، تحسين حضورهم الرقمي، الوصول إلى العملاء،
-                            وأتمتة عملياتهم وتحقيق النمو.
-                        </p>
-
-                    </div>
-                </article>
-
-
-                <!-- 04 STRATEGIC OBJECTIVES -->
-                <article class="content-block" id="strategy">
-
-                    <div class="block-number">04</div>
-
-                    <div class="block-content">
-
-                        <h3>الأهداف الاستراتيجية</h3>
-
-                        <div class="check-list">
-
-                            <p>بناء وتطوير المنظومة الرقمية المتكاملة لشركة أفرودار.</p>
-                            <p>إدارة وتطوير الموقع الإلكتروني الرسمي للشركة بصورة مستمرة.</p>
-                            <p>تطوير مواقع وتطبيقات ومنصات رقمية للعملاء.</p>
-                            <p>تطوير منتجات ومنصات رقمية مملوكة لأفرودار.</p>
-                            <p>إنشاء وتطوير منصة أفرودار المتخصصة في التسويق الرقمي.</p>
-                            <p>تقديم خدمات متكاملة في التسويق والإعلام الرقمي.</p>
-                            <p>توظيف الذكاء الاصطناعي والأتمتة في المنتجات والخدمات.</p>
-                            <p>دعم التحول الرقمي للشركات والمؤسسات.</p>
-                            <p>بناء قاعدة عملاء قوية في السوق السوداني.</p>
-                            <p>التوسع التدريجي في الأسواق الإقليمية والعالمية.</p>
-                            <p>بناء شراكات مع شركات التقنية والتسويق والخدمات الرقمية.</p>
-                            <p>تطوير مصادر إيرادات رقمية متكررة وقابلة للتوسع.</p>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- 05 SCOPE -->
-                <article class="content-block">
-
-                    <div class="block-number">05</div>
-
-                    <div class="block-content">
-
-                        <h3>نطاق أعمال القسم</h3>
-
-                        <div class="scope-grid">
-
-                            <div>
-                                <strong>Software Development</strong>
-                                <span>تطوير البرمجيات والأنظمة.</span>
-                            </div>
-
-                            <div>
-                                <strong>Web Design & Development</strong>
-                                <span>تصميم وتطوير المواقع والمنصات الإلكترونية.</span>
-                            </div>
-
-                            <div>
-                                <strong>Mobile Applications</strong>
-                                <span>تطوير تطبيقات الهواتف الذكية.</span>
-                            </div>
-
-                            <div>
-                                <strong>Digital Platforms</strong>
-                                <span>تطوير وإدارة المنصات الرقمية.</span>
-                            </div>
-
-                            <div>
-                                <strong>E-Commerce Solutions</strong>
-                                <span>حلول التجارة الإلكترونية.</span>
-                            </div>
-
-                            <div>
-                                <strong>Digital Marketing</strong>
-                                <span>التسويق الرقمي.</span>
-                            </div>
-
-                            <div>
-                                <strong>Social Media Management</strong>
-                                <span>إدارة وسائل التواصل الاجتماعي.</span>
-                            </div>
-
-                            <div>
-                                <strong>Digital Media & Content</strong>
-                                <span>الإعلام والمحتوى الرقمي.</span>
-                            </div>
-
-                            <div>
-                                <strong>AI & Automation</strong>
-                                <span>الذكاء الاصطناعي والأتمتة.</span>
-                            </div>
-
-                            <div>
-                                <strong>Digital Asset Management</strong>
-                                <span>إدارة وتطوير الأصول والمنصات الرقمية.</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- 06 SOFTWARE -->
-                <article class="content-block">
-
-                    <div class="block-number">06</div>
-
-                    <div class="block-content">
-
-                        <h3>تطوير البرمجيات</h3>
-
-                        <div class="tag-list">
-                            <span>أنظمة إدارة الأعمال</span>
-                            <span>أنظمة إدارة العملاء CRM</span>
-                            <span>أنظمة تخطيط وإدارة الموارد ERP</span>
-                            <span>أنظمة المبيعات والمخزون</span>
-                            <span>أنظمة إدارة المشاريع</span>
-                            <span>أنظمة إدارة الموظفين</span>
-                            <span>أنظمة الحجز والخدمات</span>
-                            <span>أنظمة إدارة العمليات</span>
-                            <span>تطبيقات الويب</span>
-                            <span>الحلول السحابية</span>
-                            <span>قواعد البيانات</span>
-                            <span>تكامل الأنظمة وواجهات API</span>
-                            <span>أتمتة الإجراءات والعمليات</span>
-                        </div>
-
-                        <p>
-                            ويتم تطوير الحلول وفق منهجية تراعي الأمان، قابلية التوسع،
-                            سهولة الاستخدام، وقابلية التطوير المستقبلي.
-                        </p>
-
-                    </div>
-                </article>
-
-
-                <!-- 07 WEB -->
-                <article class="content-block">
-
-                    <div class="block-number">07</div>
-
-                    <div class="block-content">
-
-                        <h3>تصميم وتطوير المواقع الإلكترونية</h3>
-
-                        <div class="tag-list">
-                            <span>مواقع الشركات والمؤسسات</span>
-                            <span>المواقع التعريفية</span>
-                            <span>المواقع التجارية</span>
-                            <span>المتاجر الإلكترونية</span>
-                            <span>البوابات الإلكترونية</span>
-                            <span>مواقع الخدمات</span>
-                            <span>مواقع المشاريع والبرامج</span>
-                            <span>صفحات الهبوط</span>
-                            <span>المواقع متعددة اللغات</span>
-                            <span>المواقع ا
+            </div>
+
+            <!-- نموذج أعمالنا -->
+            <div class="navy-section">
+                <span class="tag" data-ar="نموذج أعمالنا | Our Business Model" data-en="Our Business Model">نموذج أعمالنا | Our Business Model</span>
+                <h2 data-ar="إدارة متخصصة وشراكات استراتيجية" data-en="Specialized Management & Strategic Partnerships">إدارة متخصصة وشراكات استراتيجية</h2>
+                <p style="font-size: 0.92rem; color: #E2E8F0;"
+                   data-ar="نعمل وفق نموذج أعمال مرن يجمع بين الإدارة المتخصصة والتنفيذ الفني والشراكات الاستراتيجية، مع الاستفادة من الخبرات المحلية والإقليمية والدولية."
+                   data-en="We operate under a flexible business model combining specialized management, technical execution, and strategic partnerships, leveraging local, regional, and international expertise.">
+                    نعمل وفق نموذج أعمال مرن يجمع بين الإدارة المتخصصة والتنفيذ الفني والشراكات الاستراتيجية، مع الاستفادة من الخبرات المحلية والإقليمية والدولية.
+                </p>
+                <div class="navy-subcard">
+                    <h4 data-ar="التنفيذ المباشر والشراكات المتكاملة" data-en="Direct Execution & Integrated Partnerships">التنفيذ المباشر والشراكات المتكاملة</h4>
+                    <p style="font-size: 0.88rem; color: #CBD5E1;"
+                       data-ar="تنفيذ الأعمال التي تتوفر للشركة بشأنها القدرات الفنية والموارد والتعاون مع مزودي الخدمات المعتمدين."
+                       data-en="Executing works for which the company has the technical capabilities and resources, and cooperating with certified service providers.">
+                        تنفيذ الأعمال التي تتوفر للشركة بشأنها القدرات الفنية والموارد والتعاون مع مزودي الخدمات المعتمدين.
+                    </p>
+                </div>
+            </div>
+
+            <!-- مجالات وأنشطة أفرودار -->
+            <p class="section-subtitle" data-ar="مجالات العمل والقطاعات" data-en="Sectors & Activities">مجالات العمل والقطاعات</p>
+            <h2 class="section-title" data-ar="مجالات وأنشطة أفرودار" data-en="Afrodar Sectors & Activities">مجالات وأنشطة أفرودار</h2>
+            <div class="grid-2">
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                    <h3 data-ar="الهندسة والاتصالات" data-en="Engineering & Telecom">الهندسة والاتصالات</h3>
+                    <span class="en-sub">Engineering & Telecom</span>
+                    <p data-ar="الهندسة والاتصالات وتقنيات الألياف الضوئية." data-en="Engineering, telecommunications, and fiber optics technologies.">الهندسة والاتصالات وتقنيات الألياف الضوئية.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
+                    <h3 data-ar="خدمات آبار النفط" data-en="Oilfield Services">خدمات آبار النفط</h3>
+                    <span class="en-sub">Oilfield Services</span>
+                    <p data-ar="خدمات آبار النفط والحلول النفطية المتكاملة." data-en="Oilfield services and integrated petroleum solutions.">خدمات آبار النفط والحلول النفطية المتكاملة.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3 data-ar="التعدين والمعادن" data-en="Mining & Minerals">التعدين والمعادن</h3>
+                    <span class="en-sub">Mining & Minerals</span>
+                    <p data-ar="التعدين واستكشاف ومعالجة المعادن." data-en="Mining, exploration, and mineral processing.">التعدين واستكشاف ومعالجة المعادن.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Power">الطاقة والكهرباء</h3>
+                    <span class="en-sub">Energy & Power</span>
+                    <p data-ar="الطاقة وأنظمة الكهرباء والحلول الهجينة." data-en="Energy, power systems, and hybrid solutions.">الطاقة وأنظمة الكهرباء والحلول الهجينة.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h3 data-ar="المقاولات والإنشاءات" data-en="Contracting & Civil Works">المقاولات والإنشاءات</h3>
+                    <span class="en-sub">Contracting & Civil Works</span>
+                    <p data-ar="المقاولات والأعمال المدنية والإنشاءات." data-en="Contracting, civil works, and construction.">المقاولات والأعمال المدنية والإنشاءات.</p>
+                </div>
+                <div class="sector-card" onclick="switchTab('digital')" style="cursor: pointer; border: 1px solid var(--gold-primary);">
+                    <div class="sector-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 data-ar="تقنية المعلومات والحلول الرقمية" data-en="IT & Software Solutions">تقنية المعلومات والحلول الرقمية</h3>
+                    <span class="en-sub">IT & Software Solutions</span>
+                    <p data-ar="تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل)." data-en="IT, networking, software, and digital marketing (Click for details).">تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل).</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                    <h3 data-ar="التجارة والخدمات الاستثمارية" data-en="Trade & Investment Services">التجارة والخدمات الاستثمارية</h3>
+                    <span class="en-sub">Trade & Investment Services</span>
+                    <p data-ar="التجارة الخارجية والتسهيلات التجارية والاستثمار." data-en="Foreign trade, commercial facilities, and investment.">التجارة الخارجية والتسهيلات التجارية والاستثمار.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
+                    <span class="en-sub">Agricultural Services</span>
+                    <p data-ar="الخدمات والحلول المتعلقة بالأنشطة الزراعية." data-en="Services and solutions related to agricultural activities.">الخدمات والحلول المتعلقة بالأنشطة الزراعية.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3 data-ar="الاستشارات والتدريب" data-en="Consulting & Training">الاستشارات والتدريب</h3>
+                    <span class="en-sub">Consulting & Training</span>
+                    <p data-ar="الاستشارات وتطوير القدرات المؤسسية والبشرية." data-en="Consulting and institutional/human capacity building.">الاستشارات وتطوير القدرات المؤسسية والبشرية.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== تبويب قسم البرمجيات والحلول الرقمية ==================== -->
+        <div id="tab-digital" class="tab-content">
+            
+            <div class="digital-banner">
+                <span>SOFTWARE, WEB & DIGITAL MARKETING DEPARTMENT</span>
+                <h2 style="margin: 8px 0; font-size: 1.4rem;" data-ar="قسم البرمجيات والحلول الرقمية والتسويق" data-en="Software, Web & Digital Marketing Department">قسم البرمجيات والحلول الرقمية والتسويق</h2>
+                <p style="font-size: 0.88rem; color: #CBD5E1;">AFRODAR DIGITAL — Building Digital Solutions. Connecting Markets. Enabling Growth.</p>
+            </div>
+
+            <div class="card">
+                <h3 style="color: var(--navy-dark); margin-bottom: 10px;" data-ar="1. التعريف بالقسم" data-en="1. Department Overview"><i class="fa-solid fa-circle-info" style="color: var(--gold-primary);"></i> 1. التعريف بالقسم</h3>
+                <p style="font-size: 0.92rem; color: var(--text-dark); margin-bottom: 10px;"
+                   data-ar="يُعد قسم البرمجيات والحلول الرقمية والتسويق أحد الأقسام المتخصصة والاستراتيجية في شركة أفرودار للأنشطة المتعددة المحدودة، ويختص بتطوير وإدارة وتشغيل الحلول الرقمية، المواقع، التطبيقات، التجارة الإلكترونية، والتسويق الرقمي والذكاء الاصطناعي."
+                   data-en="The Software, Web, and Digital Marketing Department is one of the specialized and strategic departments at Afrodar, focusing on developing and managing digital solutions, websites, applications, e-commerce, digital marketing, and AI.">
+                    يُعد قسم البرمجيات والحلول الرقمية والتسويق أحد الأقسام المتخصصة والاستراتيجية في شركة أفرودار للأنشطة المتعددة المحدودة، ويختص بتطوير وإدارة وتشغيل الحلول الرقمية، المواقع، التطبيقات، التجارة الإلكترونية، والتسويق الرقمي والذكاء الاصطناعي.
+                </p>
+                <div class="highlight-box"
+                     data-ar="يمثل القسم الذراع الرقمي لشركة أفرودار، ويتولى إدارة وتطوير الموقع الرسمي وأصول الشركة الرقمية."
+                     data-en="The department represents Afrodar's digital arm, managing and developing the official website and digital assets.">
+                    يمثل القسم الذراع الرقمي لشركة أفرودار، ويتولى إدارة وتطوير الموقع الرسمي وأصول الشركة الرقمية.
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4 style="color: var(--navy-dark); margin-bottom: 6px;" data-ar="2. رؤية القسم" data-en="2. Department Vision">2. رؤية القسم</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);"
+                       data-ar="أن يصبح مركزًا متقدمًا لتطوير الحلول والمنتجات الرقمية وشريكًا موثوقًا للشركات والمؤسسات محلياً وإقليمياً وعالمياً."
+                       data-en="To become an advanced center for developing digital solutions and products, and a trusted partner for companies and institutions locally, regionally, and globally.">
+                        أن يصبح مركزًا متقدمًا لتطوير الحلول والمنتجات الرقمية وشريكًا موثوقًا للشركات والمؤسسات محلياً وإقليمياً وعالمياً.
+                    </p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--navy-dark); margin-bottom: 6px;" data-ar="3. رسالة القسم" data-en="3. Department Mission">3. رسالة القسم</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);"
+                       data-ar="تقديم حلول رقمية متكاملة وقابلة للتوسع تجمع بين البرمجيات والتسويق والإعلام الرقمي والذكاء الاصطناعي لتحقيق النمو للعملاء."
+                       data-en="Providing integrated and scalable digital soluti
