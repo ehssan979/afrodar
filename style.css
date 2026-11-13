@@ -1,3 +1,41 @@
+/* ===== نظام التصميم - أفرودار =====
+   1) الألوان: أبيض 60% | أزرق 30% | أصفر وذهبي 10%
+   2) الأصفر: للتفاعل فقط (hover, أزرار)
+   3) الذهبي: للخطوط الفاصلة فقط، لا يُستخدم للنص
+   4) المسافات: مضاعفات 8px
+   5) الخطوط: مقياس 1.25 (1 / 1.25 / 1.563 rem)
+   6) بدون ظلال، بدون تدرجات، زاوية واحدة 2px
+   7) عرض المحتوى الأقصى 720px
+   8) نقطة تحول واحدة: 600px
+================================== */
+
+:root {
+  /* الألوان */
+  --blue: #0a2a5e;
+  --blue-light: #eef2f8;
+  --yellow: #ffc72c;
+  --gold: #b8962e;
+  --white: #ffffff;
+  --text: #1f2937;
+  --line: #d9dee7;
+
+  /* المسافات */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s6: 48px;
+
+  /* الخطوط */
+  --fs-sm: 0.8rem;
+  --fs-base: 1rem;
+  --fs-h3: 1.25rem;
+  --fs-h1: 1.563rem;
+
+  --radius: 2px;
+  --width: 720px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,103 +44,155 @@
 
 body {
   font-family: Tahoma, Arial, sans-serif;
-  background: #f4f6f9;
-  color: #222;
-  line-height: 1.9;
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--white);
 }
 
+/* ---------- الهيدر ---------- */
 header {
-  background: #0b3d6b;
-  color: white;
+  background: var(--blue);
+  color: var(--white);
   text-align: center;
-  padding: 30px 15px;
+  padding: var(--s4) var(--s2);
+  border-bottom: 4px solid var(--gold);
 }
 
-header h1 { font-size: 24px; }
-header h2 { font-size: 14px; margin: 5px 0 15px; }
+header h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.4;
+}
 
+header h2 {
+  font-size: var(--fs-base);
+  font-weight: normal;
+  margin: var(--s1) 0 var(--s2);
+}
+
+header p {
+  font-size: var(--fs-sm);
+  margin-bottom: var(--s1);
+}
+
+/* ---------- القائمة ---------- */
 #menuBtn {
   display: none;
   width: 100%;
-  padding: 12px;
-  background: #1565a8;
-  color: white;
+  padding: var(--s2);
+  background: var(--blue);
+  color: var(--white);
   border: none;
-  font-size: 16px;
+  border-bottom: 1px solid var(--gold);
+  font-size: var(--fs-base);
 }
 
 nav {
-  background: #1565a8;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
-  padding: 8px;
+  background: var(--blue-light);
+  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 nav a {
-  color: white;
+  color: var(--blue);
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 14px;
+  padding: var(--s1) var(--s2);
+  font-size: var(--fs-sm);
+  border-bottom: 3px solid transparent;
 }
 
-nav a:hover { background: #0b3d6b; }
+nav a:hover {
+  border-bottom-color: var(--yellow);
+}
 
+/* ---------- المحتوى ---------- */
 main {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 0 15px;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: var(--s2);
 }
 
 section {
-  background: white;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border-right: 5px solid #1565a8;
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: var(--s6);
 }
 
-h3 { color: #0b3d6b; margin-bottom: 10px; }
-h4 { color: #1565a8; margin: 12px 0 5px; }
+h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.4;
+  color: var(--blue);
+  margin-bottom: var(--s2);
+  padding-right: var(--s1);
+  border-right: 3px solid var(--gold);
+}
 
-ul { padding-right: 25px; }
-li { margin-bottom: 4px; }
+h4 {
+  font-size: var(--fs-base);
+  color: var(--blue);
+  margin: var(--s2) 0 var(--s1);
+}
+
+p {
+  margin-bottom: var(--s2);
+}
+
+ul {
+  padding-right: var(--s3);
+  margin-bottom: var(--s2);
+}
+
+li {
+  margin-bottom: var(--s1);
+}
 
 .box {
-  background: #eaf2fb;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
+  background: var(--blue-light);
+  border-right: 3px solid var(--gold);
+  padding: var(--s2);
+  margin-bottom: var(--s2);
+  border-radius: var(--radius);
 }
 
+/* ---------- الفوتر ---------- */
 footer {
-  background: #0b3d6b;
-  color: white;
+  background: var(--blue);
+  color: var(--white);
   text-align: center;
-  padding: 25px 15px;
+  font-size: var(--fs-sm);
+  padding: var(--s4) var(--s2);
+  border-top: 4px solid var(--gold);
 }
 
+footer p {
+  margin-bottom: var(--s1);
+}
+
+/* ---------- زر الأعلى ---------- */
 #topBtn {
   display: none;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 45px;
-  height: 45px;
+  bottom: var(--s3);
+  left: var(--s3);
+  width: 40px;
+  height: 40px;
+  background: var(--yellow);
+  color: var(--blue);
   border: none;
-  border-radius: 50%;
-  background: #1565a8;
-  color: white;
-  font-size: 20px;
+  border-radius: var(--radius);
+  font-size: var(--fs-h3);
 }
 
+/* ---------- الموبايل ---------- */
 @media (max-width: 600px) {
   #menuBtn { display: block; }
   nav { display: none; flex-direction: column; }
   nav.open { display: flex; }
-  header h1 { font-size: 19px; }
-}
+  nav a { border-bottom: 1px solid var(--line); }
+  header h1 { font-size: var(--fs-h3); }
+  }
