@@ -1,29 +1,44 @@
-var menuBtn = document.getElementById("menuBtn");
-var menu = document.getElementById("menu");
-var topBtn = document.getElementById("topBtn");
+document.addEventListener("DOMContentLoaded", function () {
 
-// فتح وقفل القائمة في الموبايل
-menuBtn.onclick = function () {
-  menu.classList.toggle("open");
-};
+    const menuToggle = document.getElementById("menuToggle");
+    const navigation = document.getElementById("navigation");
+    const navigationLinks = document.querySelectorAll(".navigation a");
 
-// قفل القائمة بعد الضغط على أي رابط
-var links = menu.getElementsByTagName("a");
-for (var i = 0; i < links.length; i++) {
-  links[i].onclick = function () {
-    menu.classList.remove("open");
-  };
-}
+    // فتح وإغلاق القائمة
+    menuToggle.addEventListener("click", function () {
+        navigation.classList.toggle("show");
+    });
 
-// زر الرجوع لأعلى الصفحة
-window.onscroll = function () {
-  if (window.scrollY > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
-};
+    // إغلاق القائمة عند اختيار قسم
+    navigationLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            navigation.classList.remove("show");
+        });
+    });
 
-topBtn.onclick = function () {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+    // تحديد القسم الحالي أثناء التمرير
+    const sections = document.querySelectorAll("main section[id]");
+
+    window.addEventListener("scroll", function () {
+
+        let currentSection = "";
+
+        sections.forEach(function (section) {
+            const sectionTop = section.offsetTop - 120;
+
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.id;
+            }
+        });
+
+        navigationLinks.forEach(function (link) {
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === "#" + currentSection) {
+                link.classList.add("active");
+            }
+        });
+
+    });
+
+});
