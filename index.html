@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة أفرودار للأنشطة المتعددة المحدودة | AFRODAR</title>
+    <title id="page-title" data-ar="شركة أفرودار للأنشطة المتعددة المحدودة | AFRODAR" data-en="Afrodar For Multi Activities Co. Ltd | AFRODAR">شركة أفرودار للأنشطة المتعددة المحدودة | AFRODAR</title>
     <!-- خط تجوال العربي الاحترافي -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- أيقونات FontAwesome -->
@@ -15,12 +15,13 @@
             --navy-light: #132D52;
             --gold-primary: #D4AF37;
             --yellow-warm: #F4C430;
-            --gold-soft: #FDF9EC;
-            --bg-light: #F7F9FC;
+            --gold-soft: #FAF6ED;
+            --rose-accent: #F9EBEA;
+            --bg-light: #F8FAFC;
             --text-dark: #1E293B;
             --text-muted: #64748B;
             --white: #FFFFFF;
-            --shadow: 0 4px 15px rgba(10, 29, 55, 0.06);
+            --shadow: 0 6px 20px rgba(10, 29, 55, 0.07);
         }
 
         * {
@@ -33,15 +34,14 @@
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
-            padding-bottom: 85px; /* مساحة للشريط السفلي */
+            padding-bottom: 120px !important;
             line-height: 1.7;
         }
 
-        /* الشريط العلوي */
         .top-bar {
             background-color: var(--navy-dark);
             color: var(--white);
-            padding: 6px 16px;
+            padding: 8px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,30 +52,29 @@
             color: var(--gold-primary);
             cursor: pointer;
             font-weight: 700;
-            text-decoration: none;
         }
 
         header {
             background-color: var(--white);
-            padding: 12px 16px;
+            padding: 14px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
         }
 
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-circle {
-            width: 46px;
-            height: 46px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             border: 2px solid var(--gold-primary);
             background: var(--navy-dark);
@@ -92,58 +91,47 @@
             font-size: 0.95rem;
             color: var(--navy-dark);
             font-weight: 800;
-            line-height: 1.2;
         }
 
         .brand-title span {
             font-size: 0.65rem;
             color: var(--text-muted);
             font-weight: 700;
-            letter-spacing: 0.5px;
-            display: block;
         }
 
         .btn-install {
             background: linear-gradient(135deg, var(--gold-primary), var(--yellow-warm));
             color: var(--navy-dark);
             border: none;
-            padding: 7px 12px;
-            border-radius: 8px;
+            padding: 8px 14px;
+            border-radius: 12px;
             font-size: 0.78rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 3px 8px rgba(212, 175, 55, 0.25);
         }
 
-        /* الحاوية الرئيسية والتبويبات */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 18px;
         }
 
         .tab-content {
             display: none;
-            animation: fadeIn 0.35s ease;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* البطاقات والعناوين */
         .card {
             background: var(--white);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 18px;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.12);
         }
 
         .section-subtitle {
@@ -159,24 +147,23 @@
             font-size: 1.35rem;
             font-weight: 800;
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .highlight-box {
             background-color: var(--gold-soft);
             border-right: 4px solid var(--gold-primary);
-            padding: 14px;
-            border-radius: 8px;
-            margin: 12px 0;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 14px 0;
             font-size: 0.92rem;
             color: var(--navy-dark);
         }
 
-        /* الشعار الكبير في الرئيسية */
         .hero-logo-card {
             text-align: center;
-            padding: 28px 16px;
-            background: radial-gradient(circle, #ffffff 60%, #f4f6fa 100%);
+            padding: 30px 18px;
+            background: radial-gradient(circle, #ffffff 60%, var(--rose-accent) 100%);
         }
 
         .hero-emblem {
@@ -191,26 +178,18 @@
             align-items: center;
             justify-content: center;
             color: var(--white);
-            box-shadow: 0 8px 20px rgba(10, 29, 55, 0.2);
         }
 
-        .hero-emblem i {
-            font-size: 2.5rem;
-            color: var(--yellow-warm);
-            margin-bottom: 4px;
-        }
-
-        /* شبكة البطاقات */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 14px;
+            gap: 16px;
         }
 
         .sector-card {
             background: var(--white);
-            border-radius: 12px;
-            padding: 18px;
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
             box-shadow: var(--shadow);
             border-bottom: 3px solid transparent;
@@ -219,15 +198,15 @@
 
         .sector-card:hover {
             border-bottom-color: var(--gold-primary);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .sector-icon {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             background: var(--gold-soft);
             color: var(--gold-primary);
-            border-radius: 10px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -249,129 +228,47 @@
             margin-bottom: 8px;
         }
 
-        .sector-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* القسم الكحلي (نموذج الأعمال) */
         .navy-section {
             background-color: var(--navy-dark);
             color: var(--white);
-            border-radius: 16px;
-            padding: 24px 18px;
-            margin: 20px 0;
-        }
-
-        .navy-section .tag {
-            color: var(--yellow-warm);
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        .navy-section h2 {
-            font-size: 1.4rem;
-            margin: 6px 0 12px;
+            border-radius: 20px;
+            padding: 26px 20px;
+            margin: 22px 0;
         }
 
         .navy-subcard {
             background-color: var(--navy-light);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 16px;
+            border-radius: 14px;
+            padding: 18px;
             margin-top: 14px;
         }
 
-        .navy-subcard h4 {
-            color: var(--yellow-warm);
-            margin-bottom: 6px;
-        }
-
-        /* القوائم والشبكات لقسم البرمجيات */
         .digital-banner {
             background: linear-gradient(135deg, var(--navy-dark) 0%, #163763 100%);
             color: var(--white);
-            padding: 24px;
-            border-radius: 16px;
+            padding: 26px;
+            border-radius: 20px;
             text-align: center;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             border-bottom: 4px solid var(--gold-primary);
         }
 
-        .digital-banner span {
-            color: var(--yellow-warm);
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .pill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .pill {
-            background: var(--gold-soft);
-            color: var(--navy-dark);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            font-weight: 600;
-        }
-
-        .accordion-item {
-            border-bottom: 1px solid #eee;
-            padding: 12px 0;
-        }
-
-        .accordion-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--navy-dark);
-        }
-
-        .accordion-header i {
-            color: var(--gold-primary);
-        }
-
-        .accordion-body {
-            display: none;
-            padding-top: 10px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .accordion-body.open {
-            display: block;
-        }
-
-        .accordion-body ul {
-            padding-right: 20px;
-            margin-top: 6px;
-        }
-
-        /* نموذج التواصل */
         .email-box {
             background: #F1F5F9;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 14px;
+            border-radius: 12px;
             text-align: center;
             font-weight: 700;
             color: var(--navy-dark);
             display: block;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 12px 0;
             border: 1px dashed var(--gold-primary);
         }
 
         .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .form-group label {
@@ -384,15 +281,11 @@
 
         .form-group input, .form-group textarea, .form-group select {
             width: 100%;
-            padding: 11px;
+            padding: 12px;
             border: 1px solid #CBD5E1;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 0.95rem;
             outline: none;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--gold-primary);
         }
 
         .btn-submit {
@@ -400,48 +293,35 @@
             background: var(--navy-dark);
             color: var(--yellow-warm);
             border: none;
-            padding: 13px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
         }
 
-        /* التذييل Footer */
         footer {
             background-color: var(--navy-dark);
             color: var(--white);
             text-align: center;
-            padding: 28px 16px;
-            margin-top: 24px;
-            border-radius: 16px 16px 0 0;
+            padding: 30px 18px;
+            margin-top: 26px;
+            border-radius: 20px 20px 0 0;
         }
 
-        footer .slogan {
-            color: var(--yellow-warm);
-            font-size: 0.85rem;
-            margin: 8px 0;
-            font-weight: 600;
-        }
-
-        footer .copyright {
-            font-size: 0.75rem;
-            color: #94A3B8;
-        }
-
-        /* شريط التنقل السفلي الثابت */
+        /* شريط التنقل السفلي الثابت في أعلى طبقة لكي لا يختفي نهائياً */
         .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--white);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0 12px;
-            box-shadow: 0 -3px 15px rgba(0,0,0,0.08);
-            z-index: 1000;
-            border-top: 1px solid #eee;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: var(--white) !important;
+            display: flex !important;
+            justify-content: space-around !important;
+            padding: 12px 0 16px !important;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15) !important;
+            z-index: 99999 !important;
+            border-top: 1px solid #eee !important;
         }
 
         .nav-item {
@@ -463,14 +343,28 @@
         .nav-item.active {
             color: var(--gold-primary);
         }
+
+        /* تنسيقات اللغة الإنجليزية LTR */
+        [dir="ltr"] {
+            text-align: left;
+        }
+        [dir="ltr"] .highlight-box {
+            border-right: none;
+            border-left: 4px solid var(--gold-primary);
+            text-align: left !important;
+        }
+        [dir="ltr"] ul {
+            padding-right: 0 !important;
+            padding-left: 20px !important;
+        }
     </style>
 </head>
 <body>
 
     <!-- الشريط العلوي للغة -->
     <div class="top-bar">
-        <span>Building Infrastructure. Powering Connectivity. Enabling Growth.</span>
-        <span class="lang-switch" onclick="alert('سيتم تفعيل النسخة الإنجليزية الكاملة قريباً | English version coming soon')">العربية | English</span>
+        <span data-ar="Building Infrastructure. Powering Connectivity. Enabling Growth." data-en="Building Infrastructure. Powering Connectivity. Enabling Growth.">Building Infrastructure. Powering Connectivity. Enabling Growth.</span>
+        <span class="lang-switch" id="lang-btn" onclick="toggleLanguage()">English</span>
     </div>
 
     <!-- الهيدر الرئيسي -->
@@ -480,112 +374,100 @@
                 <i class="fa-solid fa-compass"></i>
             </div>
             <div class="brand-title">
-                <h1>شركة أفرودار للأنشطة المتعددة المحدودة</h1>
-                <span>AFRODAR FOR MULTI ACTIVITIES CO. LTD</span>
+                <h1 data-ar="شركة أفرودار للأنشطة المتعددة المحدودة" data-en="Afrodar For Multi Activities Co. Ltd">شركة أفرودار للأنشطة المتعددة المحدودة</h1>
+                <span data-ar="AFRODAR FOR MULTI ACTIVITIES CO. LTD" data-en="AFRODAR FOR MULTI ACTIVITIES CO. LTD">AFRODAR FOR MULTI ACTIVITIES CO. LTD</span>
             </div>
         </div>
-        <button class="btn-install" onclick="alert('لإضافة الموقع للشاشة الرئيسية: اضغط على خيارات المتصفح ثم اختر (إضافة إلى الشاشة الرئيسية / Add to Home Screen)')">
+        <button class="btn-install" onclick="alert('لإضافة الموقع للشاشة الرئيسية: اضغط على خيارات المتصفح ثم اختر (إضافة إلى الشاشة الرئيسية / Add to Home Screen)')" data-ar="إضافة للشاشة الرئيسية" data-en="Add to Home">
             إضافة للشاشة الرئيسية
         </button>
     </header>
 
     <div class="container">
 
-        <!-- ==================== 1. تبويب الرئيسية (من نحن) ==================== -->
+        <!-- ==================== تبويب الرئيسية (من نحن) ==================== -->
         <div id="tab-home" class="tab-content active">
             
-            <!-- بطاقة الشعار والنبذة -->
             <div class="card hero-logo-card">
                 <div class="hero-emblem">
                     <i class="fa-solid fa-compass"></i>
                     <strong style="font-size: 0.85rem; color: var(--gold-primary);">AFRODAR</strong>
                 </div>
-                <p class="section-subtitle">من نحن | About Us</p>
-                <h2 class="section-title">شركة أفرودار للأنشطة المتعددة المحدودة</h2>
-                <p style="font-size: 0.95rem; color: var(--text-dark); text-align: justify;">
+                <p class="section-subtitle" data-ar="من نحن | About Us" data-en="About Us">من نحن | About Us</p>
+                <h2 class="section-title" data-ar="شركة أفرودار للأنشطة المتعددة المحدودة" data-en="Afrodar For Multi Activities Co. Ltd">شركة أفرودار للأنشطة المتعددة المحدودة</h2>
+                <p style="font-size: 0.95rem; color: var(--text-dark); text-align: justify; margin-bottom: 12px;"
+                   data-ar="أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية."
+                   data-en="Afrodar For Multi Activities Co. Ltd is a Sudanese multi-activity company operating in engineering, telecommunications, energy, oilfield services, mining, contracting, technology, trade, and investment services.">
                     أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية.
                 </p>
-                <div class="highlight-box" style="text-align: right;">
-                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان، مع التوجه نحو التوسع في الأسواق الإقليمية والدولية.
+                <div class="highlight-box" style="text-align: right;"
+                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان."
+                     data-en="The company was established based on an ambitious vision aiming to build an integrated institution capable of providing practical and professional solutions that meet the needs of productive and service sectors, and contributing to infrastructure development and economic growth in Sudan.">
+                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان.
                 </div>
-                <p style="font-size: 0.9rem; color: var(--text-muted); text-align: justify;">
-                    نؤمن بأن النجاح في عالم الأعمال لا يقوم فقط على تقديم الخدمات، بل على بناء علاقات طويلة الأمد، وتحقيق القيمة المضافة، والالتزام بالجودة والكفاءة والشفافية والمسؤولية المهنية.
-                </p>
             </div>
 
             <!-- الرؤية والرسالة -->
-            <p class="section-subtitle">هويتنا واستراتيجيتنا</p>
-            <h2 class="section-title">رؤيتنا ورسالتنا</h2>
+            <p class="section-subtitle" data-ar="هويتنا واستراتيجيتنا" data-en="Our Identity & Strategy">هويتنا واستراتيجيتنا</p>
+            <h2 class="section-title" data-ar="رؤيتنا ورسالتنا" data-en="Our Vision & Mission">رؤيتنا ورسالتنا</h2>
 
             <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 8px;">رؤيتنا | Our Vision</h3>
-                <p style="color: var(--text-muted); font-size: 0.93rem;">
+                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رؤيتنا | Our Vision" data-en="Our Vision">رؤيتنا | Our Vision</h3>
+                <p style="color: var(--text-muted); font-size: 0.93rem;"
+                   data-ar="أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية."
+                   data-en="To be one of the leading and integrated Sudanese companies in engineering, energy, telecommunications, mining, industrial, and commercial services, establishing a regional and international presence based on efficiency, innovation, and strategic partnerships.">
                     أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية.
                 </p>
             </div>
 
             <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 8px;">رسالتنا | Our Mission</h3>
-                <p style="color: var(--text-muted); font-size: 0.93rem;">
+                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رسالتنا | Our Mission" data-en="Our Mission">رسالتنا | Our Mission</h3>
+                <p style="color: var(--text-muted); font-size: 0.93rem;"
+                   data-ar="تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها."
+                   data-en="Providing integrated and reliable solutions and services by deploying technical expertise, modern technologies, qualified human resources, and specialized partnerships, contributing to efficient project execution and creating sustainable value.">
                     تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها.
                 </p>
             </div>
 
-            <!-- القيم المؤسسية -->
-            <div class="card">
-                <p class="section-subtitle">مبادئ العمل</p>
-                <h2 class="section-title">قيمنا المؤسسية | Our Core Values</h2>
-                <div class="grid-2">
-                    <div class="highlight-box"><strong>1. الجودة والتميز:</strong> الالتزام بأفضل الممارسات والمعايير المهنية في تقديم الخدمات.</div>
-                    <div class="highlight-box"><strong>2. النزاهة والشفافية:</strong> بناء علاقات عمل تقوم على الثقة والمصداقية.</div>
-                    <div class="highlight-box"><strong>3. السلامة والمسؤولية:</strong> إعطاء الأولوية لسلامة العاملين والمجتمعات والبيئة.</div>
-                    <div class="highlight-box"><strong>4. الابتكار والتطوير:</strong> توظيف التكنولوجيا والحلول الحديثة لتحسين الأداء.</div>
-                    <div class="highlight-box"><strong>5. الشراكة والتعاون:</strong> بناء علاقات استراتيجية تحقق المصالح المشتركة.</div>
-                    <div class="highlight-box"><strong>6. الكفاءة والإنجاز:</strong> الاستخدام الأمثل للموارد وتحقيق النتائج المستهدفة.</div>
-                </div>
-            </div>
-
-            <!-- نموذج أعمالنا (القسم الكحلي كما في الصورة) -->
-            <div class="navy-section">
-                <span class="tag">نموذج أعمالنا | Our Business Model</span>
-                <h2>إدارة متخصصة وشراكات استراتيجية</h2>
-                <p style="font-size: 0.92rem; color: #E2E8F0;">
-                    نعمل وفق نموذج أعمال مرن يجمع بين الإدارة المتخصصة والتنفيذ الفني والشراكات الاستراتيجية، مع الاستفادة من الخبرات المحلية والإقليمية والدولية، وتطوير شبكة من الشركاء ومقدمي الخدمات المتخصصين.
-                </p>
-                <div class="navy-subcard">
-                    <h4>التنفيذ المباشر والشراكات المتكاملة</h4>
-                    <p style="font-size: 0.88rem; color: #CBD5E1;">
-                        تنفيذ الأعمال التي تتوفر للشركة بشأنها القدرات الفنية والموارد والتعاون مع مزودي الخدمات المعتمدين لتقديم حلول متكاملة تتناسب مع طبيعة المشروعات واحتياجات العملاء.
-                    </p>
-                </div>
-                <div class="navy-subcard">
-                    <h4>التزامنا | Our Commitment</h4>
-                    <p style="font-size: 0.88rem; color: #CBD5E1;">
-                        نلتزم ببناء علاقات مهنية مستدامة، وتقديم خدمات قائمة على الكفاءة والجودة والشفافية، والعمل على تطوير قدراتنا الفنية والإدارية باستمرار، بما يعزز ثقة العملاء والشركاء ويدعم أهداف التنمية والنمو.
-                    </p>
-                </div>
-            </div>
-
             <!-- مجالات وأنشطة أفرودار -->
-            <p class="section-subtitle">مجالات العمل والقطاعات</p>
-            <h2 class="section-title">مجالات وأنشطة أفرودار</h2>
+            <p class="section-subtitle" data-ar="مجالات العمل والقطاعات" data-en="Sectors & Activities">مجالات العمل والقطاعات</p>
+            <h2 class="section-title" data-ar="مجالات وأنشطة أفرودار" data-en="Afrodar Sectors & Activities">مجالات وأنشطة أفرودار</h2>
             <div class="grid-2">
                 <div class="sector-card">
                     <div class="sector-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
-                    <h3>الهندسة والاتصالات</h3>
+                    <h3 data-ar="الهندسة والاتصالات" data-en="Engineering & Telecom">الهندسة والاتصالات</h3>
                     <span class="en-sub">Engineering & Telecom</span>
-                    <p>الهندسة والاتصالات وتقنيات الألياف الضوئية.</p>
+                    <p data-ar="الهندسة والاتصالات وتقنيات الألياف الضوئية." data-en="Engineering, telecommunications, and fiber optics technologies.">الهندسة والاتصالات وتقنيات الألياف الضوئية.</p>
                 </div>
                 <div class="sector-card">
                     <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
-                    <h3>خدمات آبار النفط</h3>
+                    <h3 data-ar="خدمات آبار النفط" data-en="Oilfield Services">خدمات آبار النفط</h3>
                     <span class="en-sub">Oilfield Services</span>
-                    <p>خدمات آبار النفط والحلول النفطية المتكاملة.</p>
+                    <p data-ar="خدمات آبار النفط والحلول النفطية المتكاملة." data-en="Oilfield services and integrated petroleum solutions.">خدمات آبار النفط والحلول النفطية المتكاملة.</p>
                 </div>
                 <div class="sector-card">
                     <div class="sector-icon"><i class="fa-solid fa-gem"></i></div>
-                    <h3>التعدين والمعادن</h3>
+                    <h3 data-ar="التعدين والمعادن" data-en="Mining & Minerals">التعدين والمعادن</h3>
                     <span class="en-sub">Mining & Minerals</span>
-                    <p>التعدين واستكشاف ومعالجة المعادن.</p>
+                    <p data-ar="التعدين واستكشاف ومعالجة المعادن." data-en="Mining, exploration, and mineral processing.">التعدين واستكشاف ومعالجة المعادن.</p>
                 </div>
-              
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Power">الطاقة والكهرباء</h3>
+                    <span class="en-sub">Energy & Power</span>
+                    <p data-ar="الطاقة وأنظمة الكهرباء والحلول الهجينة." data-en="Energy, power systems, and hybrid solutions.">الطاقة وأنظمة الكهرباء والحلول الهجينة.</p>
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h3 data-ar="المقاولات والإنشاءات" data-en="Contracting & Civil Works">المقاولات والإنشاءات</h3>
+                    <span class="en-sub">Contracting & Civil Works</span>
+                    <p data-ar="المقاولات والأعمال المدنية والإنشاءات." data-en="Contracting, civil works, and construction.">المقاولات والأعمال المدنية والإنشاءات.</p>
+                </div>
+                <div class="sector-card" onclick="switchTab('digital', document.querySelectorAll('.nav-item')[1])" style="cursor: pointer; border: 1.5px solid var(--gold-primary);">
+                    <div class="sector-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 data-ar="تقنية المعلومات والحلول الرقمية" data-en="IT & Software Solutions">تقنية المعلومات والحلول الرقمية</h3>
+                    <span class="en-sub">IT & Software Solutions</span>
+                    <p data-ar="تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل)." data-en="IT, networking, software, and digital marketing (Click for details).">تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل).</p>
+                </div>
+                <div class="sector-card">
+                    
