@@ -41,11 +41,11 @@
         .top-bar {
             background-color: var(--navy-dark);
             color: var(--white);
-            padding: 8px 16px;
+            padding: 6px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
         }
 
         .lang-switch {
@@ -54,12 +54,14 @@
             font-weight: 700;
         }
 
+        /* تعديل وتصغير الهيدر العلوي ليكون أنيقاً ومضغوطاً */
         header {
             background-color: var(--white);
-            padding: 14px 18px;
+            padding: 8px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 8px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -69,12 +71,12 @@
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .logo-circle {
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 2px solid var(--gold-primary);
             background: var(--navy-dark);
@@ -83,32 +85,37 @@
             justify-content: center;
             color: var(--yellow-warm);
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             flex-shrink: 0;
         }
 
         .brand-title h1 {
-            font-size: 0.95rem;
+            font-size: 0.78rem;
             color: var(--navy-dark);
             font-weight: 800;
+            line-height: 1.25;
         }
 
         .brand-title span {
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             color: var(--text-muted);
             font-weight: 700;
+            display: block;
+            line-height: 1.1;
         }
 
         .btn-install {
             background: linear-gradient(135deg, var(--gold-primary), var(--yellow-warm));
             color: var(--navy-dark);
             border: none;
-            padding: 8px 14px;
-            border-radius: 12px;
-            font-size: 0.78rem;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 0.68rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 3px 8px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 2px 6px rgba(212, 175, 55, 0.25);
+            flex-shrink: 0;
+            line-height: 1.2;
         }
 
         .container {
@@ -229,22 +236,6 @@
             margin-bottom: 8px;
         }
 
-        .navy-section {
-            background-color: var(--navy-dark);
-            color: var(--white);
-            border-radius: 20px;
-            padding: 26px 20px;
-            margin: 22px 0;
-        }
-
-        .navy-subcard {
-            background-color: var(--navy-light);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 14px;
-            padding: 18px;
-            margin-top: 14px;
-        }
-
         .digital-banner {
             background: linear-gradient(135deg, var(--navy-dark) 0%, #163763 100%);
             color: var(--white);
@@ -310,7 +301,7 @@
             border-radius: 20px 20px 0 0;
         }
 
-        /* شريط التنقل السفلي الثابت في أعلى طبقة لضمان عدم اختفائه */
+        /* شريط التنقل السفلي الثابت بأعلى طبقة لضمان عدم اختفائه نهائياً */
         .bottom-nav {
             position: fixed !important;
             bottom: 0 !important;
@@ -376,7 +367,7 @@
             </div>
         </div>
         <button class="btn-install" onclick="alert('لإضافة الموقع للشاشة الرئيسية: اضغط على خيارات المتصفح ثم اختر (إضافة إلى الشاشة الرئيسية / Add to Home Screen)')" data-ar="إضافة للشاشة الرئيسية" data-en="Add to Home">
-            إضافة للشاشة الرئيسية
+            إضافة للشاشة
         </button>
     </header>
 
@@ -398,9 +389,9 @@
                     أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية.
                 </p>
                 <div class="highlight-box" style="text-align: right;"
-                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية."
+                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية والمساهمة في التنمية."
                      data-en="The company was established based on an ambitious vision aiming to build an integrated institution capable of providing practical and professional solutions.">
-                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية.
+                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية والمساهمة في التنمية.
                 </div>
             </div>
 
@@ -477,4 +468,7 @@
                     <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
                     <span class="en-sub">Agricultural Services</span>
                     <p data-ar="الخدمات والحلول المتعلقة بالأنشطة الزراعية." data-en="Services and solutions related to agricultural activities.">الخدمات والحلول المتعلقة بالأنشطة الزراعية.</p>
-      
+                </div>
+                <div class="sector-card">
+                    <div class="sector-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+              
