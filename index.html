@@ -194,6 +194,7 @@
             box-shadow: var(--shadow);
             border-bottom: 3px solid transparent;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .sector-card:hover {
@@ -226,22 +227,6 @@
             font-weight: 700;
             display: block;
             margin-bottom: 8px;
-        }
-
-        .navy-section {
-            background-color: var(--navy-dark);
-            color: var(--white);
-            border-radius: 20px;
-            padding: 26px 20px;
-            margin: 22px 0;
-        }
-
-        .navy-subcard {
-            background-color: var(--navy-light);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 14px;
-            padding: 18px;
-            margin-top: 14px;
         }
 
         .digital-banner {
@@ -309,7 +294,7 @@
             border-radius: 20px 20px 0 0;
         }
 
-        /* شريط التنقل السفلي الثابت في أعلى طبقة لكي لا يختفي نهائياً */
+        /* شريط التنقل السفلي الثابت */
         .bottom-nav {
             position: fixed !important;
             bottom: 0 !important;
@@ -352,10 +337,6 @@
             border-right: none;
             border-left: 4px solid var(--gold-primary);
             text-align: left !important;
-        }
-        [dir="ltr"] ul {
-            padding-right: 0 !important;
-            padding-left: 20px !important;
         }
     </style>
 </head>
@@ -401,32 +382,10 @@
                     أفرودار للأنشطة المتعددة المحدودة هي شركة سودانية متعددة الأنشطة، تعمل في مجالات الهندسة والاتصالات والطاقة وخدمات آبار النفط والتعدين والمقاولات والتكنولوجيا والتجارة والخدمات الاستثمارية.
                 </p>
                 <div class="highlight-box" style="text-align: right;"
-                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان."
-                     data-en="The company was established based on an ambitious vision aiming to build an integrated institution capable of providing practical and professional solutions that meet the needs of productive and service sectors, and contributing to infrastructure development and economic growth in Sudan.">
-                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية، والمساهمة في تطوير البنية التحتية وتعزيز التنمية الاقتصادية في السودان.
+                     data-ar="تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية."
+                     data-en="The company was established based on an ambitious vision aiming to build an integrated institution capable of providing practical and professional solutions.">
+                    تأسست الشركة انطلاقاً من رؤية طموحة تهدف إلى بناء مؤسسة متكاملة قادرة على تقديم حلول عملية ومهنية تلبي احتياجات القطاعات الإنتاجية والخدمية.
                 </div>
-            </div>
-
-            <!-- الرؤية والرسالة -->
-            <p class="section-subtitle" data-ar="هويتنا واستراتيجيتنا" data-en="Our Identity & Strategy">هويتنا واستراتيجيتنا</p>
-            <h2 class="section-title" data-ar="رؤيتنا ورسالتنا" data-en="Our Vision & Mission">رؤيتنا ورسالتنا</h2>
-
-            <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رؤيتنا | Our Vision" data-en="Our Vision">رؤيتنا | Our Vision</h3>
-                <p style="color: var(--text-muted); font-size: 0.93rem;"
-                   data-ar="أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية."
-                   data-en="To be one of the leading and integrated Sudanese companies in engineering, energy, telecommunications, mining, industrial, and commercial services, establishing a regional and international presence based on efficiency, innovation, and strategic partnerships.">
-                    أن نكون من الشركات السودانية الرائدة والمتكاملة في مجالات الهندسة والطاقة والاتصالات والتعدين والخدمات الصناعية والتجارية، وأن نرسخ حضوراً إقليمياً ودولياً قائماً على الكفاءة والابتكار والشراكات الاستراتيجية.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3 style="color: var(--navy-dark); margin-bottom: 8px;" data-ar="رسالتنا | Our Mission" data-en="Our Mission">رسالتنا | Our Mission</h3>
-                <p style="color: var(--text-muted); font-size: 0.93rem;"
-                   data-ar="تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها."
-                   data-en="Providing integrated and reliable solutions and services by deploying technical expertise, modern technologies, qualified human resources, and specialized partnerships, contributing to efficient project execution and creating sustainable value.">
-                    تقديم حلول وخدمات متكاملة وموثوقة من خلال توظيف الخبرات الفنية والتقنيات الحديثة والموارد البشرية المؤهلة والشراكات المتخصصة، بما يسهم في إنجاز المشروعات بكفاءة، وخلق قيمة مستدامة لعملائنا وشركائنا والمجتمعات التي نعمل فيها.
-                </p>
             </div>
 
             <!-- مجالات وأنشطة أفرودار -->
@@ -437,37 +396,111 @@
                     <div class="sector-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
                     <h3 data-ar="الهندسة والاتصالات" data-en="Engineering & Telecom">الهندسة والاتصالات</h3>
                     <span class="en-sub">Engineering & Telecom</span>
-                    <p data-ar="الهندسة والاتصالات وتقنيات الألياف الضوئية." data-en="Engineering, telecommunications, and fiber optics technologies.">الهندسة والاتصالات وتقنيات الألياف الضوئية.</p>
+                    <p data-ar="الهندسة والاتصالات وتقنيات الألياف الضوئية." data-en="Engineering, telecommunications, and fiber optics.">الهندسة والاتصالات وتقنيات الألياف الضوئية.</p>
                 </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-oil-well"></i></div>
-                    <h3 data-ar="خدمات آبار النفط" data-en="Oilfield Services">خدمات آبار النفط</h3>
-                    <span class="en-sub">Oilfield Services</span>
-                    <p data-ar="خدمات آبار النفط والحلول النفطية المتكاملة." data-en="Oilfield services and integrated petroleum solutions.">خدمات آبار النفط والحلول النفطية المتكاملة.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-gem"></i></div>
-                    <h3 data-ar="التعدين والمعادن" data-en="Mining & Minerals">التعدين والمعادن</h3>
-                    <span class="en-sub">Mining & Minerals</span>
-                    <p data-ar="التعدين واستكشاف ومعالجة المعادن." data-en="Mining, exploration, and mineral processing.">التعدين واستكشاف ومعالجة المعادن.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Power">الطاقة والكهرباء</h3>
-                    <span class="en-sub">Energy & Power</span>
-                    <p data-ar="الطاقة وأنظمة الكهرباء والحلول الهجينة." data-en="Energy, power systems, and hybrid solutions.">الطاقة وأنظمة الكهرباء والحلول الهجينة.</p>
-                </div>
-                <div class="sector-card">
-                    <div class="sector-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                    <h3 data-ar="المقاولات والإنشاءات" data-en="Contracting & Civil Works">المقاولات والإنشاءات</h3>
-                    <span class="en-sub">Contracting & Civil Works</span>
-                    <p data-ar="المقاولات والأعمال المدنية والإنشاءات." data-en="Contracting, civil works, and construction.">المقاولات والأعمال المدنية والإنشاءات.</p>
-                </div>
-                <div class="sector-card" onclick="switchTab('digital', document.querySelectorAll('.nav-item')[1])" style="cursor: pointer; border: 1.5px solid var(--gold-primary);">
+                <div class="sector-card" onclick="switchTab('digital', document.querySelectorAll('.nav-item')[1])" style="border: 1.5px solid var(--gold-primary);">
                     <div class="sector-icon"><i class="fa-solid fa-laptop-code"></i></div>
                     <h3 data-ar="تقنية المعلومات والحلول الرقمية" data-en="IT & Software Solutions">تقنية المعلومات والحلول الرقمية</h3>
                     <span class="en-sub">IT & Software Solutions</span>
                     <p data-ar="تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل)." data-en="IT, networking, software, and digital marketing (Click for details).">تقنية المعلومات والشبكات والبرمجيات والتسويق (اضغط للتفاصيل).</p>
                 </div>
-                <div class="sector-card">
-                    
+            </div>
+
+        </div>
+
+        <!-- ==================== تبويب أقسام الشركة ==================== -->
+        <div id="tab-digital" class="tab-content">
+            <div class="digital-banner">
+                <h2 data-ar="قسم البرمجيات والحلول الرقمية والتسويق" data-en="Software, Web & Digital Marketing Department">قسم البرمجيات والحلول الرقمية والتسويق</h2>
+                <p>AFRODAR DIGITAL</p>
+            </div>
+            <div class="card">
+                <p data-ar="يُعد قسم البرمجيات والحلول الرقمية أحد الأقسام الاستراتيجية في الشركة." data-en="The Software and Digital Solutions Department is one of the strategic departments in the company.">يُعد قسم البرمجيات والحلول الرقمية أحد الأقسام الاستراتيجية في الشركة.</p>
+            </div>
+        </div>
+
+        <!-- ==================== تبويب التواصل ==================== -->
+        <div id="tab-contact" class="tab-content">
+            <h2 class="section-title" data-ar="تواصل مع أفرودار" data-en="Contact Afrodar">تواصل مع أفرودار</h2>
+            <a href="mailto:afrodar.co@gmail.com" class="email-box">afrodar.co@gmail.com</a>
+        </div>
+
+        <footer>
+            <p>AFRODAR. All rights reserved 2026 ©</p>
+        </footer>
+
+    </div>
+
+    <!-- شريط التنقل السفلي الثابت -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('home', this)">
+            <i class="fa-solid fa-house"></i>
+            <span data-ar="الرئيسية" data-en="Home">الرئيسية</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('digital', this)">
+            <i class="fa-solid fa-layer-group"></i>
+            <span data-ar="أقسام الشركة" data-en="Departments">أقسام الشركة</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('contact', this)">
+            <i class="fa-solid fa-envelope"></i>
+            <span data-ar="التواصل" data-en="Contact">التواصل</span>
+        </div>
+    </nav>
+
+    <!-- سكربت التشغيل واللغة والتنقل -->
+    <script>
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            const htmlRoot = document.documentElement;
+            const langBtn = document.getElementById('lang-btn');
+            
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                htmlRoot.setAttribute('dir', 'ltr');
+                htmlRoot.setAttribute('lang', 'en');
+                if (langBtn) langBtn.innerText = 'العربية';
+            } else {
+                currentLang = 'ar';
+                htmlRoot.setAttribute('dir', 'rtl');
+                htmlRoot.setAttribute('lang', 'ar');
+                if (langBtn) langBtn.innerText = 'English';
+            }
+
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                const translatedText = el.getAttribute(currentLang === 'en' ? 'data-en' : 'data-ar');
+                if (translatedText) {
+                    el.innerHTML = translatedText;
+                }
+            });
+        }
+
+        function switchTab(tabName, navElement) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            const targetTab = document.getElementById('tab-' + tabName);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (navElement) {
+                navElement.classList.add('active');
+            } else {
+                const index = tabName === 'home' ? 0 : (tabName === 'digital' ? 1 : 2);
+                const navItems = document.querySelectorAll('.nav-item');
+                if (navItems[index]) {
+                    navItems[index].classList.add('active');
+                }
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
