@@ -1,44 +1,87 @@
-document.addEventListener("DOMContentLoaded", function () {
+// متغير لتحديد اللغة الحالية (الافتراضي: عربي)
+let currentLang = 'ar';
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navigation = document.getElementById("navigation");
-    const navigationLinks = document.querySelectorAll(".navigation a");
+// دالة تبديل اللغة (عربي / إنجليزي)
+function toggleLanguage() {
+    const htmlRoot = document.documentElement;
+    const langBtn = document.getElementById('lang-btn');
+    
+    if (currentLang === 'ar') {
+        currentLang = 'en';
+        htmlRoot.setAttribute('dir', 'ltr');
+        htmlRoot.setAttribute('lang', 'en');
+        if (langBtn) langBtn.innerText = 'العربية';
+    } else {
+        currentLang = 'ar';
+        htmlRoot.setAttribute('dir', 'rtl');
+        htmlRoot.setAttribute('lang', 'ar');
+        if (langBtn) langBtn.innerText = 'English';
+    }
 
-    // فتح وإغلاق القائمة
-    menuToggle.addEventListener("click", function () {
-        navigation.classList.toggle("show");
+    // تحديث جميع النصوص التي تحتوي على سمات الترجمة
+    document.querySelectorAll('[data-ar]').forEach(el => {
+        const translatedText = el.getAttribute(currentLang === 'en' ? 'data-en' : 'data-ar');
+        if (translatedText) {
+            el.innerHTML = translatedText;
+        }
+    });
+}
+
+// دالة التنقل بين التبويبات بسلاسة
+function switchTab(tabName, navElement) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    const targetTab = document.getElementById('tab-' + tabName);
+    if (targetTab) {
+        targetTab.classList.add('active');
+    }
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
     });
 
-    // إغلاق القائمة عند اختيار قسم
-    navigationLinks.forEach(function (link) {
-        link.addEventListener("click", function () {
-            navigation.classList.remove("show");
-        });
-    });
+    if (navElement) {
+        navElement.classList.add('active');
+    } else {
+        const index = tabName === 'home' ? 0 : (tabName === 'digital' ? 1 : 2);
+        const navItems = document.querySelectorAll('.nav-item');
+        if (navItems[index]) {
+            navItems[index].classList.add('active');
+        }
+    }
 
-    // تحديد القسم الحالي أثناء التمرير
-    const sections = document.querySelectorAll("main section[id]");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-    window.addEventListener("scroll", function () {
+// عرض وإخفاء نافذة دليل الإضافة للشاشة الرئيسية
+function showInstallGuide() {
+    const modal = document.getElementById('pwa-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
 
-        let currentSection = "";
+function closeInstallGuide() {
+    const modal = document.getElementById('pwa-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
 
-        sections.forEach(function (section) {
-            const sectionTop = section.offsetTop - 120;
+// التعامل مع نموذج التواصل (يتوافق مع اللغتين)
+function handleContactSubmit(e) {
+    e.preventDefault();
+    const successMsg = currentLang === 'ar' 
+        ? 'تم استلام رسالتك بنجاح! سيتواصل معك فريق شركة أفرودار قريباً.' 
+        : 'Your message has been received successfully! Afrodar team will contact you soon.';
+    alert(successMsg);
+    e.target.reset();
+}
 
-            if (window.scrollY >= sectionTop) {
-                currentSection = section.id;
-            }
-        });
-
-        navigationLinks.forEach(function (link) {
-            link.classList.remove("active");
-
-            if (link.getAttribute("href") === "#" + currentSection) {
-                link.classList.add("active");
-            }
-        });
-
-    });
-
-});
+// دالة للتحكم بالقوائم المنسدلة (إن وجدت)
+function toggleAccordion(header) {
+    const body = header.nextElementSibling;
+    body.classList.toggle('open');
+}
