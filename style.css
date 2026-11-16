@@ -237,4 +237,15 @@ img{display:block;max-width:100%}
     border-radius: 50%;
     border: 2px solid #d4af37; /* إطار ذهبي أنيق متناسق مع الهوية */
 }
+/* حل مشكلة اقتطاع النصوص في الصناديق والملاحظات */
+.highlight-note, .closing-note, .platform-copy p {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    line-height: 1.6 !important;
+    padding: 15px !important;
+}
+
 
