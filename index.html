@@ -34,13 +34,13 @@
         .company-intro { max-width: 950px; margin: 0 auto; }
         .company-intro p { color: var(--muted); line-height: 2.1; margin-bottom: 15px; }
 
-        /* تعديل قسم الهيرو ليعرض الشعار كخلفية شفافة فنية */
+        /* ظهور اللوقو (logo.jpg) كخلفية شفافة فنية في الهيرو مباشرة */
         .hero {
             position: relative;
-            background-image: url('images/logo.png');
+            background-image: url('logo.jpg');
             background-repeat: no-repeat;
-            background-position: left center;
-            background-size: 350px;
+            background-position: center center;
+            background-size: 280px;
             overflow: hidden;
         }
 
@@ -52,7 +52,7 @@
             width: 100%;
             height: 100%;
             background: var(--navy);
-            opacity: 0.92;
+            opacity: 0.93;
             z-index: 1;
         }
 
@@ -61,7 +61,7 @@
             z-index: 2;
         }
 
-        /* تنسيق بطاقات مجالات العمل بالصور بدون تكرار أو ظهور نصوص بديلة */
+        /* تنسيق بطاقات مجالات العمل بالصور */
         .sectors-grid-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -85,7 +85,7 @@
             height: 180px;
             object-fit: cover;
             display: block;
-            text-indent: -9999px; /* لإخفاء أي نص بديل حال عدم تحميل الصورة */
+            text-indent: -9999px;
         }
         .sector-card-body {
             padding: 18px;
@@ -124,7 +124,7 @@
     <div class="container header-content">
     <a class="logo" href="#home" aria-label="AFRODAR Home">
     <span class="logo-circle">
-        <img src="images/logo.png" alt="AFRODAR">
+        <img src="logo.jpg" alt="AFRODAR">
     </span>
     <span class="logo-fallback">AFRODAR</span>
     </a>
@@ -201,7 +201,7 @@
 
             <div class="sectors-grid-cards">
                 <article class="sector-img-card">
-                    <img src="images/sectors/engineering.jpg" alt="">
+                    <img src="engineering.jpg" alt="">
                     <div class="sector-card-body">
                         <h3 data-ar="الهندسة والإنشاءات" data-en="Engineering & Construction">الهندسة والإنشاءات</h3>
                         <p data-ar="الأعمال الهندسية والبنية التحتية." data-en="Engineering works and infrastructure.">الأعمال الهندسية والبنية التحتية.</p>
@@ -209,7 +209,7 @@
                 </article>
 
                 <article class="sector-img-card">
-                    <img src="images/sectors/energy.jpg" alt="">
+                    <img src="energy.jpg" alt="">
                     <div class="sector-card-body">
                         <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Electricity">الطاقة والكهرباء</h3>
                         <p data-ar="أنظمة الطاقة والحلول الكهربائية." data-en="Power systems and electrical solutions.">أنظمة الطاقة والحلول الكهربائية.</p>
@@ -217,7 +217,7 @@
                 </article>
 
                 <article class="sector-img-card">
-                    <img src="images/sectors/oil.jpg" alt="">
+                    <img src="oil.jpg" alt="">
                     <div class="sector-card-body">
                         <h3 data-ar="خدمات النفط والطاقة" data-en="Oil & Energy Services">خدمات النفط والطاقة</h3>
                         <p data-ar="خدمات وحلول فنية لقطاع النفط." data-en="Technical services and solutions for the oil sector.">خدمات وحلول فنية لقطاع النفط.</p>
@@ -225,7 +225,7 @@
                 </article>
 
                 <article class="sector-img-card">
-                    <img src="images/sectors/tech.jpg" alt="">
+                    <img src="tech.jpg" alt="">
                     <div class="sector-card-body">
                         <h3 data-ar="التكنولوجيا والاتصالات" data-en="Technology & Telecommunications">التكنولوجيا والاتصالات</h3>
                         <p data-ar="الشبكات والحلول الرقمية والاتصال." data-en="Networks, digital solutions and communication.">الشبكات والحلول الرقمية والاتصال.</p>
@@ -233,7 +233,7 @@
                 </article>
 
                 <article class="sector-img-card">
-                    <img src="images/sectors/agriculture.jpg" alt="">
+                    <img src="agriculture.jpg" alt="">
                     <div class="sector-card-body">
                         <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
                         <p data-ar="الحلول والخدمات المرتبطة بالقطاع الزراعي." data-en="Solutions and services related to the agricultural sector.">الحلول والخدمات المرتبطة بالقطاع الزراعي.</p>
@@ -241,7 +241,7 @@
                 </article>
 
                 <article class="sector-img-card">
-                    <img src="images/sectors/mining.jpg" alt="">
+                    <img src="mining.jpg" alt="">
                     <div class="sector-card-body">
                         <h3 data-ar="التعدين والمقاولات" data-en="Mining & Contracting">التعدين والمقاولات</h3>
                         <p data-ar="أنشطة التعدين والمقاولات المتنوعة." data-en="Mining activities and various contracting.">أنشطة التعدين والمقاولات المتنوعة.</p>
