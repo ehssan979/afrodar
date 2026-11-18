@@ -34,13 +34,13 @@
         .company-intro { max-width: 950px; margin: 0 auto; }
         .company-intro p { color: var(--muted); line-height: 2.1; margin-bottom: 15px; }
 
-        /* ظهور اللوقو (logo.jpg) كخلفية شفافة فنية في الهيرو مباشرة */
+        /* جعل الشعار الخلفي واضحاً بضبط الشفافية وتوسيطه */
         .hero {
             position: relative;
             background-image: url('logo.jpg');
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: 280px;
+            background-size: 320px;
             overflow: hidden;
         }
 
@@ -52,7 +52,7 @@
             width: 100%;
             height: 100%;
             background: var(--navy);
-            opacity: 0.93;
+            opacity: 0.83; /* تم تقليل التعتيم ليظهر الشعار الخلفي بوضوح تام */
             z-index: 1;
         }
 
