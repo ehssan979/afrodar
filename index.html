@@ -61,26 +61,24 @@
             margin: 0;
         }
 
-        /* بطاقة قسم البرمجيات والحلول الرقمية بنفس نمط عناصر القائمة */
+        /* عنصر البرمجيات والحلول الرقمية بحجم أصغر وبنقطة كباقي البنود */
         .software-hub-card {
-            margin: 0 0 14px;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
+            margin: 0 0 8px;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
         }
         .software-hub-header {
-            padding: 16px 18px;
-            background: #fff;
+            padding: 6px 4px;
+            background: transparent;
             color: var(--navy);
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 14px;
+            gap: 8px;
             cursor: pointer;
             border: 0;
-            width: 100%;
+            width: auto;
+            max-width: 100%;
             text-align: right;
             font: inherit;
             font-weight: 700;
@@ -88,28 +86,33 @@
         body[dir="ltr"] .software-hub-header {
             text-align: left;
         }
-        .software-hub-header:hover,
-        .software-hub-header[aria-expanded="true"] {
-            background: #fbf8f1;
+        .software-hub-header::before {
+            content: "•";
+            color: var(--navy);
+            font-size: 14px;
+            line-height: 1;
         }
         .software-hub-header h4 {
             margin: 0;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--navy);
+            line-height: 1.6;
         }
         .software-hub-arrow {
             color: var(--gold);
-            font-size: 20px;
+            font-size: 15px;
+            line-height: 1;
             transition: transform 0.25s ease;
         }
         .software-hub-header[aria-expanded="true"] .software-hub-arrow {
             transform: rotate(180deg);
         }
         .software-hub-body {
-            padding: 12px 14px 16px;
+            padding: 10px 0 6px;
+            margin-top: 6px;
             border-top: 1px solid var(--border);
-            background: #fff;
+            background: transparent;
         }
         .software-hub-body[hidden] {
             display: none;
@@ -232,6 +235,7 @@
             .profile-trigger { padding: 16px 14px; gap: 10px; }
             .profile-title { font-size: 14px; }
             .profile-panel { padding: 4px 16px 18px; }
+            .software-hub-header h4 { font-size: 12px; }
             .sector-img-card img {
                 height: 145px;
             }
@@ -462,7 +466,7 @@
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-6" hidden>
-                        <!-- البرمجيات والحلول الرقمية كأول عنصر وبنفس نمط بقية العناصر -->
+                        <!-- البرمجيات والحلول الرقمية كأول عنصر وبنقطة كباقي البنود -->
                         <div class="software-hub-card">
                             <button class="software-hub-header" id="softwareHubToggle" type="button" aria-expanded="false" aria-controls="softwareHubBody">
                                 <h4 data-ar="البرمجيات والحلول الرقمية" data-en="Software & Digital Solutions">البرمجيات والحلول الرقمية</h4>
