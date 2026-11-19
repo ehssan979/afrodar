@@ -61,9 +61,9 @@
             margin: 0;
         }
 
-        /* بطاقة قسم تطوير البرمجيات داخل قطاع تقنية المعلومات */
+        /* بطاقة قسم البرمجيات والحلول الرقمية بنفس نمط عناصر القائمة */
         .software-hub-card {
-            margin-top: 14px;
+            margin: 0 0 14px;
             background: #fff;
             border: 1px solid var(--border);
             border-radius: 7px;
@@ -71,9 +71,9 @@
             overflow: hidden;
         }
         .software-hub-header {
-            padding: 15px 18px;
-            background: var(--navy);
-            color: #fff;
+            padding: 16px 18px;
+            background: #fff;
+            color: var(--navy);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -83,15 +83,20 @@
             width: 100%;
             text-align: right;
             font: inherit;
+            font-weight: 700;
         }
         body[dir="ltr"] .software-hub-header {
             text-align: left;
         }
+        .software-hub-header:hover,
+        .software-hub-header[aria-expanded="true"] {
+            background: #fbf8f1;
+        }
         .software-hub-header h4 {
             margin: 0;
-            font-size: 14.5px;
-            font-weight: 800;
-            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
         }
         .software-hub-arrow {
             color: var(--gold);
@@ -102,10 +107,9 @@
             transform: rotate(180deg);
         }
         .software-hub-body {
-            padding: 14px;
-            background: #faf9f6;
-            display: grid;
-            gap: 10px;
+            padding: 12px 14px 16px;
+            border-top: 1px solid var(--border);
+            background: #fff;
         }
         .software-hub-body[hidden] {
             display: none;
@@ -458,19 +462,7 @@
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-6" hidden>
-                        <ul>
-                            <li data-ar="تطوير المواقع الإلكترونية والتطبيقات." data-en="Website and application development.">تطوير المواقع الإلكترونية والتطبيقات.</li>
-                            <li data-ar="حلول الشبكات." data-en="Network solutions.">حلول الشبكات.</li>
-                            <li data-ar="أنظمة المراقبة والحماية والأمن." data-en="Surveillance, protection, and security systems.">أنظمة المراقبة والحماية والأمن.</li>
-                            <li data-ar="خدمات الدعم الفني." data-en="Technical support services.">خدمات الدعم الفني.</li>
-                            <li data-ar="صيانة أجهزة الحاسوب والطابعات." data-en="Computer and printer maintenance.">صيانة أجهزة الحاسوب والطابعات.</li>
-                            <li data-ar="الحلول السحابية." data-en="Cloud solutions.">الحلول السحابية.</li>
-                            <li data-ar="الذكاء الاصطناعي AI." data-en="Artificial Intelligence (AI).">الذكاء الاصطناعي AI.</li>
-                            <li data-ar="الأتمتة والتحول الرقمي." data-en="Automation and digital transformation.">الأتمتة والتحول الرقمي.</li>
-                            <li data-ar="إدارة وتطوير المنصات الرقمية." data-en="Digital platform management and development.">إدارة وتطوير المنصات الرقمية.</li>
-                        </ul>
-
-                        <!-- البرمجيات والحلول الرقمية داخل قطاع تقنية المعلومات -->
+                        <!-- البرمجيات والحلول الرقمية كأول عنصر وبنفس نمط بقية العناصر -->
                         <div class="software-hub-card">
                             <button class="software-hub-header" id="softwareHubToggle" type="button" aria-expanded="false" aria-controls="softwareHubBody">
                                 <h4 data-ar="البرمجيات والحلول الرقمية" data-en="Software & Digital Solutions">البرمجيات والحلول الرقمية</h4>
@@ -734,6 +726,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <ul>
+                            <li data-ar="تطوير المواقع الإلكترونية والتطبيقات." data-en="Website and application development.">تطوير المواقع الإلكترونية والتطبيقات.</li>
+                            <li data-ar="حلول الشبكات." data-en="Network solutions.">حلول الشبكات.</li>
+                            <li data-ar="أنظمة المراقبة والحماية والأمن." data-en="Surveillance, protection, and security systems.">أنظمة المراقبة والحماية والأمن.</li>
+                            <li data-ar="خدمات الدعم الفني." data-en="Technical support services.">خدمات الدعم الفني.</li>
+                            <li data-ar="صيانة أجهزة الحاسوب والطابعات." data-en="Computer and printer maintenance.">صيانة أجهزة الحاسوب والطابعات.</li>
+                            <li data-ar="الحلول السحابية." data-en="Cloud solutions.">الحلول السحابية.</li>
+                            <li data-ar="الذكاء الاصطناعي AI." data-en="Artificial Intelligence (AI).">الذكاء الاصطناعي AI.</li>
+                            <li data-ar="الأتمتة والتحول الرقمي." data-en="Automation and digital transformation.">الأتمتة والتحول الرقمي.</li>
+                            <li data-ar="إدارة وتطوير المنصات الرقمية." data-en="Digital platform management and development.">إدارة وتطوير المنصات الرقمية.</li>
+                        </ul>
                     </div>
                 </article>
 
