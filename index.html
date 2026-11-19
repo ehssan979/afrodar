@@ -34,6 +34,33 @@
         .company-intro { max-width: 950px; margin: 0 auto; }
         .company-intro p { color: var(--muted); line-height: 2.1; margin-bottom: 15px; }
 
+        /* مقدمة مجموعة الأعمال متعددة القطاعات */
+        .sectors-overview-box {
+            max-width: 950px;
+            margin: 15px auto 25px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            box-shadow: var(--shadow);
+            text-align: right;
+        }
+        body[dir="ltr"] .sectors-overview-box {
+            text-align: left;
+        }
+        .sectors-overview-box h3 {
+            color: var(--navy);
+            font-size: 18px;
+            font-weight: 800;
+            margin: 0 0 8px;
+        }
+        .sectors-overview-box p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 2;
+            margin: 0;
+        }
+
         /* بطاقة قسم تطوير البرمجيات التي تضم البنود من 01 إلى 25 */
         .software-hub-card {
             max-width: 1000px;
@@ -115,7 +142,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 25px;
             align-items: start;
         }
         .sector-img-card {
@@ -156,9 +183,9 @@
         }
         .sector-card-body h3 {
             color: var(--navy);
-            font-size: 17px;
+            font-size: 16.5px;
             font-weight: 700;
-            margin: 0 0 8px;
+            margin: 0 0 6px;
         }
         .sector-card-body p {
             color: var(--muted);
@@ -179,21 +206,18 @@
         .sector-details-panel[hidden] {
             display: none;
         }
-        .sector-details-panel p {
-            color: var(--muted);
-            font-size: 13.5px;
-            line-height: 2;
-            margin: 0 0 10px;
-        }
         .sector-details-panel ul {
             margin: 0 18px 0 0;
             padding: 0;
             color: var(--navy);
-            font-size: 13px;
-            line-height: 1.9;
+            font-size: 13.5px;
+            line-height: 1.95;
         }
         body[dir="ltr"] .sector-details-panel ul {
             margin: 0 0 0 18px;
+        }
+        .sector-details-panel li {
+            margin-bottom: 4px;
         }
 
         @media (max-width: 700px) {
@@ -282,123 +306,283 @@
     <section class="section light-section" id="sectors">
         <div class="container">
             <div class="section-heading">
-                <span data-ar="مجالات العمل بالصور" data-en="OUR BUSINESS AREAS WITH IMAGES">مجالات العمل بالصور</span>
+                <span data-ar="القطاعات الرئيسية للأعمال" data-en="MAIN BUSINESS SECTORS">القطاعات الرئيسية للأعمال</span>
                 <h2 data-ar="مجالات وأنشطة أفرودار" data-en="Afrodar Sectors & Activities">مجالات وأنشطة أفرودار</h2>
-                <p style="text-align: center; color: var(--muted); font-size: 14px; margin-top: 5px;" data-ar="صور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها." data-en="Illustrative images for company fields of work and not documentation of specific executed projects.">صور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها.</p>
                 <div class="heading-line"></div>
             </div>
 
+            <div class="sectors-overview-box">
+                <h3 data-ar="شركة أفرودار للأنشطة المتعددة المحدودة — مجموعة أعمال متعددة القطاعات" data-en="AFRODAR FOR MULTI ACTIVITIES CO. LTD — Multi-Sector Business Group">شركة أفرودار للأنشطة المتعددة المحدودة — مجموعة أعمال متعددة القطاعات</h3>
+                <p data-ar="تعمل شركة أفرودار في تطوير وتنفيذ وإدارة المشاريع والخدمات المتخصصة من خلال منظومة متكاملة من القطاعات الهندسية والتقنية والتجارية والاستثمارية. وتعتمد الشركة على الكفاءات الوطنية، والشراكات الاستراتيجية، ومقدمي الخدمات المتخصصين، مع استهداف السوق السوداني والأسواق الإقليمية والدولية." data-en="AFRODAR operates in developing, executing, and managing specialized projects and services through an integrated ecosystem of engineering, technical, commercial, and investment sectors. The company relies on national talent, strategic partnerships, and specialized service providers, targeting the Sudanese, regional, and international markets.">تعمل شركة أفرودار في تطوير وتنفيذ وإدارة المشاريع والخدمات المتخصصة من خلال منظومة متكاملة من القطاعات الهندسية والتقنية والتجارية والاستثمارية. وتعتمد الشركة على الكفاءات الوطنية، والشراكات الاستراتيجية، ومقدمي الخدمات المتخصصين، مع استهداف السوق السوداني والأسواق الإقليمية والدولية.</p>
+            </div>
+
             <div class="sectors-grid-cards">
-                <!-- 1. الهندسة والإنشاءات -->
+                <!-- 1. قطاع الهندسة والإنشاءات والمقاولات -->
                 <article class="sector-img-card">
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-1">
                         <img src="engineering.jpg" alt="">
                         <div class="sector-card-body">
-                            <h3 data-ar="الهندسة والإنشاءات" data-en="Engineering & Construction">الهندسة والإنشاءات</h3>
-                            <p data-ar="الأعمال الهندسية والبنية التحتية." data-en="Engineering works and infrastructure.">الأعمال الهندسية والبنية التحتية.</p>
+                            <h3 data-ar="1. قطاع الهندسة والإنشاءات والمقاولات" data-en="1. Engineering, Construction & Contracting">1. قطاع الهندسة والإنشاءات والمقاولات</h3>
+                            <p data-ar="الأعمال المدنية والإنشائية والطرق والبنية التحتية ومشاريع EPC." data-en="Civil, structural, roads, infrastructure, and integrated EPC projects.">الأعمال المدنية والإنشائية والطرق والبنية التحتية ومشاريع EPC.</p>
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-1" hidden>
-                        <p data-ar="يختص قطاع الهندسة والإنشاءات في أفرودار بتخطيط وتنفيذ المشاريع الهندسية والإنشائية ومشاريع البنية التحتية وفق أعلى المعايير الفنية ومعايير السلامة والجودة." data-en="AFRODAR's Engineering & Construction sector specializes in planning and executing civil, structural, and infrastructure projects in accordance with the highest technical, safety, and quality standards.">يختص قطاع الهندسة والإنشاءات في أفرودار بتخطيط وتنفيذ المشاريع الهندسية والإنشائية ومشاريع البنية التحتية وفق أعلى المعايير الفنية ومعايير السلامة والجودة.</p>
                         <ul>
-                            <li data-ar="تصميم وتنفيذ المباني والمنشآت التجارية والصناعية." data-en="Design and construction of commercial and industrial buildings.">تصميم وتنفيذ المباني والمنشآت التجارية والصناعية.</li>
-                            <li data-ar="أعمال البنية التحتية والطرق والشبكات المدنية." data-en="Infrastructure works, roads, and civil networks.">أعمال البنية التحتية والطرق والشبكات المدنية.</li>
-                            <li data-ar="الإشراف الهندسي وإدارة المشاريع والصيانة." data-en="Engineering supervision, project management, and maintenance.">الإشراف الهندسي وإدارة المشاريع والصيانة.</li>
+                            <li data-ar="الأعمال المدنية والإنشائية." data-en="Civil and construction works.">الأعمال المدنية والإنشائية.</li>
+                            <li data-ar="الطرق والبنية التحتية." data-en="Roads and infrastructure.">الطرق والبنية التحتية.</li>
+                            <li data-ar="الأعمال الكهربائية والميكانيكية." data-en="Electrical and mechanical works.">الأعمال الكهربائية والميكانيكية.</li>
+                            <li data-ar="أعمال إعادة التأهيل والصيانة." data-en="Rehabilitation and maintenance works.">أعمال إعادة التأهيل والصيانة.</li>
+                            <li data-ar="إدارة وتنفيذ المشاريع." data-en="Project management and execution.">إدارة وتنفيذ المشاريع.</li>
+                            <li data-ar="مشاريع الهندسة والتوريد والإنشاء EPC والمشاريع المتكاملة." data-en="Engineering, Procurement, and Construction (EPC) and integrated projects.">مشاريع الهندسة والتوريد والإنشاء EPC والمشاريع المتكاملة.</li>
                         </ul>
                     </div>
                 </article>
 
-                <!-- 2. الطاقة والكهرباء -->
+                <!-- 2. قطاع الاتصالات والبنية التحتية الرقمية -->
                 <article class="sector-img-card">
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-2">
-                        <img src="energy.jpg" alt="">
+                        <img src="tech.jpg" alt="">
                         <div class="sector-card-body">
-                            <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Electricity">الطاقة والكهرباء</h3>
-                            <p data-ar="أنظمة الطاقة والحلول الكهربائية." data-en="Power systems and electrical solutions.">أنظمة الطاقة والحلول الكهربائية.</p>
+                            <h3 data-ar="2. قطاع الاتصالات والبنية التحتية الرقمية" data-en="2. Telecommunications & Digital Infrastructure">2. قطاع الاتصالات والبنية التحتية الرقمية</h3>
+                            <p data-ar="شبكات الاتصالات والألياف الضوئية FTTx والمايكروويف والأبراج." data-en="Telecom networks, FTTx fiber optics, microwave systems, and towers.">شبكات الاتصالات والألياف الضوئية FTTx والمايكروويف والأبراج.</p>
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-2" hidden>
-                        <p data-ar="يوفر قطاع الطاقة والكهرباء حلولاً متكاملة لتوليد ونقل وتوزيع الطاقة الكهربائية، بالإضافة إلى أنظمة الطاقة المتجددة والبديلة لضمان استمرارية الأعمال بكفاءة عالية." data-en="The Energy & Electricity sector provides integrated solutions for power generation, transmission, and distribution, alongside renewable and alternative energy systems to ensure reliable business continuity.">يوفر قطاع الطاقة والكهرباء حلولاً متكاملة لتوليد ونقل وتوزيع الطاقة الكهربائية، بالإضافة إلى أنظمة الطاقة المتجددة والبديلة لضمان استمرارية الأعمال بكفاءة عالية.</p>
                         <ul>
-                            <li data-ar="تركيب وصيانة شبكات ومحطات التوزيع الكهربائي." data-en="Installation and maintenance of electrical distribution networks and stations.">تركيب وصيانة شبكات ومحطات التوزيع الكهربائي.</li>
-                            <li data-ar="حلول الطاقة الشمسية وأنظمة الطاقة الاحتياطية للمؤسسات." data-en="Solar energy solutions and backup power systems for organizations.">حلول الطاقة الشمسية وأنظمة الطاقة الاحتياطية للمؤسسات.</li>
-                            <li data-ar="توريد المعدات والكوابل والأنظمة الكهربائية المعتمدة." data-en="Supply of certified electrical equipment, cables, and control systems.">توريد المعدات والكوابل والأنظمة الكهربائية المعتمدة.</li>
+                            <li data-ar="شبكات الاتصالات." data-en="Telecommunications networks.">شبكات الاتصالات.</li>
+                            <li data-ar="الألياف الضوئية وتقنيات FTTx." data-en="Fiber optics and FTTx technologies.">الألياف الضوئية وتقنيات FTTx.</li>
+                            <li data-ar="أنظمة المايكروويف Microwave." data-en="Microwave systems.">أنظمة المايكروويف Microwave.</li>
+                            <li data-ar="الأبراج ومواقع الاتصالات." data-en="Towers and telecom sites.">الأبراج ومواقع الاتصالات.</li>
+                            <li data-ar="المسوحات وخدمات اختبار وقياس الشبكات Drive Test." data-en="Surveys and Drive Test network testing and measurement services.">المسوحات وخدمات اختبار وقياس الشبكات Drive Test.</li>
+                            <li data-ar="التركيب والتشغيل والاختبار والصيانة." data-en="Installation, commissioning, testing, and maintenance.">التركيب والتشغيل والاختبار والصيانة.</li>
+                            <li data-ar="أنظمة الشبكات والاتصالات." data-en="Network and communication systems.">أنظمة الشبكات والاتصالات.</li>
                         </ul>
                     </div>
                 </article>
 
-                <!-- 3. خدمات النفط والطاقة -->
+                <!-- 3. قطاع الطاقة والطاقة المتجددة -->
                 <article class="sector-img-card">
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-3">
-                        <img src="oil.jpg" alt="">
+                        <img src="energy.jpg" alt="">
                         <div class="sector-card-body">
-                            <h3 data-ar="خدمات النفط والطاقة" data-en="Oil & Energy Services">خدمات النفط والطاقة</h3>
-                            <p data-ar="خدمات وحلول فنية لقطاع النفط." data-en="Technical services and solutions for the oil sector.">خدمات وحلول فنية لقطاع النفط.</p>
+                            <h3 data-ar="3. قطاع الطاقة والطاقة المتجددة" data-en="3. Energy & Renewable Energy">3. قطاع الطاقة والطاقة المتجددة</h3>
+                            <p data-ar="الطاقة الشمسية والهجينة ومولدات الديزل وحلول الضخ والصيانة." data-en="Solar, hybrid systems, diesel generators, solar pumping, and O&M.">الطاقة الشمسية والهجينة ومولدات الديزل وحلول الضخ والصيانة.</p>
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-3" hidden>
-                        <p data-ar="يدعم قطاع خدمات النفط والطاقة العمليات الميدانية والفنية في حقول النفط والمنشآت البترولية من خلال تقديم الخدمات اللوجستية والفنية وتوريد المعدات المتخصصة." data-en="The Oil & Energy Services sector supports field and technical operations in oilfields and petroleum facilities through specialized technical services, logistics, and equipment supply.">يدعم قطاع خدمات النفط والطاقة العمليات الميدانية والفنية في حقول النفط والمنشآت البترولية من خلال تقديم الخدمات اللوجستية والفنية وتوريد المعدات المتخصصة.</p>
                         <ul>
-                            <li data-ar="خدمات صيانة ودعم آبار النفط والمنشآت الحقلية." data-en="Oilfield well maintenance and field facility support services.">خدمات صيانة ودعم آبار النفط والمنشآت الحقلية.</li>
-                            <li data-ar="توريد قطع الغيار والمعدات الصناعية ومستلزمات السلامة." data-en="Supply of industrial spare parts, equipment, and safety gear.">توريد قطع الغيار والمعدات الصناعية ومستلزمات السلامة.</li>
-                            <li data-ar="تقديم الدعم الفني واللوجستي للشركات العاملة في القطاع." data-en="Technical and logistical support for companies operating in the oil sector.">تقديم الدعم الفني واللوجستي للشركات العاملة في القطاع.</li>
+                            <li data-ar="أنظمة الطاقة الشمسية." data-en="Solar energy systems.">أنظمة الطاقة الشمسية.</li>
+                            <li data-ar="أنظمة الطاقة الهجينة." data-en="Hybrid power systems.">أنظمة الطاقة الهجينة.</li>
+                            <li data-ar="مولدات الديزل." data-en="Diesel generators.">مولدات الديزل.</li>
+                            <li data-ar="أنظمة الطاقة للمواقع والمنشآت." data-en="Power systems for sites and facilities.">أنظمة الطاقة للمواقع والمنشآت.</li>
+                            <li data-ar="أنظمة الضخ بالطاقة الشمسية." data-en="Solar pumping systems.">أنظمة الضخ بالطاقة الشمسية.</li>
+                            <li data-ar="التشغيل والصيانة." data-en="Operation and maintenance.">التشغيل والصيانة.</li>
+                            <li data-ar="حلول الطاقة للمشروعات الصناعية والزراعية." data-en="Power solutions for industrial and agricultural projects.">حلول الطاقة للمشروعات الصناعية والزراعية.</li>
                         </ul>
                     </div>
                 </article>
 
-                <!-- 4. التكنولوجيا والاتصالات -->
+                <!-- 4. قطاع النفط والغاز وخدمات الآبار -->
                 <article class="sector-img-card">
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-4">
-                        <img src="tech.jpg" alt="">
+                        <img src="oil.jpg" alt="">
                         <div class="sector-card-body">
-                            <h3 data-ar="التكنولوجيا والاتصالات" data-en="Technology & Telecommunications">التكنولوجيا والاتصالات</h3>
-                            <p data-ar="الشبكات والحلول الرقمية والاتصال." data-en="Networks, digital solutions and communication.">الشبكات والحلول الرقمية والاتصال.</p>
+                            <h3 data-ar="4. قطاع النفط والغاز وخدمات الآبار" data-en="4. Oil, Gas & Well Services">4. قطاع النفط والغاز وخدمات الآبار</h3>
+                            <p data-ar="خدمات الآبار، Wireline، الحفر الموجه، اختبار الآبار، والمعدات." data-en="Well services, wireline, directional drilling, well testing, and equipment.">خدمات الآبار، Wireline، الحفر الموجه، اختبار الآبار، والمعدات.</p>
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-4" hidden>
-                        <p data-ar="يركز قطاع التكنولوجيا والاتصالات على بناء البنية التحتية الرقمية وشبكات الاتصال الحديثة، وتطوير البرمجيات والأنظمة الذكية التي تمكّن المؤسسات من التحول الرقمي." data-en="The Technology & Telecommunications sector focuses on building modern digital and communication infrastructure, developing software, and delivering smart systems that enable digital transformation.">يركز قطاع التكنولوجيا والاتصالات على بناء البنية التحتية الرقمية وشبكات الاتصال الحديثة، وتطوير البرمجيات والأنظمة الذكية التي تمكّن المؤسسات من التحول الرقمي.</p>
                         <ul>
-                            <li data-ar="تصميم وتنفيذ شبكات الاتصالات والألياف الضوئية والربط الشبكي." data-en="Design and implementation of telecom networks, fiber optics, and connectivity.">تصميم وتنفيذ شبكات الاتصالات والألياف الضوئية والربط الشبكي.</li>
-                            <li data-ar="تطوير البرمجيات والمواقع والمنصات الرقمية والتطبيقات." data-en="Development of software, websites, digital platforms, and mobile apps.">تطوير البرمجيات والمواقع والمنصات الرقمية والتطبيقات.</li>
-                            <li data-ar="حلول أمن المعلومات والبنية السحابية والتسويق الرقمي." data-en="Information security solutions, cloud infrastructure, and digital marketing.">حلول أمن المعلومات والبنية السحابية والتسويق الرقمي.</li>
+                            <li data-ar="خدمات آبار النفط والغاز." data-en="Oil and gas well services.">خدمات آبار النفط والغاز.</li>
+                            <li data-ar="خدمات الآبار Well Services." data-en="Well Services.">خدمات الآبار Well Services.</li>
+                            <li data-ar="خدمات Wireline." data-en="Wireline services.">خدمات Wireline.</li>
+                            <li data-ar="أدوات قاع البئر Downhole Tools." data-en="Downhole Tools.">أدوات قاع البئر Downhole Tools.</li>
+                            <li data-ar="الحفر الموجه/المائل Directional Drilling." data-en="Directional Drilling.">الحفر الموجه/المائل Directional Drilling.</li>
+                            <li data-ar="اختبار الآبار Well Testing." data-en="Well Testing.">اختبار الآبار Well Testing.</li>
+                            <li data-ar="خدمات الأنابيب الملفوفة Coiled Tubing." data-en="Coiled Tubing services.">خدمات الأنابيب الملفوفة Coiled Tubing.</li>
+                            <li data-ar="خدمات الإسمنت Cementing." data-en="Cementing services.">خدمات الإسمنت Cementing.</li>
+                            <li data-ar="المضخات Pumps." data-en="Pumps.">المضخات Pumps.</li>
+                            <li data-ar="معدات حقول النفط وخدمات الدعم الفني." data-en="Oilfield equipment and technical support services.">معدات حقول النفط وخدمات الدعم الفني.</li>
                         </ul>
                     </div>
                 </article>
 
-                <!-- 5. الخدمات الزراعية -->
+                <!-- 5. قطاع التعدين والموارد المعدنية -->
                 <article class="sector-img-card">
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-5">
-                        <img src="agriculture.jpg" alt="">
+                        <img src="mining.jpg" alt="">
                         <div class="sector-card-body">
-                            <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
-                            <p data-ar="الحلول والخدمات المرتبطة بالقطاع الزراعي." data-en="Solutions and services related to the agricultural sector.">الحلول والخدمات المرتبطة بالقطاع الزراعي.</p>
+                            <h3 data-ar="5. قطاع التعدين والموارد المعدنية" data-en="5. Mining & Mineral Resources">5. قطاع التعدين والموارد المعدنية</h3>
+                            <p data-ar="الاستكشاف الجيولوجي والمسوحات ومعالجة الخامات وشراكات الذهب." data-en="Geological exploration, geophysical surveys, ore processing, and gold partnerships.">الاستكشاف الجيولوجي والمسوحات ومعالجة الخامات وشراكات الذهب.</p>
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-5" hidden>
-                        <p data-ar="يساهم قطاع الخدمات الزراعية في دعم الإنتاج الزراعي وتطوير سلاسل الإمداد من خلال توفير المدخلات الزراعية الحديثة وأنظمة الري والتقنيات الداعمة للمشاريع الزراعية." data-en="The Agricultural Services sector contributes to enhancing agricultural production and supply chains by providing modern agricultural inputs, irrigation systems, and supporting technologies.">يساهم قطاع الخدمات الزراعية في دعم الإنتاج الزراعي وتطوير سلاسل الإمداد من خلال توفير المدخلات الزراعية الحديثة وأنظمة الري والتقنيات الداعمة للمشاريع الزراعية.</p>
                         <ul>
-                            <li data-ar="توريد الآليات الزراعية وأنظمة الري الحديثة." data-en="Supply of agricultural machinery and modern irrigation systems.">توريد الآليات الزراعية وأنظمة الري الحديثة.</li>
-                            <li data-ar="توفير المدخلات الزراعية والأسمدة والبذور المحسنة." data-en="Provision of agricultural inputs, fertilizers, and improved seeds.">توفير المدخلات الزراعية والأسمدة والبذور المحسنة.</li>
-                            <li data-ar="دعم مشاريع الإنتاج الزراعي والحيواني والتصنيع الغذائي." data-en="Supporting crop, livestock production, and food processing projects.">دعم مشاريع الإنتاج الزراعي والحيواني والتصنيع الغذائي.</li>
+                            <li data-ar="الاستكشاف الجيولوجي." data-en="Geological exploration.">الاستكشاف الجيولوجي.</li>
+                            <li data-ar="المسوحات الجيوفيزيائية." data-en="Geophysical surveys.">المسوحات الجيوفيزيائية.</li>
+                            <li data-ar="خدمات التعدين." data-en="Mining services.">خدمات التعدين.</li>
+                            <li data-ar="معالجة الخامات المعدنية." data-en="Mineral ore processing.">معالجة الخامات المعدنية.</li>
+                            <li data-ar="معدات التعدين والخدمات ذات الصلة." data-en="Mining equipment and related services.">معدات التعدين والخدمات ذات الصلة.</li>
+                            <li data-ar="تطوير المشاريع التعدينية." data-en="Mining project development.">تطوير المشاريع التعدينية.</li>
+                            <li data-ar="الشراكات الاستراتيجية والاستثمار في مشاريع الذهب والمعادن." data-en="Strategic partnerships and investments in gold and mineral projects.">الشراكات الاستراتيجية والاستثمار في مشاريع الذهب والمعادن.</li>
                         </ul>
                     </div>
                 </article>
 
-                <!-- 6. التعدين والمقاولات -->
+                <!-- 6. قطاع تقنية المعلومات والتحول الرقمي -->
                 <article class="sector-img-card">
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-6">
-                        <img src="mining.jpg" alt="">
+                        <img src="it.jpg" alt="">
                         <div class="sector-card-body">
-                            <h3 data-ar="التعدين والمقاولات" data-en="Mining & Contracting">التعدين والمقاولات</h3>
-                            <p data-ar="أنشطة التعدين والمقاولات المتنوعة." data-en="Mining activities and various contracting.">أنشطة التعدين والمقاولات المتنوعة.</p>
+                            <h3 data-ar="6. قطاع تقنية المعلومات والتحول الرقمي" data-en="6. IT & Digital Transformation">6. قطاع تقنية المعلومات والتحول الرقمي</h3>
+                            <p data-ar="تطوير المواقع والتطبيقات والشبكات والأمن والحلول السحابية والذكاء الاصطناعي." data-en="Web/app development, networks, security, cloud solutions, AI, and automation.">تطوير المواقع والتطبيقات والشبكات والأمن والحلول السحابية والذكاء الاصطناعي.</p>
                         </div>
                     </button>
                     <div class="sector-details-panel" id="sector-detail-6" hidden>
-                        <p data-ar="يعمل قطاع التعدين والمقاولات في استكشاف وتطوير الموارد المعدنية وتنفيذ عقود المقاولات العامة والمتخصصة وفق معايير الاستدامة والكفاءة التشغيلية." data-en="The Mining & Contracting sector operates in mineral resource exploration and development as well as general and specialized contracting in line with sustainability and operational efficiency standards.">يعمل قطاع التعدين والمقاولات في استكشاف وتطوير الموارد المعدنية وتنفيذ عقود المقاولات العامة والمتخصصة وفق معايير الاستدامة والكفاءة التشغيلية.</p>
                         <ul>
-                            <li data-ar="خدمات الاستكشاف الجيولوجي والدعم الفني لمواقع التعدين." data-en="Geological exploration services and technical support for mining sites.">خدمات الاستكشاف الجيولوجي والدعم الفني لمواقع التعدين.</li>
-                            <li data-ar="توريد معدات وآليات التعدين ومستلزمات التشغيل." data-en="Supply of mining equipment, machinery, and operational supplies.">توريد معدات وآليات التعدين ومستلزمات التشغيل.</li>
-                            <li data-ar="تنفيذ مشاريع المقاولات العامة وأعمال التهيئة الميدانية." data-en="Execution of general contracting projects and site preparation works.">تنفيذ مشاريع المقاولات العامة وأعمال التهيئة الميدانية.</li>
+                            <li data-ar="تطوير المواقع الإلكترونية والتطبيقات." data-en="Website and application development.">تطوير المواقع الإلكترونية والتطبيقات.</li>
+                            <li data-ar="حلول الشبكات." data-en="Network solutions.">حلول الشبكات.</li>
+                            <li data-ar="أنظمة المراقبة والحماية والأمن." data-en="Surveillance, protection, and security systems.">أنظمة المراقبة والحماية والأمن.</li>
+                            <li data-ar="خدمات الدعم الفني." data-en="Technical support services.">خدمات الدعم الفني.</li>
+                            <li data-ar="صيانة أجهزة الحاسوب والطابعات." data-en="Computer and printer maintenance.">صيانة أجهزة الحاسوب والطابعات.</li>
+                            <li data-ar="الحلول السحابية." data-en="Cloud solutions.">الحلول السحابية.</li>
+                            <li data-ar="الذكاء الاصطناعي AI." data-en="Artificial Intelligence (AI).">الذكاء الاصطناعي AI.</li>
+                            <li data-ar="الأتمتة والتحول الرقمي." data-en="Automation and digital transformation.">الأتمتة والتحول الرقمي.</li>
+                            <li data-ar="إدارة وتطوير المنصات الرقمية." data-en="Digital platform management and development.">إدارة وتطوير المنصات الرقمية.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 7. قطاع الصحة والسلامة المهنية والبيئة HSE -->
+                <article class="sector-img-card">
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-7">
+                        <img src="hse.jpg" alt="">
+                        <div class="sector-card-body">
+                            <h3 data-ar="7. قطاع الصحة والسلامة المهنية والبيئة HSE" data-en="7. Health, Safety & Environment (HSE)">7. قطاع الصحة والسلامة المهنية والبيئة HSE</h3>
+                            <p data-ar="السلامة المهنية والصناعية وإدارة البيئة وتقييم المخاطر وأنظمة HSE." data-en="Occupational and industrial safety, environmental management, risk assessment, and HSE systems.">السلامة المهنية والصناعية وإدارة البيئة وتقييم المخاطر وأنظمة HSE.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-7" hidden>
+                        <ul>
+                            <li data-ar="الصحة والسلامة المهنية." data-en="Occupational health and safety.">الصحة والسلامة المهنية.</li>
+                            <li data-ar="السلامة الصناعية." data-en="Industrial safety.">السلامة الصناعية.</li>
+                            <li data-ar="الخدمات البيئية العامة." data-en="General environmental services.">الخدمات البيئية العامة.</li>
+                            <li data-ar="إدارة بيئة العمل." data-en="Workplace environment management.">إدارة بيئة العمل.</li>
+                            <li data-ar="تقييم المخاطر." data-en="Risk assessment.">تقييم المخاطر.</li>
+                            <li data-ar="أنظمة إدارة الصحة والسلامة والبيئة HSE." data-en="HSE management systems.">أنظمة إدارة الصحة والسلامة والبيئة HSE.</li>
+                            <li data-ar="التدريب والتطوير المهني." data-en="Vocational training and development.">التدريب والتطوير المهني.</li>
+                            <li data-ar="الشهادات المهنية والبرامج المتخصصة من خلال الشراكات مع المؤسسات المعتمدة والجهات المتخصصة." data-en="Professional certifications and specialized programs through partnerships with accredited institutions and specialized bodies.">الشهادات المهنية والبرامج المتخصصة من خلال الشراكات مع المؤسسات المعتمدة والجهات المتخصصة.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 8. قطاع الزراعة والثروة الحيوانية والمشروعات الإنتاجية -->
+                <article class="sector-img-card">
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-8">
+                        <img src="agriculture.jpg" alt="">
+                        <div class="sector-card-body">
+                            <h3 data-ar="8. قطاع الزراعة والثروة الحيوانية والمشروعات الإنتاجية" data-en="8. Agriculture, Livestock & Productive Projects">8. قطاع الزراعة والثروة الحيوانية والمشروعات الإنتاجية</h3>
+                            <p data-ar="المشروعات الزراعية وحلول الري والأعلاف والاستزراع السمكي والتصنيع الغذائي." data-en="Agricultural projects, irrigation, feed production, aquaculture, and food processing.">المشروعات الزراعية وحلول الري والأعلاف والاستزراع السمكي والتصنيع الغذائي.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-8" hidden>
+                        <ul>
+                            <li data-ar="المشروعات الزراعية." data-en="Agricultural projects.">المشروعات الزراعية.</li>
+                            <li data-ar="حلول الري والطاقة الزراعية." data-en="Irrigation and agricultural energy solutions.">حلول الري والطاقة الزراعية.</li>
+                            <li data-ar="إنتاج الأعلاف." data-en="Feed production.">إنتاج الأعلاف.</li>
+                            <li data-ar="الاستزراع السمكي." data-en="Aquaculture.">الاستزراع السمكي.</li>
+                            <li data-ar="الإنتاج الحيواني." data-en="Livestock production.">الإنتاج الحيواني.</li>
+                            <li data-ar="التصنيع الغذائي." data-en="Food processing.">التصنيع الغذائي.</li>
+                            <li data-ar="تطوير المشاريع الزراعية والاستثمارية." data-en="Development of agricultural and investment projects.">تطوير المشاريع الزراعية والاستثمارية.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 9. قطاع التجارة والتوريد والخدمات اللوجستية -->
+                <article class="sector-img-card">
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-9">
+                        <img src="trade.jpg" alt="">
+                        <div class="sector-card-body">
+                            <h3 data-ar="9. قطاع التجارة والتوريد والخدمات اللوجستية" data-en="9. Trade, Supply & Logistics Services">9. قطاع التجارة والتوريد والخدمات اللوجستية</h3>
+                            <p data-ar="الاستيراد والتصدير والتوريد وسلاسل الإمداد والخدمات اللوجستية والوكالات." data-en="Import/export, supply, supply chain management, logistics, and commercial agencies.">الاستيراد والتصدير والتوريد وسلاسل الإمداد والخدمات اللوجستية والوكالات.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-9" hidden>
+                        <ul>
+                            <li data-ar="الاستيراد والتصدير." data-en="Import and export.">الاستيراد والتصدير.</li>
+                            <li data-ar="التوريد العام والمتخصص." data-en="General and specialized supply.">التوريد العام والمتخصص.</li>
+                            <li data-ar="المعدات والآليات." data-en="Equipment and machinery.">المعدات والآليات.</li>
+                            <li data-ar="قطع الغيار." data-en="Spare parts.">قطع الغيار.</li>
+                            <li data-ar="المواد الصناعية." data-en="Industrial materials.">المواد الصناعية.</li>
+                            <li data-ar="إدارة سلاسل الإمداد." data-en="Supply chain management.">إدارة سلاسل الإمداد.</li>
+                            <li data-ar="الخدمات اللوجستية." data-en="Logistics services.">الخدمات اللوجستية.</li>
+                            <li data-ar="الوكالات والتمثيل التجاري." data-en="Agencies and commercial representation.">الوكالات والتمثيل التجاري.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 10. قطاع الخدمات المالية وترتيب تمويل المشاريع -->
+                <article class="sector-img-card">
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-10">
+                        <img src="finance.jpg" alt="">
+                        <div class="sector-card-body">
+                            <h3 data-ar="10. قطاع الخدمات المالية وترتيب تمويل المشاريع" data-en="10. Financial Services & Project Finance Structuring">10. قطاع الخدمات المالية وترتيب تمويل المشاريع</h3>
+                            <p data-ar="ترتيب تمويل المشاريع وهيكلة المعاملات والتمويل التجاري والشراكات." data-en="Project financing arrangement, deal structuring, trade finance, and partnerships.">ترتيب تمويل المشاريع وهيكلة المعاملات والتمويل التجاري والشراكات.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-10" hidden>
+                        <ul>
+                            <li data-ar="ترتيب تمويل المشاريع." data-en="Project financing arrangement.">ترتيب تمويل المشاريع.</li>
+                            <li data-ar="هيكلة المعاملات التجارية." data-en="Commercial transaction structuring.">هيكلة المعاملات التجارية.</li>
+                            <li data-ar="التمويل المصرفي من خلال البنوك والشركاء المعتمدين." data-en="Banking finance through accredited banks and partners.">التمويل المصرفي من خلال البنوك والشركاء المعتمدين.</li>
+                            <li data-ar="التمويل التجاري Trade Finance." data-en="Trade Finance.">التمويل التجاري Trade Finance.</li>
+                            <li data-ar="حلول تمويل المشاريع." data-en="Project financing solutions.">حلول تمويل المشاريع.</li>
+                            <li data-ar="الشراكات الاستثمارية." data-en="Investment partnerships.">الشراكات الاستثمارية.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 11. قطاع التدريب والتطوير المهني -->
+                <article class="sector-img-card">
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-11">
+                        <img src="training.jpg" alt="">
+                        <div class="sector-card-body">
+                            <h3 data-ar="11. قطاع التدريب والتطوير المهني" data-en="11. Training & Professional Development">11. قطاع التدريب والتطوير المهني</h3>
+                            <p data-ar="التدريب الفني والهندسي والاتصالات وHSE والإدارة والتحول الرقمي." data-en="Technical, engineering, telecom, HSE, management, and digital transformation training.">التدريب الفني والهندسي والاتصالات وHSE والإدارة والتحول الرقمي.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-11" hidden>
+                        <ul>
+                            <li data-ar="التدريب الفني." data-en="Technical training.">التدريب الفني.</li>
+                            <li data-ar="التدريب الهندسي." data-en="Engineering training.">التدريب الهندسي.</li>
+                            <li data-ar="التدريب في مجال الاتصالات." data-en="Telecommunications training.">التدريب في مجال الاتصالات.</li>
+                            <li data-ar="التدريب في مجال الصحة والسلامة والبيئة HSE." data-en="Health, Safety, and Environment (HSE) training.">التدريب في مجال الصحة والسلامة والبيئة HSE.</li>
+                            <li data-ar="التدريب الإداري وإدارة المشاريع." data-en="Administrative and project management training.">التدريب الإداري وإدارة المشاريع.</li>
+                            <li data-ar="التدريب في مجال التحول الرقمي." data-en="Digital transformation training.">التدريب في مجال التحول الرقمي.</li>
+                            <li data-ar="برامج التأهيل المهني بالتعاون مع مراكز التدريب المتخصصة والمؤسسات المعتمدة." data-en="Vocational qualification programs in cooperation with specialized training centers and accredited institutions.">برامج التأهيل المهني بالتعاون مع مراكز التدريب المتخصصة والمؤسسات المعتمدة.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 12. قطاع الاستثمار وتطوير الأعمال -->
+                <article class="sector-img-card">
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-12">
+                        <img src="investment.jpg" alt="">
+                        <div class="sector-card-body">
+                            <h3 data-ar="12. قطاع الاستثمار وتطوير الأعمال" data-en="12. Investment & Business Development">12. قطاع الاستثمار وتطوير الأعمال</h3>
+                            <p data-ar="تطوير المشاريع ودراسات الجدوى والمشاريع المشتركة ودخول الأسواق." data-en="Project development, feasibility studies, joint ventures, and market expansion.">تطوير المشاريع ودراسات الجدوى والمشاريع المشتركة ودخول الأسواق.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-12" hidden>
+                        <ul>
+                            <li data-ar="تطوير المشاريع." data-en="Project development.">تطوير المشاريع.</li>
+                            <li data-ar="إعداد دراسات الجدوى." data-en="Feasibility studies preparation.">إعداد دراسات الجدوى.</li>
+                            <li data-ar="الشراكات الاستثمارية." data-en="Investment partnerships.">الشراكات الاستثمارية.</li>
+                            <li data-ar="المشاريع المشتركة Joint Ventures." data-en="Joint Ventures.">المشاريع المشتركة Joint Ventures.</li>
+                            <li data-ar="تطوير الأعمال." data-en="Business development.">تطوير الأعمال.</li>
+                            <li data-ar="التمثيل التجاري." data-en="Commercial representation.">التمثيل التجاري.</li>
+                            <li data-ar="دخول الأسواق والتوسع فيها." data-en="Market entry and expansion.">دخول الأسواق والتوسع فيها.</li>
+                            <li data-ar="إدارة المشاريع الاستثمارية." data-en="Investment project management.">إدارة المشاريع الاستثمارية.</li>
                         </ul>
                     </div>
                 </article>
@@ -771,7 +955,7 @@
             <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
             <a href="#sectors" data-ar="قطاعاتنا" data-en="Sectors">قطاعاتنا</a>
             <a href="#digital" data-ar="الحلول الرقمية" data-en="Digital">الحلول الرقمية</a>
-            <a href="#contact" data-en="Contact">تواصل</a>
+            <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
         </div>
     </div>
     <div class="copyright">© <span id="year"></span> AFRODAR. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></div>
@@ -787,7 +971,7 @@
 
 <script src="script.js"></script>
 <script>
-    // فتح وإغلاق تفاصيل بطاقات مجالات العمل بالصور (القطاعات الستة)
+    // فتح وإغلاق تفاصيل بطاقات مجالات العمل بالصور (القطاعات الـ 12)
     document.querySelectorAll(".sector-card-trigger").forEach(function (button) {
         button.addEventListener("click", function () {
             const panel = document.getElementById(button.getAttribute("aria-controls"));
