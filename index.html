@@ -34,6 +34,61 @@
         .company-intro { max-width: 950px; margin: 0 auto; }
         .company-intro p { color: var(--muted); line-height: 2.1; margin-bottom: 15px; }
 
+        /* بطاقة قسم تطوير البرمجيات التي تضم البنود من 01 إلى 25 */
+        .software-hub-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .software-hub-header {
+            padding: 22px 24px;
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            cursor: pointer;
+            border: 0;
+            width: 100%;
+            text-align: right;
+            font: inherit;
+        }
+        body[dir="ltr"] .software-hub-header {
+            text-align: left;
+        }
+        .software-hub-header h3 {
+            margin: 0 0 4px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .software-hub-header p {
+            margin: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.82);
+        }
+        .software-hub-badge {
+            background: var(--gold);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .software-hub-body {
+            padding: 20px;
+            background: #faf9f6;
+        }
+        .software-hub-body[hidden] {
+            display: none;
+        }
+
         /* جعل الشعار الخلفي واضحاً بضبط الشفافية وتوسيطه */
         .hero {
             position: relative;
@@ -52,7 +107,7 @@
             width: 100%;
             height: 100%;
             background: var(--navy);
-            opacity: 0.83; /* تم تقليل التعتيم ليظهر الشعار الخلفي بوضوح تام */
+            opacity: 0.83;
             z-index: 1;
         }
 
@@ -61,12 +116,13 @@
             z-index: 2;
         }
 
-        /* تنسيق بطاقات مجالات العمل بالصور */
+        /* تنسيق بطاقات مجالات العمل بالصور القابلة للضغط */
         .sectors-grid-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin-top: 30px;
+            align-items: start;
         }
         .sector-img-card {
             background: #fff;
@@ -76,9 +132,23 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .sector-img-card:hover {
-            transform: translateY(-5px);
+        .sector-img-card:hover,
+        .sector-img-card.is-open {
+            transform: translateY(-4px);
             border-color: var(--gold);
+        }
+        .sector-card-trigger {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            font: inherit;
+            text-align: right;
+        }
+        body[dir="ltr"] .sector-card-trigger {
+            text-align: left;
         }
         .sector-img-card img {
             width: 100%;
@@ -89,22 +159,60 @@
         }
         .sector-card-body {
             padding: 18px;
-            text-align: right;
         }
-        body[dir="ltr"] .sector-card-body {
-            text-align: left;
+        .sector-card-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
         }
         .sector-card-body h3 {
             color: var(--navy);
             font-size: 17px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin: 0;
+        }
+        .sector-toggle-hint {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
         }
         .sector-card-body p {
             color: var(--muted);
             font-size: 13px;
             line-height: 1.8;
             margin: 0;
+        }
+        .sector-details-panel {
+            padding: 14px 18px 18px;
+            border-top: 1px solid var(--border);
+            background: #fbf8f1;
+            color: var(--navy);
+            text-align: right;
+        }
+        body[dir="ltr"] .sector-details-panel {
+            text-align: left;
+        }
+        .sector-details-panel[hidden] {
+            display: none;
+        }
+        .sector-details-panel p {
+            color: var(--muted);
+            font-size: 13.5px;
+            line-height: 2;
+            margin: 0 0 10px;
+        }
+        .sector-details-panel ul {
+            margin: 0 18px 0 0;
+            padding: 0;
+            color: var(--navy);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+        body[dir="ltr"] .sector-details-panel ul {
+            margin: 0 0 0 18px;
         }
 
         @media (max-width: 700px) {
@@ -113,6 +221,10 @@
             .profile-panel { padding: 4px 16px 18px; }
             .sectors-grid-cards {
                 grid-template-columns: 1fr;
+            }
+            .software-hub-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -195,56 +307,140 @@
             <div class="section-heading">
                 <span data-ar="مجالات العمل بالصور" data-en="OUR BUSINESS AREAS WITH IMAGES">مجالات العمل بالصور</span>
                 <h2 data-ar="مجالات وأنشطة أفرودار" data-en="Afrodar Sectors & Activities">مجالات وأنشطة أفرودار</h2>
-                <p style="text-align: center; color: var(--muted); font-size: 14px; margin-top: 5px;" data-ar="صور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها." data-en="Illustrative images for company fields of work and not documentation of specific executed projects.">صور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها.</p>
+                <p style="text-align: center; color: var(--muted); font-size: 14px; margin-top: 5px;" data-ar="اضغط على أي قطاع لعرض نبذة تفصيلية عنه (الصور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها)." data-en="Click on any sector to view a detailed overview (illustrative images for company fields of work and not documentation of specific executed projects).">اضغط على أي قطاع لعرض نبذة تفصيلية عنه (الصور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها).</p>
                 <div class="heading-line"></div>
             </div>
 
             <div class="sectors-grid-cards">
+                <!-- 1. الهندسة والإنشاءات -->
                 <article class="sector-img-card">
-                    <img src="engineering.jpg" alt="">
-                    <div class="sector-card-body">
-                        <h3 data-ar="الهندسة والإنشاءات" data-en="Engineering & Construction">الهندسة والإنشاءات</h3>
-                        <p data-ar="الأعمال الهندسية والبنية التحتية." data-en="Engineering works and infrastructure.">الأعمال الهندسية والبنية التحتية.</p>
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-1">
+                        <img src="engineering.jpg" alt="">
+                        <div class="sector-card-body">
+                            <div class="sector-card-header-row">
+                                <h3 data-ar="الهندسة والإنشاءات" data-en="Engineering & Construction">الهندسة والإنشاءات</h3>
+                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
+                            </div>
+                            <p data-ar="الأعمال الهندسية والبنية التحتية." data-en="Engineering works and infrastructure.">الأعمال الهندسية والبنية التحتية.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-1" hidden>
+                        <p data-ar="يختص قطاع الهندسة والإنشاءات في أفرودار بتخطيط وتنفيذ المشاريع الهندسية والإنشائية ومشاريع البنية التحتية وفق أعلى المعايير الفنية ومعايير السلامة والجودة." data-en="AFRODAR's Engineering & Construction sector specializes in planning and executing civil, structural, and infrastructure projects in accordance with the highest technical, safety, and quality standards.">يختص قطاع الهندسة والإنشاءات في أفرودار بتخطيط وتنفيذ المشاريع الهندسية والإنشائية ومشاريع البنية التحتية وفق أعلى المعايير الفنية ومعايير السلامة والجودة.</p>
+                        <ul>
+                            <li data-ar="تصميم وتنفيذ المباني والمنشآت التجارية والصناعية." data-en="Design and construction of commercial and industrial buildings.">تصميم وتنفيذ المباني والمنشآت التجارية والصناعية.</li>
+                            <li data-ar="أعمال البنية التحتية والطرق والشبكات المدنية." data-en="Infrastructure works, roads, and civil networks.">أعمال البنية التحتية والطرق والشبكات المدنية.</li>
+                            <li data-ar="الإشراف الهندسي وإدارة المشاريع والصيانة." data-en="Engineering supervision, project management, and maintenance.">الإشراف الهندسي وإدارة المشاريع والصيانة.</li>
+                        </ul>
                     </div>
                 </article>
 
+                <!-- 2. الطاقة والكهرباء -->
                 <article class="sector-img-card">
-                    <img src="energy.jpg" alt="">
-                    <div class="sector-card-body">
-                        <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Electricity">الطاقة والكهرباء</h3>
-                        <p data-ar="أنظمة الطاقة والحلول الكهربائية." data-en="Power systems and electrical solutions.">أنظمة الطاقة والحلول الكهربائية.</p>
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-2">
+                        <img src="energy.jpg" alt="">
+                        <div class="sector-card-body">
+                            <div class="sector-card-header-row">
+                                <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Electricity">الطاقة والكهرباء</h3>
+                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
+                            </div>
+                            <p data-ar="أنظمة الطاقة والحلول الكهربائية." data-en="Power systems and electrical solutions.">أنظمة الطاقة والحلول الكهربائية.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-2" hidden>
+                        <p data-ar="يوفر قطاع الطاقة والكهرباء حلولاً متكاملة لتوليد ونقل وتوزيع الطاقة الكهربائية، بالإضافة إلى أنظمة الطاقة المتجددة والبديلة لضمان استمرارية الأعمال بكفاءة عالية." data-en="The Energy & Electricity sector provides integrated solutions for power generation, transmission, and distribution, alongside renewable and alternative energy systems to ensure reliable business continuity.">يوفر قطاع الطاقة والكهرباء حلولاً متكاملة لتوليد ونقل وتوزيع الطاقة الكهربائية، بالإضافة إلى أنظمة الطاقة المتجددة والبديلة لضمان استمرارية الأعمال بكفاءة عالية.</p>
+                        <ul>
+                            <li data-ar="تركيب وصيانة شبكات ومحطات التوزيع الكهربائي." data-en="Installation and maintenance of electrical distribution networks and stations.">تركيب وصيانة شبكات ومحطات التوزيع الكهربائي.</li>
+                            <li data-ar="حلول الطاقة الشمسية وأنظمة الطاقة الاحتياطية للمؤسسات." data-en="Solar energy solutions and backup power systems for organizations.">حلول الطاقة الشمسية وأنظمة الطاقة الاحتياطية للمؤسسات.</li>
+                            <li data-ar="توريد المعدات والكوابل والأنظمة الكهربائية المعتمدة." data-en="Supply of certified electrical equipment, cables, and control systems.">توريد المعدات والكوابل والأنظمة الكهربائية المعتمدة.</li>
+                        </ul>
                     </div>
                 </article>
 
+                <!-- 3. خدمات النفط والطاقة -->
                 <article class="sector-img-card">
-                    <img src="oil.jpg" alt="">
-                    <div class="sector-card-body">
-                        <h3 data-ar="خدمات النفط والطاقة" data-en="Oil & Energy Services">خدمات النفط والطاقة</h3>
-                        <p data-ar="خدمات وحلول فنية لقطاع النفط." data-en="Technical services and solutions for the oil sector.">خدمات وحلول فنية لقطاع النفط.</p>
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-3">
+                        <img src="oil.jpg" alt="">
+                        <div class="sector-card-body">
+                            <div class="sector-card-header-row">
+                                <h3 data-ar="خدمات النفط والطاقة" data-en="Oil & Energy Services">خدمات النفط والطاقة</h3>
+                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
+                            </div>
+                            <p data-ar="خدمات وحلول فنية لقطاع النفط." data-en="Technical services and solutions for the oil sector.">خدمات وحلول فنية لقطاع النفط.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-3" hidden>
+                        <p data-ar="يدعم قطاع خدمات النفط والطاقة العمليات الميدانية والفنية في حقول النفط والمنشآت البترولية من خلال تقديم الخدمات اللوجستية والفنية وتوريد المعدات المتخصصة." data-en="The Oil & Energy Services sector supports field and technical operations in oilfields and petroleum facilities through specialized technical services, logistics, and equipment supply.">يدعم قطاع خدمات النفط والطاقة العمليات الميدانية والفنية في حقول النفط والمنشآت البترولية من خلال تقديم الخدمات اللوجستية والفنية وتوريد المعدات المتخصصة.</p>
+                        <ul>
+                            <li data-ar="خدمات صيانة ودعم آبار النفط والمنشآت الحقلية." data-en="Oilfield well maintenance and field facility support services.">خدمات صيانة ودعم آبار النفط والمنشآت الحقلية.</li>
+                            <li data-ar="توريد قطع الغيار والمعدات الصناعية ومستلزمات السلامة." data-en="Supply of industrial spare parts, equipment, and safety gear.">توريد قطع الغيار والمعدات الصناعية ومستلزمات السلامة.</li>
+                            <li data-ar="تقديم الدعم الفني واللوجستي للشركات العاملة في القطاع." data-en="Technical and logistical support for companies operating in the oil sector.">تقديم الدعم الفني واللوجستي للشركات العاملة في القطاع.</li>
+                        </ul>
                     </div>
                 </article>
 
+                <!-- 4. التكنولوجيا والاتصالات -->
                 <article class="sector-img-card">
-                    <img src="tech.jpg" alt="">
-                    <div class="sector-card-body">
-                        <h3 data-ar="التكنولوجيا والاتصالات" data-en="Technology & Telecommunications">التكنولوجيا والاتصالات</h3>
-                        <p data-ar="الشبكات والحلول الرقمية والاتصال." data-en="Networks, digital solutions and communication.">الشبكات والحلول الرقمية والاتصال.</p>
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-4">
+                        <img src="tech.jpg" alt="">
+                        <div class="sector-card-body">
+                            <div class="sector-card-header-row">
+                                <h3 data-ar="التكنولوجيا والاتصالات" data-en="Technology & Telecommunications">التكنولوجيا والاتصالات</h3>
+                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
+                            </div>
+                            <p data-ar="الشبكات والحلول الرقمية والاتصال." data-en="Networks, digital solutions and communication.">الشبكات والحلول الرقمية والاتصال.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-4" hidden>
+                        <p data-ar="يركز قطاع التكنولوجيا والاتصالات على بناء البنية التحتية الرقمية وشبكات الاتصال الحديثة، وتطوير البرمجيات والأنظمة الذكية التي تمكّن المؤسسات من التحول الرقمي." data-en="The Technology & Telecommunications sector focuses on building modern digital and communication infrastructure, developing software, and delivering smart systems that enable digital transformation.">يركز قطاع التكنولوجيا والاتصالات على بناء البنية التحتية الرقمية وشبكات الاتصال الحديثة، وتطوير البرمجيات والأنظمة الذكية التي تمكّن المؤسسات من التحول الرقمي.</p>
+                        <ul>
+                            <li data-ar="تصميم وتنفيذ شبكات الاتصالات والألياف الضوئية والربط الشبكي." data-en="Design and implementation of telecom networks, fiber optics, and connectivity.">تصميم وتنفيذ شبكات الاتصالات والألياف الضوئية والربط الشبكي.</li>
+                            <li data-ar="تطوير البرمجيات والمواقع والمنصات الرقمية والتطبيقات." data-en="Development of software, websites, digital platforms, and mobile apps.">تطوير البرمجيات والمواقع والمنصات الرقمية والتطبيقات.</li>
+                            <li data-ar="حلول أمن المعلومات والبنية السحابية والتسويق الرقمي." data-en="Information security solutions, cloud infrastructure, and digital marketing.">حلول أمن المعلومات والبنية السحابية والتسويق الرقمي.</li>
+                        </ul>
                     </div>
                 </article>
 
+                <!-- 5. الخدمات الزراعية -->
                 <article class="sector-img-card">
-                    <img src="agriculture.jpg" alt="">
-                    <div class="sector-card-body">
-                        <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
-                        <p data-ar="الحلول والخدمات المرتبطة بالقطاع الزراعي." data-en="Solutions and services related to the agricultural sector.">الحلول والخدمات المرتبطة بالقطاع الزراعي.</p>
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-5">
+                        <img src="agriculture.jpg" alt="">
+                        <div class="sector-card-body">
+                            <div class="sector-card-header-row">
+                                <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
+                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
+                            </div>
+                            <p data-ar="الحلول والخدمات المرتبطة بالقطاع الزراعي." data-en="Solutions and services related to the agricultural sector.">الحلول والخدمات المرتبطة بالقطاع الزراعي.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-5" hidden>
+                        <p data-ar="يساهم قطاع الخدمات الزراعية في دعم الإنتاج الزراعي وتطوير سلاسل الإمداد من خلال توفير المدخلات الزراعية الحديثة وأنظمة الري والتقنيات الداعمة للمشاريع الزراعية." data-en="The Agricultural Services sector contributes to enhancing agricultural production and supply chains by providing modern agricultural inputs, irrigation systems, and supporting technologies.">يساهم قطاع الخدمات الزراعية في دعم الإنتاج الزراعي وتطوير سلاسل الإمداد من خلال توفير المدخلات الزراعية الحديثة وأنظمة الري والتقنيات الداعمة للمشاريع الزراعية.</p>
+                        <ul>
+                            <li data-ar="توريد الآليات الزراعية وأنظمة الري الحديثة." data-en="Supply of agricultural machinery and modern irrigation systems.">توريد الآليات الزراعية وأنظمة الري الحديثة.</li>
+                            <li data-ar="توفير المدخلات الزراعية والأسمدة والبذور المحسنة." data-en="Provision of agricultural inputs, fertilizers, and improved seeds.">توفير المدخلات الزراعية والأسمدة والبذور المحسنة.</li>
+                            <li data-ar="دعم مشاريع الإنتاج الزراعي والحيواني والتصنيع الغذائي." data-en="Supporting crop, livestock production, and food processing projects.">دعم مشاريع الإنتاج الزراعي والحيواني والتصنيع الغذائي.</li>
+                        </ul>
                     </div>
                 </article>
 
+                <!-- 6. التعدين والمقاولات -->
                 <article class="sector-img-card">
-                    <img src="mining.jpg" alt="">
-                    <div class="sector-card-body">
-                        <h3 data-ar="التعدين والمقاولات" data-en="Mining & Contracting">التعدين والمقاولات</h3>
-                        <p data-ar="أنشطة التعدين والمقاولات المتنوعة." data-en="Mining activities and various contracting.">أنشطة التعدين والمقاولات المتنوعة.</p>
+                    <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-6">
+                        <img src="mining.jpg" alt="">
+                        <div class="sector-card-body">
+                            <div class="sector-card-header-row">
+                                <h3 data-ar="التعدين والمقاولات" data-en="Mining & Contracting">التعدين والمقاولات</h3>
+                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
+                            </div>
+                            <p data-ar="أنشطة التعدين والمقاولات المتنوعة." data-en="Mining activities and various contracting.">أنشطة التعدين والمقاولات المتنوعة.</p>
+                        </div>
+                    </button>
+                    <div class="sector-details-panel" id="sector-detail-6" hidden>
+                        <p data-ar="يعمل قطاع التعدين والمقاولات في استكشاف وتطوير الموارد المعدنية وتنفيذ عقود المقاولات العامة والمتخصصة وفق معايير الاستدامة والكفاءة التشغيلية." data-en="The Mining & Contracting sector operates in mineral resource exploration and development as well as general and specialized contracting in line with sustainability and operational efficiency standards.">يعمل قطاع التعدين والمقاولات في استكشاف وتطوير الموارد المعدنية وتنفيذ عقود المقاولات العامة والمتخصصة وفق معايير الاستدامة والكفاءة التشغيلية.</p>
+                        <ul>
+                            <li data-ar="خدمات الاستكشاف الجيولوجي والدعم الفني لمواقع التعدين." data-en="Geological exploration services and technical support for mining sites.">خدمات الاستكشاف الجيولوجي والدعم الفني لمواقع التعدين.</li>
+                            <li data-ar="توريد معدات وآليات التعدين ومستلزمات التشغيل." data-en="Supply of mining equipment, machinery, and operational supplies.">توريد معدات وآليات التعدين ومستلزمات التشغيل.</li>
+                            <li data-ar="تنفيذ مشاريع المقاولات العامة وأعمال التهيئة الميدانية." data-en="Execution of general contracting projects and site preparation works.">تنفيذ مشاريع المقاولات العامة وأعمال التهيئة الميدانية.</li>
+                        </ul>
                     </div>
                 </article>
             </div>
@@ -263,318 +459,329 @@
     <section class="section light-section" id="department-profile">
         <div class="container">
             <div class="section-heading">
-                <span data-ar="الملف التعريفي للقسم" data-en="DEPARTMENT PROFILE">الملف التعريفي للقسم</span>
-                <h2 data-ar="استكشف أقسام الملف التعريفي" data-en="Explore the Department Profile">استكشف أقسام الملف التعريفي</h2>
+                <span data-ar="قسم البرمجيات والحلول الرقمية" data-en="SOFTWARE & DIGITAL SOLUTIONS">قسم البرمجيات والحلول الرقمية</span>
+                <h2 data-ar="استكشف أقسام الملف التعريفي (01 - 25)" data-en="Explore Department Profile Sections (01 - 25)">استكشف أقسام الملف التعريفي (01 - 25)</h2>
                 <div class="heading-line"></div>
             </div>
 
-            <div class="profile-accordion">
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-01">
-                        <b class="profile-number">01</b>
-                        <span class="profile-title" data-ar="التعريف بالقسم" data-en="Department Overview">التعريف بالقسم</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-01" hidden>
-                        <p data-ar="يختص قسم البرمجيات والحلول الرقمية والتسويق بتطوير الحلول التقنية والرقمية التي تدعم أعمال أفرودار وعملاءها، ويجمع بين تطوير البرمجيات وتصميم المواقع والمنصات والتسويق الرقمي وإدارة المحتوى والأصول الرقمية." data-en="The Software, Web & Digital Marketing Department develops digital and technology solutions that support AFRODAR and its clients, combining software development, web and platform design, digital marketing, content and digital asset management.">يختص قسم البرمجيات والحلول الرقمية والتسويق بتطوير الحلول التقنية والرقمية التي تدعم أعمال أفرودار وعملاءها، ويجمع بين تطوير البرمجيات وتصميم المواقع والمنصات والتسويق الرقمي وإدارة المحتوى والأصول الرقمية.</p>
+            <div class="software-hub-card">
+                <button class="software-hub-header" id="softwareHubToggle" type="button" aria-expanded="true" aria-controls="softwareHubBody">
+                    <div>
+                        <h3 data-ar="قسم البرمجيات والحلول الرقمية" data-en="Software & Digital Solutions">قسم البرمجيات والحلول الرقمية</h3>
+                        <p data-ar="اضغط لفتح أو إغلاق جميع محاور الملف التعريفي من 01 إلى 25" data-en="Click to expand or collapse all profile sections from 01 to 25">اضغط لفتح أو إغلاق جميع محاور الملف التعريفي من 01 إلى 25</p>
                     </div>
-                </article>
+                    <span class="software-hub-badge" data-ar="01 - 25 قسم" data-en="01 - 25 Sections">01 - 25 قسم</span>
+                </button>
 
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-02">
-                        <b class="profile-number">02</b>
-                        <span class="profile-title" data-ar="رؤية القسم" data-en="Department Vision">رؤية القسم</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-02" hidden>
-                        <p data-ar="أن يصبح القسم مركزاً متكاملاً للحلول الرقمية والابتكار التقني، وأن يسهم في تمكين المؤسسات من تطوير أعمالها وتعزيز حضورها الرقمي وربط الأسواق بالحلول التقنية الحديثة." data-en="To become an integrated center for digital solutions and technological innovation, enabling organizations to develop their businesses, strengthen their digital presence and connect markets through modern technology.">أن يصبح القسم مركزاً متكاملاً للحلول الرقمية والابتكار التقني، وأن يسهم في تمكين المؤسسات من تطوير أعمالها وتعزيز حضورها الرقمي وربط الأسواق بالحلول التقنية الحديثة.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-03">
-                        <b class="profile-number">03</b>
-                        <span class="profile-title" data-ar="رسالة القسم" data-en="Department Mission">رسالة القسم</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-03" hidden>
-                        <p data-ar="تقديم خدمات رقمية وتقنية موثوقة وعملية، من خلال فهم احتياجات العملاء وتصميم الحلول المناسبة وتنفيذها وتطويرها، مع التركيز على الجودة والكفاءة والاستدامة." data-en="To provide reliable and practical digital and technology services by understanding client needs, designing suitable solutions, implementing and improving them, with a focus on quality, efficiency and sustainability.">تقديم خدمات رقمية وتقنية موثوقة وعملية، من خلال فهم احتياجات العملاء وتصميم الحلول المناسبة وتنفيذها وتطويرها، مع التركيز على الجودة والكفاءة والاستدامة.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-04">
-                        <b class="profile-number">04</b>
-                        <span class="profile-title" data-ar="الأهداف الاستراتيجية" data-en="Strategic Objectives">الأهداف الاستراتيجية</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-04" hidden>
-                        <ul>
-                            <li data-ar="تطوير حلول برمجية تلبي احتياجات المؤسسات." data-en="Develop software solutions that meet organizational needs.">تطوير حلول برمجية تلبي احتياجات المؤسسات.</li>
-                            <li data-ar="تعزيز الحضور الرقمي لأفرودار وعملائها." data-en="Strengthen the digital presence of AFRODAR and its clients.">تعزيز الحضور الرقمي لأفرودار وعملائها.</li>
-                            <li data-ar="تقديم خدمات تصميم وتطوير المواقع والمنصات." data-en="Provide website and platform design and development services.">تقديم خدمات تصميم وتطوير المواقع والمنصات.</li>
-                            <li data-ar="تطوير تطبيقات الهاتف والحلول المتوافقة مع الأجهزة المختلفة." data-en="Develop mobile applications and cross-device solutions.">تطوير تطبيقات الهاتف والحلول المتوافقة مع الأجهزة المختلفة.</li>
-                            <li data-ar="توظيف البيانات والذكاء الاصطناعي والأتمتة عند الحاجة." data-en="Apply data, AI and automation where appropriate.">توظيف البيانات والذكاء الاصطناعي والأتمتة عند الحاجة.</li>
-                            <li data-ar="بناء خدمات رقمية قابلة للتوسع والاستمرار." data-en="Build scalable and sustainable digital services.">بناء خدمات رقمية قابلة للتوسع والاستمرار.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-05">
-                        <b class="profile-number">05</b>
-                        <span class="profile-title" data-ar="نطاق الأعمال" data-en="Scope of Work">نطاق الأعمال</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-05" hidden>
-                        <div class="tag-list">
-                            <span>Software Development</span>
-                            <span>Web Design & Development</span>
-                            <span>Mobile Applications</span>
-                            <span>Digital Platforms</span>
-                            <span>E-Commerce Solutions</span>
-                            <span>Digital Marketing</span>
-                            <span>Social Media Management</span>
-                            <span>Digital Media & Content</span>
-                            <span>AI & Automation</span>
-                            <span>Digital Asset Management</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-06">
-                        <b class="profile-number">06</b>
-                        <span class="profile-title" data-ar="تطوير البرمجيات" data-en="Software Development">تطوير البرمجيات</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-06" hidden>
-                        <p data-ar="يشمل تطوير أنظمة إدارة الأعمال، وإدارة علاقات العملاء CRM، وأنظمة تخطيط موارد المؤسسات ERP، والمبيعات والمخزون والمشاريع والموظفين والحجز، وتطبيقات الويب، والحلول السحابية، وقواعد البيانات، وواجهات API، والأتمتة، مع مراعاة الأمان وقابلية التوسع." data-en="Includes business management systems, CRM, ERP, sales and inventory, project and employee management, booking systems, web applications, cloud solutions, databases, APIs and automation, with attention to security and scalability.">يشمل تطوير أنظمة إدارة الأعمال، وإدارة علاقات العملاء CRM، وأنظمة تخطيط موارد المؤسسات ERP، والمبيعات والمخزون والمشاريع والموظفين والحجز، وتطبيقات الويب، والحلول السحابية، وقواعد البيانات، وواجهات API، والأتمتة، مع مراعاة الأمان وقابلية التوسع.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-07">
-                        <b class="profile-number">07</b>
-                        <span class="profile-title" data-ar="تصميم وتطوير المواقع" data-en="Website Design & Development">تصميم وتطوير المواقع</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-07" hidden>
-                        <p data-ar="تصميم وتطوير مواقع تعريفية وتجارية وخدمية متجاوبة مع الهواتف والحواسيب، مع تنظيم المحتوى وتحسين تجربة المستخدم وإتاحة التحديث والتطوير المستقبلي." data-en="Design and development of corporate, commercial and service websites that work across phones and computers, with organized content, improved user experience and room for future updates.">تصميم وتطوير مواقع تعريفية وتجارية وخدمية متجاوبة مع الهواتف والحواسيب، مع تنظيم المحتوى وتحسين تجربة المستخدم وإتاحة التحديث والتطوير المستقبلي.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-08">
-                        <b class="profile-number">08</b>
-                        <span class="profile-title" data-ar="إدارة وتطوير الموقع الرسمي لأفرودار" data-en="AFRODAR Official Website Management & Development">إدارة وتطوير الموقع الرسمي لأفرودار</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-08" hidden>
-                        <p data-ar="يتولى القسم تطوير الموقع الرسمي للشركة وإدارة محتواه وتحديثه، وإبراز قطاعات الأعمال والخدمات والأخبار ووسائل التواصل، والمحافظة على اتساق الهوية الرقمية للشركة." data-en="The department develops and maintains the company's official website, updates its content, presents business sectors, services, news and contact channels, and maintains a consistent digital identity.">يتولى القسم تطوير الموقع الرسمي للشركة وإدارة محتواه وتحديثه، وإبراز قطاعات الأعمال والخدمات والأخبار ووسائل التواصل، والمحافظة على اتساق الهوية الرقمية للشركة.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-09">
-                        <b class="profile-number">09</b>
-                        <span class="profile-title" data-ar="تطبيقات الهواتف والمنصات الرقمية" data-en="Mobile Applications & Digital Platforms">تطبيقات الهواتف والمنصات الرقمية</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-09" hidden>
-                        <p data-ar="تصميم وتطوير تطبيقات ومنصات رقمية تسهّل الوصول إلى الخدمات وإدارة العمليات والتفاعل بين المستخدمين والمؤسسات، وفق طبيعة كل مشروع واحتياجاته." data-en="Design and development of applications and digital platforms that simplify service access, operations management and interaction between users and organizations, based on each project's needs.">تصميم وتطوير تطبيقات ومنصات رقمية تسهّل الوصول إلى الخدمات وإدارة العمليات والتفاعل بين المستخدمين والمؤسسات، وفق طبيعة كل مشروع واحتياجاته.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-10">
-                        <b class="profile-number">10</b>
-                        <span class="profile-title" data-ar="منصة أفرودار للتسويق AFRODAR MARKETING PLATFORM" data-en="AFRODAR MARKETING PLATFORM">منصة أفرودار للتسويق AFRODAR MARKETING PLATFORM</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-10" hidden>
-                        <p data-ar="منصة رقمية مقترحة لدعم عرض المنتجات والخدمات وربط مقدميها بالعملاء والأسواق، وتسهيل الوصول إلى الفرص التسويقية والتجارية ضمن بيئة رقمية منظمة." data-en="A proposed digital platform to showcase products and services, connect providers with customers and markets, and improve access to marketing and business opportunities in an organized digital environment.">منصة رقمية مقترحة لدعم عرض المنتجات والخدمات وربط مقدميها بالعملاء والأسواق، وتسهيل الوصول إلى الفرص التسويقية والتجارية ضمن بيئة رقمية منظمة.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-11">
-                        <b class="profile-number">11</b>
-                        <span class="profile-title" data-ar="التسويق الرقمي" data-en="Digital Marketing">التسويق الرقمي</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-11" hidden>
-                        <p data-ar="تخطيط وتنفيذ الأنشطة التسويقية الرقمية، وإعداد الحملات والمحتوى، وتحسين الظهور الرقمي، ومتابعة مؤشرات الأداء بما يخدم أهداف العملاء." data-en="Planning and executing digital marketing activities, preparing campaigns and content, improving online visibility and monitoring performance indicators in support of client goals.">تخطيط وتنفيذ الأنشطة التسويقية الرقمية، وإعداد الحملات والمحتوى، وتحسين الظهور الرقمي، ومتابعة مؤشرات الأداء بما يخدم أهداف العملاء.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-12">
-                        <b class="profile-number">12</b>
-                        <span class="profile-title" data-ar="إدارة وسائل التواصل الاجتماعي" data-en="Social Media Management">إدارة وسائل التواصل الاجتماعي</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-12" hidden>
-                        <p data-ar="إدارة الحسابات والمنصات الاجتماعية، وتنظيم جداول النشر، وإعداد المحتوى، ومتابعة التفاعل والرسائل، ورفع تقارير الأداء." data-en="Managing social media accounts, organizing publishing schedules, preparing content, monitoring engagement and messages, and reporting performance.">إدارة الحسابات والمنصات الاجتماعية، وتنظيم جداول النشر، وإعداد المحتوى، ومتابعة التفاعل والرسائل، ورفع تقارير الأداء.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-13">
-                        <b class="profile-number">13</b>
-                        <span class="profile-title" data-ar="الإعلام والمحتوى الرقمي" data-en="Digital Media & Content">الإعلام والمحتوى الرقمي</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-13" hidden>
-                        <p data-ar="إنتاج وإدارة المحتوى الرقمي بمختلف أشكاله، بما يشمل النصوص والتصاميم والمواد المرئية، بما يتوافق مع هوية العلامة التجارية وأهداف الاتصال." data-en="Producing and managing digital content in different formats, including text, designs and visual materials aligned with brand identity and communication goals.">إنتاج وإدارة المحتوى الرقمي بمختلف أشكاله، بما يشمل النصوص والتصاميم والمواد المرئية، بما يتوافق مع هوية العلامة التجارية وأهداف الاتصال.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-14">
-                        <b class="profile-number">14</b>
-                        <span class="profile-title" data-ar="التجارة الإلكترونية" data-en="E-Commerce">التجارة الإلكترونية</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-14" hidden>
-                        <p data-ar="تطوير حلول التجارة الإلكترونية التي تساعد المؤسسات على عرض المنتجات والخدمات وإدارة الطلبات والعملاء وعمليات البيع عبر الإنترنت." data-en="Developing e-commerce solutions that help organizations showcase products and services, and manage orders, customers and online sales.">تطوير حلول التجارة الإلكترونية التي تساعد المؤسسات على عرض المنتجات والخدمات وإدارة الطلبات والعملاء وعمليات البيع عبر الإنترنت.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-15">
-                        <b class="profile-number">15</b>
-                        <span class="profile-title" data-ar="الذكاء الاصطناعي والأتمتة" data-en="Artificial Intelligence & Automation">الذكاء الاصطناعي والأتمتة</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-15" hidden>
-                        <p data-ar="استكشاف وتوظيف تقنيات الذكاء الاصطناعي والأتمتة لتحسين سير العمل، وتسهيل معالجة المعلومات، ودعم اتخاذ القرار، وتطوير الخدمات الرقمية." data-en="Exploring and applying AI and automation technologies to improve workflows, simplify information processing, support decision-making and enhance digital services.">استكشاف وتوظيف تقنيات الذكاء الاصطناعي والأتمتة لتحسين سير العمل، وتسهيل معالجة المعلومات، ودعم اتخاذ القرار، وتطوير الخدمات الرقمية.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-16">
-                        <b class="profile-number">16</b>
-                        <span class="profile-title" data-ar="إدارة الأصول الرقمية لأفرودار" data-en="AFRODAR Digital Asset Management">إدارة الأصول الرقمية لأفرودار</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-16" hidden>
-                        <p data-ar="تنظيم وإدارة الأصول الرقمية للشركة، بما يشمل الشعارات والصور والتصاميم والملفات والمحتوى، وضمان سهولة الوصول إليها واستخدامها وفق الهوية المعتمدة." data-en="Organizing and managing the company's digital assets, including logos, images, designs, files and content, ensuring easy access and consistent use in line with the approved identity.">تنظيم وإدارة الأصول الرقمية للشركة، بما يشمل الشعارات والصور والتصاميم والملفات والمحتوى، وضمان سهولة الوصول إليها واستخدامها وفق الهوية المعتمدة.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-17">
-                        <b class="profile-number">17</b>
-                        <span class="profile-title" data-ar="نموذج العمل" data-en="Business Model">نموذج العمل</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-17" hidden>
-                        <p data-ar="يعتمد القسم على تقديم الخدمات والمشاريع الرقمية للعملاء، وتطوير منتجات ومنصات رقمية خاصة بالشركة، إلى جانب بناء شراكات تقنية وتجارية تدعم تنفيذ المشاريع وتوسيع نطاق الخدمات." data-en="The department delivers digital services and projects to clients, develops proprietary digital products and platforms, and builds technology and business partnerships that support project delivery and service expansion.">يعتمد القسم على تقديم الخدمات والمشاريع الرقمية للعملاء، وتطوير منتجات ومنصات رقمية خاصة بالشركة، إلى جانب بناء شراكات تقنية وتجارية تدعم تنفيذ المشاريع وتوسيع نطاق الخدمات.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-18">
-                        <b class="profile-number">18</b>
-                        <span class="profile-title" data-ar="الأسواق المستهدفة" data-en="Target Markets">الأسواق المستهدفة</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-18" hidden>
-                        <p data-ar="يستهدف القسم الشركات والمؤسسات الصغيرة والمتوسطة، والجهات التجارية والخدمية، والمؤسسات التعليمية، والمنظمات، ورواد الأعمال، والجهات التي تحتاج إلى حلول تقنية وتسويقية." data-en="The department targets small and medium businesses, commercial and service organizations, educational institutions, NGOs, entrepreneurs and entities seeking technology and marketing solutions.">يستهدف القسم الشركات والمؤسسات الصغيرة والمتوسطة، والجهات التجارية والخدمية، والمؤسسات التعليمية، والمنظمات، ورواد الأعمال، والجهات التي تحتاج إلى حلول تقنية وتسويقية.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-19">
-                        <b class="profile-number">19</b>
-                        <span class="profile-title" data-ar="استراتيجية التوسع" data-en="Expansion Strategy">استراتيجية التوسع</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-19" hidden>
-                        <p data-ar="التوسع التدريجي في الخدمات والأسواق من خلال بناء القدرات التقنية، وتطوير المنتجات الرقمية، وتعزيز الشراكات، وتكوين قاعدة عملاء، وتحسين جودة التنفيذ." data-en="Gradual expansion across services and markets through building technical capabilities, developing digital products, strengthening partnerships, growing the client base and improving delivery quality.">التوسع التدريجي في الخدمات والأسواق من خلال بناء القدرات التقنية، وتطوير المنتجات الرقمية، وتعزيز الشراكات، وتكوين قاعدة عملاء، وتحسين جودة التنفيذ.</p>
-                    </div>
-                </article>
-
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-20">
-                        <b class="profile-number">20</b>
-                        <span class="profile-title" data-ar="الهيكل التنظيمي المقترح" data-en="Proposed Organizational Structure">الهيكل التنظيمي المقترح</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-20" hidden>
-                        <div class="org-chart">
-                            <div class="org-chart-root" data-ar="مدير القسم" data-en="Department Manager">مدير القسم</div>
-                            <div class="org-chart-branches">
-                                <div data-ar="تطوير البرمجيات" data-en="Software Development">تطوير البرمجيات</div>
-                                <div data-ar="تصميم وتطوير المواقع" data-en="Web Design & Development">تصميم وتطوير المواقع</div>
-                                <div data-ar="التسويق الرقمي" data-en="Digital Marketing">التسويق الرقمي</div>
-                                <div data-ar="الإعلام والمحتوى" data-en="Media & Content">الإعلام والمحتوى</div>
-                                <div data-ar="المنصات والحلول الرقمية" data-en="Digital Platforms & Solutions">المنصات والحلول الرقمية</div>
+                <div class="software-hub-body" id="softwareHubBody">
+                    <div class="profile-accordion">
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-01">
+                                <b class="profile-number">01</b>
+                                <span class="profile-title" data-ar="التعريف بالقسم" data-en="Department Overview">التعريف بالقسم</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-01" hidden>
+                                <p data-ar="يختص قسم البرمجيات والحلول الرقمية والتسويق بتطوير الحلول التقنية والرقمية التي تدعم أعمال أفرودار وعملاءها، ويجمع بين تطوير البرمجيات وتصميم المواقع والمنصات والتسويق الرقمي وإدارة المحتوى والأصول الرقمية." data-en="The Software, Web & Digital Marketing Department develops digital and technology solutions that support AFRODAR and its clients, combining software development, web and platform design, digital marketing, content and digital asset management.">يختص قسم البرمجيات والحلول الرقمية والتسويق بتطوير الحلول التقنية والرقمية التي تدعم أعمال أفرودار وعملاءها، ويجمع بين تطوير البرمجيات وتصميم المواقع والمنصات والتسويق الرقمي وإدارة المحتوى والأصول الرقمية.</p>
                             </div>
-                        </div>
-                    </div>
-                </article>
+                        </article>
 
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-21">
-                        <b class="profile-number">21</b>
-                        <span class="profile-title" data-ar="الشراكات الاستراتيجية" data-en="Strategic Partnerships">الشراكات الاستراتيجية</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-21" hidden>
-                        <p data-ar="يسعى القسم إلى بناء شراكات مع مزودي التقنية والمنصات ومؤسسات التدريب والخبراء والجهات التجارية، بما يعزز جودة الخدمات ويوسع فرص التنفيذ والوصول إلى الأسواق." data-en="The department seeks partnerships with technology and platform providers, training institutions, experts and business organizations to improve service quality and expand delivery and market access opportunities.">يسعى القسم إلى بناء شراكات مع مزودي التقنية والمنصات ومؤسسات التدريب والخبراء والجهات التجارية، بما يعزز جودة الخدمات ويوسع فرص التنفيذ والوصول إلى الأسواق.</p>
-                    </div>
-                </article>
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-02">
+                                <b class="profile-number">02</b>
+                                <span class="profile-title" data-ar="رؤية القسم" data-en="Department Vision">رؤية القسم</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-02" hidden>
+                                <p data-ar="أن يصبح القسم مركزاً متكاملاً للحلول الرقمية والابتكار التقني، وأن يسهم في تمكين المؤسسات من تطوير أعمالها وتعزيز حضورها الرقمي وربط الأسواق بالحلول التقنية الحديثة." data-en="To become an integrated center for digital solutions and technological innovation, enabling organizations to develop their businesses, strengthen their digital presence and connect markets through modern technology.">أن يصبح القسم مركزاً متكاملاً للحلول الرقمية والابتكار التقني، وأن يسهم في تمكين المؤسسات من تطوير أعمالها وتعزيز حضورها الرقمي وربط الأسواق بالحلول التقنية الحديثة.</p>
+                            </div>
+                        </article>
 
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-22">
-                        <b class="profile-number">22</b>
-                        <span class="profile-title" data-ar="الميزة التنافسية" data-en="Competitive Advantage">الميزة التنافسية</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-22" hidden>
-                        <p data-ar="تتمثل الميزة التنافسية في ارتباط القسم بشركة متعددة الأنشطة، وفهم احتياجات قطاعات متنوعة، وتقديم خدمات تقنية وتسويقية متكاملة، مع المرونة في تصميم الحلول وبناء الشراكات." data-en="The competitive advantage comes from being part of a multi-activity company, understanding diverse sector needs, providing integrated technology and marketing services, and maintaining flexibility in solution design and partnerships.">تتمثل الميزة التنافسية في ارتباط القسم بشركة متعددة الأنشطة، وفهم احتياجات قطاعات متنوعة، وتقديم خدمات تقنية وتسويقية متكاملة، مع المرونة في تصميم الحلول وبناء الشراكات.</p>
-                    </div>
-                </article>
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-03">
+                                <b class="profile-number">03</b>
+                                <span class="profile-title" data-ar="رسالة القسم" data-en="Department Mission">رسالة القسم</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-03" hidden>
+                                <p data-ar="تقديم خدمات رقمية وتقنية موثوقة وعملية، من خلال فهم احتياجات العملاء وتصميم الحلول المناسبة وتنفيذها وتطويرها، مع التركيز على الجودة والكفاءة والاستدامة." data-en="To provide reliable and practical digital and technology services by understanding client needs, designing suitable solutions, implementing and improving them, with a focus on quality, efficiency and sustainability.">تقديم خدمات رقمية وتقنية موثوقة وعملية، من خلال فهم احتياجات العملاء وتصميم الحلول المناسبة وتنفيذها وتطويرها، مع التركيز على الجودة والكفاءة والاستدامة.</p>
+                            </div>
+                        </article>
 
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-23">
-                        <b class="profile-number">23</b>
-                        <span class="profile-title" data-ar="القيمة المضافة لأفرودار" data-en="AFRODAR Added Value">القيمة المضافة لأفرودار</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-23" hidden>
-                        <p data-ar="يسهم القسم في دعم التحول الرقمي للشركة، وتحسين كفاءة العمليات، وتعزيز التواصل مع العملاء، وتطوير قنوات تسويقية وخدمات رقمية يمكن أن تفتح فرصاً جديدة للنمو." data-en="The department supports the company's digital transformation, improves operational efficiency, strengthens customer communication and develops marketing channels and digital services that can create new growth opportunities.">يسهم القسم في دعم التحول الرقمي للشركة، وتحسين كفاءة العمليات، وتعزيز التواصل مع العملاء، وتطوير قنوات تسويقية وخدمات رقمية يمكن أن تفتح فرصاً جديدة للنمو.</p>
-                    </div>
-                </article>
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-04">
+                                <b class="profile-number">04</b>
+                                <span class="profile-title" data-ar="الأهداف الاستراتيجية" data-en="Strategic Objectives">الأهداف الاستراتيجية</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-04" hidden>
+                                <ul>
+                                    <li data-ar="تطوير حلول برمجية تلبي احتياجات المؤسسات." data-en="Develop software solutions that meet organizational needs.">تطوير حلول برمجية تلبي احتياجات المؤسسات.</li>
+                                    <li data-ar="تعزيز الحضور الرقمي لأفرودار وعملائها." data-en="Strengthen the digital presence of AFRODAR and its clients.">تعزيز الحضور الرقمي لأفرودار وعملائها.</li>
+                                    <li data-ar="تقديم خدمات تصميم وتطوير المواقع والمنصات." data-en="Provide website and platform design and development services.">تقديم خدمات تصميم وتطوير المواقع والمنصات.</li>
+                                    <li data-ar="تطوير تطبيقات الهاتف والحلول المتوافقة مع الأجهزة المختلفة." data-en="Develop mobile applications and cross-device solutions.">تطوير تطبيقات الهاتف والحلول المتوافقة مع الأجهزة المختلفة.</li>
+                                    <li data-ar="توظيف البيانات والذكاء الاصطناعي والأتمتة عند الحاجة." data-en="Apply data, AI and automation where appropriate.">توظيف البيانات والذكاء الاصطناعي والأتمتة عند الحاجة.</li>
+                                    <li data-ar="بناء خدمات رقمية قابلة للتوسع والاستمرار." data-en="Build scalable and sustainable digital services.">بناء خدمات رقمية قابلة للتوسع والاستمرار.</li>
+                                </ul>
+                            </div>
+                        </article>
 
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-24">
-                        <b class="profile-number">24</b>
-                        <span class="profile-title" data-ar="التطوير المستقبلي – AFRODAR DIGITAL" data-en="Future Development – AFRODAR DIGITAL">التطوير المستقبلي – AFRODAR DIGITAL</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-24" hidden>
-                        <p data-ar="يمثل AFRODAR DIGITAL توجهاً مستقبلياً لتطوير خدمات ومنتجات رقمية متكاملة، وتوسيع نطاق الحلول التقنية والتسويقية، وبناء منصات قابلة للنمو والتطوير بما يتوافق مع احتياجات السوق." data-en="AFRODAR DIGITAL represents a future direction for developing integrated digital services and products, expanding technology and marketing solutions, and building platforms that can grow in line with market needs.">يمثل AFRODAR DIGITAL توجهاً مستقبلياً لتطوير خدمات ومنتجات رقمية متكاملة، وتوسيع نطاق الحلول التقنية والتسويقية، وبناء منصات قابلة للنمو والتطوير بما يتوافق مع احتياجات السوق.</p>
-                    </div>
-                </article>
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-05">
+                                <b class="profile-number">05</b>
+                                <span class="profile-title" data-ar="نطاق الأعمال" data-en="Scope of Work">نطاق الأعمال</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-05" hidden>
+                                <div class="tag-list">
+                                    <span>Software Development</span>
+                                    <span>Web Design & Development</span>
+                                    <span>Mobile Applications</span>
+                                    <span>Digital Platforms</span>
+                                    <span>E-Commerce Solutions</span>
+                                    <span>Digital Marketing</span>
+                                    <span>Social Media Management</span>
+                                    <span>Digital Media & Content</span>
+                                    <span>AI & Automation</span>
+                                    <span>Digital Asset Management</span>
+                                </div>
+                            </div>
+                        </article>
 
-                <article class="profile-item">
-                    <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-25">
-                        <b class="profile-number">25</b>
-                        <span class="profile-title" data-ar="الخلاصة والتوقيع" data-en="Conclusion & Signature">الخلاصة والتوقيع</span>
-                        <span class="profile-arrow">⌄</span>
-                    </button>
-                    <div class="profile-panel" id="profile-25" hidden>
-                        <p data-ar="يعمل قسم البرمجيات والحلول الرقمية والتسويق على تحويل الأفكار والاحتياجات إلى حلول رقمية عملية تدعم أعمال أفرودار وعملائها، وتربط التقنية بالأسواق وفرص النمو." data-en="The Software, Web & Digital Marketing Department turns ideas and needs into practical digital solutions that support AFRODAR and its clients, connecting technology with markets and growth opportunities.">يعمل قسم البرمجيات والحلول الرقمية والتسويق على تحويل الأفكار والاحتياجات إلى حلول رقمية عملية تدعم أعمال أفرودار وعملائها، وتربط التقنية بالأسواق وفرص النمو.</p>
-                        <div class="signature">
-                            <h2>AFRODAR DIGITAL</h2>
-                            <p>Building Digital Solutions. Connecting Markets. Enabling Growth.</p>
-                        </div>
-                    </div>
-                </article>
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-06">
+                                <b class="profile-number">06</b>
+                                <span class="profile-title" data-ar="تطوير البرمجيات" data-en="Software Development">تطوير البرمجيات</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-06" hidden>
+                                <p data-ar="يشمل تطوير أنظمة إدارة الأعمال، وإدارة علاقات العملاء CRM، وأنظمة تخطيط موارد المؤسسات ERP، والمبيعات والمخزون والمشاريع والموظفين والحجز، وتطبيقات الويب، والحلول السحابية، وقواعد البيانات، وواجهات API، والأتمتة، مع مراعاة الأمان وقابلية التوسع." data-en="Includes business management systems, CRM, ERP, sales and inventory, project and employee management, booking systems, web applications, cloud solutions, databases, APIs and automation, with attention to security and scalability.">يشمل تطوير أنظمة إدارة الأعمال، وإدارة علاقات العملاء CRM، وأنظمة تخطيط موارد المؤسسات ERP، والمبيعات والمخزون والمشاريع والموظفين والحجز، وتطبيقات الويب، والحلول السحابية، وقواعد البيانات، وواجهات API، والأتمتة، مع مراعاة الأمان وقابلية التوسع.</p>
+                            </div>
+                        </article>
 
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-07">
+                                <b class="profile-number">07</b>
+                                <span class="profile-title" data-ar="تصميم وتطوير المواقع" data-en="Website Design & Development">تصميم وتطوير المواقع</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-07" hidden>
+                                <p data-ar="تصميم وتطوير مواقع تعريفية وتجارية وخدمية متجاوبة مع الهواتف والحواسيب، مع تنظيم المحتوى وتحسين تجربة المستخدم وإتاحة التحديث والتطوير المستقبلي." data-en="Design and development of corporate, commercial and service websites that work across phones and computers, with organized content, improved user experience and room for future updates.">تصميم وتطوير مواقع تعريفية وتجارية وخدمية متجاوبة مع الهواتف والحواسيب، مع تنظيم المحتوى وتحسين تجربة المستخدم وإتاحة التحديث والتطوير المستقبلي.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-08">
+                                <b class="profile-number">08</b>
+                                <span class="profile-title" data-ar="إدارة وتطوير الموقع الرسمي لأفرودار" data-en="AFRODAR Official Website Management & Development">إدارة وتطوير الموقع الرسمي لأفرودار</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-08" hidden>
+                                <p data-ar="يتولى القسم تطوير الموقع الرسمي للشركة وإدارة محتواه وتحديثه، وإبراز قطاعات الأعمال والخدمات والأخبار ووسائل التواصل، والمحافظة على اتساق الهوية الرقمية للشركة." data-en="The department develops and maintains the company's official website, updates its content, presents business sectors, services, news and contact channels, and maintains a consistent digital identity.">يتولى القسم تطوير الموقع الرسمي للشركة وإدارة محتواه وتحديثه، وإبراز قطاعات الأعمال والخدمات والأخبار ووسائل التواصل، والمحافظة على اتساق الهوية الرقمية للشركة.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-09">
+                                <b class="profile-number">09</b>
+                                <span class="profile-title" data-ar="تطبيقات الهواتف والمنصات الرقمية" data-en="Mobile Applications & Digital Platforms">تطبيقات الهواتف والمنصات الرقمية</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-09" hidden>
+                                <p data-ar="تصميم وتطوير تطبيقات ومنصات رقمية تسهّل الوصول إلى الخدمات وإدارة العمليات والتفاعل بين المستخدمين والمؤسسات، وفق طبيعة كل مشروع واحتياجاته." data-en="Design and development of applications and digital platforms that simplify service access, operations management and interaction between users and organizations, based on each project's needs.">تصميم وتطوير تطبيقات ومنصات رقمية تسهّل الوصول إلى الخدمات وإدارة العمليات والتفاعل بين المستخدمين والمؤسسات، وفق طبيعة كل مشروع واحتياجاته.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-10">
+                                <b class="profile-number">10</b>
+                                <span class="profile-title" data-ar="منصة أفرودار للتسويق AFRODAR MARKETING PLATFORM" data-en="AFRODAR MARKETING PLATFORM">منصة أفرودار للتسويق AFRODAR MARKETING PLATFORM</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-10" hidden>
+                                <p data-ar="منصة رقمية مقترحة لدعم عرض المنتجات والخدمات وربط مقدميها بالعملاء والأسواق، وتسهيل الوصول إلى الفرص التسويقية والتجارية ضمن بيئة رقمية منظمة." data-en="A proposed digital platform to showcase products and services, connect providers with customers and markets, and improve access to marketing and business opportunities in an organized digital environment.">منصة رقمية مقترحة لدعم عرض المنتجات والخدمات وربط مقدميها بالعملاء والأسواق، وتسهيل الوصول إلى الفرص التسويقية والتجارية ضمن بيئة رقمية منظمة.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-11">
+                                <b class="profile-number">11</b>
+                                <span class="profile-title" data-ar="التسويق الرقمي" data-en="Digital Marketing">التسويق الرقمي</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-11" hidden>
+                                <p data-ar="تخطيط وتنفيذ الأنشطة التسويقية الرقمية، وإعداد الحملات والمحتوى، وتحسين الظهور الرقمي، ومتابعة مؤشرات الأداء بما يخدم أهداف العملاء." data-en="Planning and executing digital marketing activities, preparing campaigns and content, improving online visibility and monitoring performance indicators in support of client goals.">تخطيط وتنفيذ الأنشطة التسويقية الرقمية، وإعداد الحملات والمحتوى، وتحسين الظهور الرقمي، ومتابعة مؤشرات الأداء بما يخدم أهداف العملاء.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-12">
+                                <b class="profile-number">12</b>
+                                <span class="profile-title" data-ar="إدارة وسائل التواصل الاجتماعي" data-en="Social Media Management">إدارة وسائل التواصل الاجتماعي</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-12" hidden>
+                                <p data-ar="إدارة الحسابات والمنصات الاجتماعية، وتنظيم جداول النشر، وإعداد المحتوى، ومتابعة التفاعل والرسائل، ورفع تقارير الأداء." data-en="Managing social media accounts, organizing publishing schedules, preparing content, monitoring engagement and messages, and reporting performance.">إدارة الحسابات والمنصات الاجتماعية، وتنظيم جداول النشر، وإعداد المحتوى، ومتابعة التفاعل والرسائل، ورفع تقارير الأداء.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-13">
+                                <b class="profile-number">13</b>
+                                <span class="profile-title" data-ar="الإعلام والمحتوى الرقمي" data-en="Digital Media & Content">الإعلام والمحتوى الرقمي</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-13" hidden>
+                                <p data-ar="إنتاج وإدارة المحتوى الرقمي بمختلف أشكاله، بما يشمل النصوص والتصاميم والمواد المرئية، بما يتوافق مع هوية العلامة التجارية وأهداف الاتصال." data-en="Producing and managing digital content in different formats, including text, designs and visual materials aligned with brand identity and communication goals.">إنتاج وإدارة المحتوى الرقمي بمختلف أشكاله، بما يشمل النصوص والتصاميم والمواد المرئية، بما يتوافق مع هوية العلامة التجارية وأهداف الاتصال.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-14">
+                                <b class="profile-number">14</b>
+                                <span class="profile-title" data-ar="التجارة الإلكترونية" data-en="E-Commerce">التجارة الإلكترونية</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-14" hidden>
+                                <p data-ar="تطوير حلول التجارة الإلكترونية التي تساعد المؤسسات على عرض المنتجات والخدمات وإدارة الطلبات والعملاء وعمليات البيع عبر الإنترنت." data-en="Developing e-commerce solutions that help organizations showcase products and services, and manage orders, customers and online sales.">تطوير حلول التجارة الإلكترونية التي تساعد المؤسسات على عرض المنتجات والخدمات وإدارة الطلبات والعملاء وعمليات البيع عبر الإنترنت.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-15">
+                                <b class="profile-number">15</b>
+                                <span class="profile-title" data-ar="الذكاء الاصطناعي والأتمتة" data-en="Artificial Intelligence & Automation">الذكاء الاصطناعي والأتمتة</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-15" hidden>
+                                <p data-ar="استكشاف وتوظيف تقنيات الذكاء الاصطناعي والأتمتة لتحسين سير العمل، وتسهيل معالجة المعلومات، ودعم اتخاذ القرار، وتطوير الخدمات الرقمية." data-en="Exploring and applying AI and automation technologies to improve workflows, simplify information processing, support decision-making and enhance digital services.">استكشاف وتوظيف تقنيات الذكاء الاصطناعي والأتمتة لتحسين سير العمل، وتسهيل معالجة المعلومات، ودعم اتخاذ القرار، وتطوير الخدمات الرقمية.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-16">
+                                <b class="profile-number">16</b>
+                                <span class="profile-title" data-ar="إدارة الأصول الرقمية لأفرودار" data-en="AFRODAR Digital Asset Management">إدارة الأصول الرقمية لأفرودار</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-16" hidden>
+                                <p data-ar="تنظيم وإدارة الأصول الرقمية للشركة، بما يشمل الشعارات والصور والتصاميم والملفات والمحتوى، وضمان سهولة الوصول إليها واستخدامها وفق الهوية المعتمدة." data-en="Organizing and managing the company's digital assets, including logos, images, designs, files and content, ensuring easy access and consistent use in line with the approved identity.">تنظيم وإدارة الأصول الرقمية للشركة، بما يشمل الشعارات والصور والتصاميم والملفات والمحتوى، وضمان سهولة الوصول إليها واستخدامها وفق الهوية المعتمدة.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-17">
+                                <b class="profile-number">17</b>
+                                <span class="profile-title" data-ar="نموذج العمل" data-en="Business Model">نموذج العمل</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-17" hidden>
+                                <p data-ar="يعتمد القسم على تقديم الخدمات والمشاريع الرقمية للعملاء، وتطوير منتجات ومنصات رقمية خاصة بالشركة، إلى جانب بناء شراكات تقنية وتجارية تدعم تنفيذ المشاريع وتوسيع نطاق الخدمات." data-en="The department delivers digital services and projects to clients, develops proprietary digital products and platforms, and builds technology and business partnerships that support project delivery and service expansion.">يعتمد القسم على تقديم الخدمات والمشاريع الرقمية للعملاء، وتطوير منتجات ومنصات رقمية خاصة بالشركة، إلى جانب بناء شراكات تقنية وتجارية تدعم تنفيذ المشاريع وتوسيع نطاق الخدمات.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-18">
+                                <b class="profile-number">18</b>
+                                <span class="profile-title" data-ar="الأسواق المستهدفة" data-en="Target Markets">الأسواق المستهدفة</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-18" hidden>
+                                <p data-ar="يستهدف القسم الشركات والمؤسسات الصغيرة والمتوسطة، والجهات التجارية والخدمية، والمؤسسات التعليمية، والمنظمات، ورواد الأعمال، والجهات التي تحتاج إلى حلول تقنية وتسويقية." data-en="The department targets small and medium businesses, commercial and service organizations, educational institutions, NGOs, entrepreneurs and entities seeking technology and marketing solutions.">يستهدف القسم الشركات والمؤسسات الصغيرة والمتوسطة، والجهات التجارية والخدمية، والمؤسسات التعليمية، والمنظمات، ورواد الأعمال، والجهات التي تحتاج إلى حلول تقنية وتسويقية.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-19">
+                                <b class="profile-number">19</b>
+                                <span class="profile-title" data-ar="استراتيجية التوسع" data-en="Expansion Strategy">استراتيجية التوسع</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-19" hidden>
+                                <p data-ar="التوسع التدريجي في الخدمات والأسواق من خلال بناء القدرات التقنية، وتطوير المنتجات الرقمية، وتعزيز الشراكات، وتكوين قاعدة عملاء، وتحسين جودة التنفيذ." data-en="Gradual expansion across services and markets through building technical capabilities, developing digital products, strengthening partnerships, growing the client base and improving delivery quality.">التوسع التدريجي في الخدمات والأسواق من خلال بناء القدرات التقنية، وتطوير المنتجات الرقمية، وتعزيز الشراكات، وتكوين قاعدة عملاء، وتحسين جودة التنفيذ.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-20">
+                                <b class="profile-number">20</b>
+                                <span class="profile-title" data-ar="الهيكل التنظيمي المقترح" data-en="Proposed Organizational Structure">الهيكل التنظيمي المقترح</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-20" hidden>
+                                <div class="org-chart">
+                                    <div class="org-chart-root" data-ar="مدير القسم" data-en="Department Manager">مدير القسم</div>
+                                    <div class="org-chart-branches">
+                                        <div data-ar="تطوير البرمجيات" data-en="Software Development">تطوير البرمجيات</div>
+                                        <div data-ar="تصميم وتطوير المواقع" data-en="Web Design & Development">تصميم وتطوير المواقع</div>
+                                        <div data-ar="التسويق الرقمي" data-en="Digital Marketing">التسويق الرقمي</div>
+                                        <div data-ar="الإعلام والمحتوى" data-en="Media & Content">الإعلام والمحتوى</div>
+                                        <div data-ar="المنصات والحلول الرقمية" data-en="Digital Platforms & Solutions">المنصات والحلول الرقمية</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-21">
+                                <b class="profile-number">21</b>
+                                <span class="profile-title" data-ar="الشراكات الاستراتيجية" data-en="Strategic Partnerships">الشراكات الاستراتيجية</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-21" hidden>
+                                <p data-ar="يسعى القسم إلى بناء شراكات مع مزودي التقنية والمنصات ومؤسسات التدريب والخبراء والجهات التجارية، بما يعزز جودة الخدمات ويوسع فرص التنفيذ والوصول إلى الأسواق." data-en="The department seeks partnerships with technology and platform providers, training institutions, experts and business organizations to improve service quality and expand delivery and market access opportunities.">يسعى القسم إلى بناء شراكات مع مزودي التقنية والمنصات ومؤسسات التدريب والخبراء والجهات التجارية، بما يعزز جودة الخدمات ويوسع فرص التنفيذ والوصول إلى الأسواق.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-22">
+                                <b class="profile-number">22</b>
+                                <span class="profile-title" data-ar="الميزة التنافسية" data-en="Competitive Advantage">الميزة التنافسية</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-22" hidden>
+                                <p data-ar="تتمثل الميزة التنافسية في ارتباط القسم بشركة متعددة الأنشطة، وفهم احتياجات قطاعات متنوعة، وتقديم خدمات تقنية وتسويقية متكاملة، مع المرونة في تصميم الحلول وبناء الشراكات." data-en="The competitive advantage comes from being part of a multi-activity company, understanding diverse sector needs, providing integrated technology and marketing services, and maintaining flexibility in solution design and partnerships.">تتمثل الميزة التنافسية في ارتباط القسم بشركة متعددة الأنشطة، وفهم احتياجات قطاعات متنوعة، وتقديم خدمات تقنية وتسويقية متكاملة، مع المرونة في تصميم الحلول وبناء الشراكات.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-23">
+                                <b class="profile-number">23</b>
+                                <span class="profile-title" data-ar="القيمة المضافة لأفرودار" data-en="AFRODAR Added Value">القيمة المضافة لأفرودار</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-23" hidden>
+                                <p data-ar="يسهم القسم في دعم التحول الرقمي للشركة، وتحسين كفاءة العمليات، وتعزيز التواصل مع العملاء، وتطوير قنوات تسويقية وخدمات رقمية يمكن أن تفتح فرصاً جديدة للنمو." data-en="The department supports the company's digital transformation, improves operational efficiency, strengthens customer communication and develops marketing channels and digital services that can create new growth opportunities.">يسهم القسم في دعم التحول الرقمي للشركة، وتحسين كفاءة العمليات، وتعزيز التواصل مع العملاء، وتطوير قنوات تسويقية وخدمات رقمية يمكن أن تفتح فرصاً جديدة للنمو.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-24">
+                                <b class="profile-number">24</b>
+                                <span class="profile-title" data-ar="التطوير المستقبلي – AFRODAR DIGITAL" data-en="Future Development – AFRODAR DIGITAL">التطوير المستقبلي – AFRODAR DIGITAL</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-24" hidden>
+                                <p data-ar="يمثل AFRODAR DIGITAL توجهاً مستقبلياً لتطوير خدمات ومنتجات رقمية متكاملة، وتوسيع نطاق الحلول التقنية والتسويقية، وبناء منصات قابلة للنمو والتطوير بما يتوافق مع احتياجات السوق." data-en="AFRODAR DIGITAL represents a future direction for developing integrated digital services and products, expanding technology and marketing solutions, and building platforms that can grow in line with market needs.">يمثل AFRODAR DIGITAL توجهاً مستقبلياً لتطوير خدمات ومنتجات رقمية متكاملة، وتوسيع نطاق الحلول التقنية والتسويقية، وبناء منصات قابلة للنمو والتطوير بما يتوافق مع احتياجات السوق.</p>
+                            </div>
+                        </article>
+
+                        <article class="profile-item">
+                            <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-25">
+                                <b class="profile-number">25</b>
+                                <span class="profile-title" data-ar="الخلاصة والتوقيع" data-en="Conclusion & Signature">الخلاصة والتوقيع</span>
+                                <span class="profile-arrow">⌄</span>
+                            </button>
+                            <div class="profile-panel" id="profile-25" hidden>
+                                <p data-ar="يعمل قسم البرمجيات والحلول الرقمية والتسويق على تحويل الأفكار والاحتياجات إلى حلول رقمية عملية تدعم أعمال أفرودار وعملائها، وتربط التقنية بالأسواق وفرص النمو." data-en="The Software, Web & Digital Marketing Department turns ideas and needs into practical digital solutions that support AFRODAR and its clients, connecting technology with markets and growth opportunities.">يعمل قسم البرمجيات والحلول الرقمية والتسويق على تحويل الأفكار والاحتياجات إلى حلول رقمية عملية تدعم أعمال أفرودار وعملائها، وتربط التقنية بالأسواق وفرص النمو.</p>
+                                <div class="signature">
+                                    <h2>AFRODAR DIGITAL</h2>
+                                    <p>Building Digital Solutions. Connecting Markets. Enabling Growth.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -624,6 +831,31 @@
 
 <script src="script.js"></script>
 <script>
+    // فتح وإغلاق تفاصيل بطاقات مجالات العمل بالصور (القطاعات الستة)
+    document.querySelectorAll(".sector-card-trigger").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const panel = document.getElementById(button.getAttribute("aria-controls"));
+            const card = button.closest(".sector-img-card");
+            const isOpen = button.getAttribute("aria-expanded") === "true";
+            button.setAttribute("aria-expanded", String(!isOpen));
+            panel.hidden = isOpen;
+            if (card) {
+                card.classList.toggle("is-open", !isOpen);
+            }
+        });
+    });
+
+    const softwareHubToggle = document.getElementById("softwareHubToggle");
+    const softwareHubBody = document.getElementById("softwareHubBody");
+
+    if (softwareHubToggle && softwareHubBody) {
+        softwareHubToggle.addEventListener("click", function () {
+            const isOpen = softwareHubToggle.getAttribute("aria-expanded") === "true";
+            softwareHubToggle.setAttribute("aria-expanded", String(!isOpen));
+            softwareHubBody.hidden = isOpen;
+        });
+    }
+
     document.querySelectorAll(".profile-trigger").forEach(function (button) {
         button.addEventListener("click", function () {
             const panel = document.getElementById(button.getAttribute("aria-controls"));
