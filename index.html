@@ -137,15 +137,16 @@
             z-index: 2;
         }
 
-        /* تنسيق بطاقات مجالات العمل بالصور القابلة للضغط */
+        /* تنسيق بطاقات مجالات العمل بالصور القابلة للضغط: كل قسمين في سطر واحد */
         .sectors-grid-cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
             margin-top: 25px;
             align-items: start;
         }
         .sector-img-card {
+            min-width: 0;
             background: #fff;
             border: 1px solid var(--border);
             border-radius: 10px;
@@ -155,7 +156,7 @@
         }
         .sector-img-card:hover,
         .sector-img-card.is-open {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: var(--gold);
         }
         .sector-card-trigger {
@@ -173,28 +174,29 @@
         }
         .sector-img-card img {
             width: 100%;
-            height: 180px;
+            height: 135px;
             object-fit: cover;
             display: block;
             text-indent: -9999px;
         }
         .sector-card-body {
-            padding: 18px;
+            padding: 12px 14px;
         }
         .sector-card-body h3 {
             color: var(--navy);
-            font-size: 16.5px;
+            font-size: 13.5px;
             font-weight: 700;
-            margin: 0 0 6px;
+            line-height: 1.5;
+            margin: 0 0 5px;
         }
         .sector-card-body p {
             color: var(--muted);
-            font-size: 13px;
-            line-height: 1.8;
+            font-size: 11.5px;
+            line-height: 1.65;
             margin: 0;
         }
         .sector-details-panel {
-            padding: 14px 18px 18px;
+            padding: 12px 14px 16px;
             border-top: 1px solid var(--border);
             background: #fbf8f1;
             color: var(--navy);
@@ -207,14 +209,14 @@
             display: none;
         }
         .sector-details-panel ul {
-            margin: 0 18px 0 0;
+            margin: 0 14px 0 0;
             padding: 0;
             color: var(--navy);
-            font-size: 13.5px;
-            line-height: 1.95;
+            font-size: 12px;
+            line-height: 1.85;
         }
         body[dir="ltr"] .sector-details-panel ul {
-            margin: 0 0 0 18px;
+            margin: 0 0 0 14px;
         }
         .sector-details-panel li {
             margin-bottom: 4px;
@@ -225,7 +227,28 @@
             .profile-title { font-size: 14px; }
             .profile-panel { padding: 4px 16px 18px; }
             .sectors-grid-cards {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .sector-img-card img {
+                height: 105px;
+            }
+            .sector-card-body {
+                padding: 10px;
+            }
+            .sector-card-body h3 {
+                font-size: 12px;
+            }
+            .sector-card-body p {
+                font-size: 10.5px;
+                line-height: 1.55;
+            }
+            .sector-details-panel {
+                padding: 10px;
+            }
+            .sector-details-panel ul {
+                font-size: 11px;
+                line-height: 1.75;
             }
         }
     </style>
@@ -955,7 +978,7 @@
             <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
             <a href="#sectors" data-ar="قطاعاتنا" data-en="Sectors">قطاعاتنا</a>
             <a href="#digital" data-ar="الحلول الرقمية" data-en="Digital">الحلول الرقمية</a>
-            <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
+            <a href="#contact" data-en="Contact">تواصل</a>
         </div>
     </div>
     <div class="copyright">© <span id="year"></span> AFRODAR. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></div>
