@@ -62,24 +62,18 @@
             text-align: left;
         }
         .software-hub-header h3 {
-            margin: 0 0 4px;
+            margin: 0;
             font-size: 18px;
             font-weight: 800;
             color: #fff;
         }
-        .software-hub-header p {
-            margin: 0;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.82);
+        .software-hub-arrow {
+            color: var(--gold);
+            font-size: 22px;
+            transition: transform 0.25s ease;
         }
-        .software-hub-badge {
-            background: var(--gold);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 999px;
-            white-space: nowrap;
+        .software-hub-header[aria-expanded="true"] .software-hub-arrow {
+            transform: rotate(180deg);
         }
         .software-hub-body {
             padding: 20px;
@@ -160,24 +154,11 @@
         .sector-card-body {
             padding: 18px;
         }
-        .sector-card-header-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
         .sector-card-body h3 {
             color: var(--navy);
             font-size: 17px;
             font-weight: 700;
-            margin: 0;
-        }
-        .sector-toggle-hint {
-            color: var(--gold);
-            font-size: 12px;
-            font-weight: 700;
-            white-space: nowrap;
+            margin: 0 0 8px;
         }
         .sector-card-body p {
             color: var(--muted);
@@ -221,10 +202,6 @@
             .profile-panel { padding: 4px 16px 18px; }
             .sectors-grid-cards {
                 grid-template-columns: 1fr;
-            }
-            .software-hub-header {
-                flex-direction: column;
-                align-items: flex-start;
             }
         }
     </style>
@@ -307,7 +284,7 @@
             <div class="section-heading">
                 <span data-ar="مجالات العمل بالصور" data-en="OUR BUSINESS AREAS WITH IMAGES">مجالات العمل بالصور</span>
                 <h2 data-ar="مجالات وأنشطة أفرودار" data-en="Afrodar Sectors & Activities">مجالات وأنشطة أفرودار</h2>
-                <p style="text-align: center; color: var(--muted); font-size: 14px; margin-top: 5px;" data-ar="اضغط على أي قطاع لعرض نبذة تفصيلية عنه (الصور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها)." data-en="Click on any sector to view a detailed overview (illustrative images for company fields of work and not documentation of specific executed projects).">اضغط على أي قطاع لعرض نبذة تفصيلية عنه (الصور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها).</p>
+                <p style="text-align: center; color: var(--muted); font-size: 14px; margin-top: 5px;" data-ar="صور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها." data-en="Illustrative images for company fields of work and not documentation of specific executed projects.">صور توضيحية لمجالات عمل الشركة وليست توثيقاً لمشاريع منفذة بعينها.</p>
                 <div class="heading-line"></div>
             </div>
 
@@ -317,10 +294,7 @@
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-1">
                         <img src="engineering.jpg" alt="">
                         <div class="sector-card-body">
-                            <div class="sector-card-header-row">
-                                <h3 data-ar="الهندسة والإنشاءات" data-en="Engineering & Construction">الهندسة والإنشاءات</h3>
-                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
-                            </div>
+                            <h3 data-ar="الهندسة والإنشاءات" data-en="Engineering & Construction">الهندسة والإنشاءات</h3>
                             <p data-ar="الأعمال الهندسية والبنية التحتية." data-en="Engineering works and infrastructure.">الأعمال الهندسية والبنية التحتية.</p>
                         </div>
                     </button>
@@ -339,10 +313,7 @@
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-2">
                         <img src="energy.jpg" alt="">
                         <div class="sector-card-body">
-                            <div class="sector-card-header-row">
-                                <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Electricity">الطاقة والكهرباء</h3>
-                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
-                            </div>
+                            <h3 data-ar="الطاقة والكهرباء" data-en="Energy & Electricity">الطاقة والكهرباء</h3>
                             <p data-ar="أنظمة الطاقة والحلول الكهربائية." data-en="Power systems and electrical solutions.">أنظمة الطاقة والحلول الكهربائية.</p>
                         </div>
                     </button>
@@ -361,10 +332,7 @@
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-3">
                         <img src="oil.jpg" alt="">
                         <div class="sector-card-body">
-                            <div class="sector-card-header-row">
-                                <h3 data-ar="خدمات النفط والطاقة" data-en="Oil & Energy Services">خدمات النفط والطاقة</h3>
-                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
-                            </div>
+                            <h3 data-ar="خدمات النفط والطاقة" data-en="Oil & Energy Services">خدمات النفط والطاقة</h3>
                             <p data-ar="خدمات وحلول فنية لقطاع النفط." data-en="Technical services and solutions for the oil sector.">خدمات وحلول فنية لقطاع النفط.</p>
                         </div>
                     </button>
@@ -383,10 +351,7 @@
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-4">
                         <img src="tech.jpg" alt="">
                         <div class="sector-card-body">
-                            <div class="sector-card-header-row">
-                                <h3 data-ar="التكنولوجيا والاتصالات" data-en="Technology & Telecommunications">التكنولوجيا والاتصالات</h3>
-                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
-                            </div>
+                            <h3 data-ar="التكنولوجيا والاتصالات" data-en="Technology & Telecommunications">التكنولوجيا والاتصالات</h3>
                             <p data-ar="الشبكات والحلول الرقمية والاتصال." data-en="Networks, digital solutions and communication.">الشبكات والحلول الرقمية والاتصال.</p>
                         </div>
                     </button>
@@ -405,10 +370,7 @@
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-5">
                         <img src="agriculture.jpg" alt="">
                         <div class="sector-card-body">
-                            <div class="sector-card-header-row">
-                                <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
-                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
-                            </div>
+                            <h3 data-ar="الخدمات الزراعية" data-en="Agricultural Services">الخدمات الزراعية</h3>
                             <p data-ar="الحلول والخدمات المرتبطة بالقطاع الزراعي." data-en="Solutions and services related to the agricultural sector.">الحلول والخدمات المرتبطة بالقطاع الزراعي.</p>
                         </div>
                     </button>
@@ -427,10 +389,7 @@
                     <button class="sector-card-trigger" type="button" aria-expanded="false" aria-controls="sector-detail-6">
                         <img src="mining.jpg" alt="">
                         <div class="sector-card-body">
-                            <div class="sector-card-header-row">
-                                <h3 data-ar="التعدين والمقاولات" data-en="Mining & Contracting">التعدين والمقاولات</h3>
-                                <span class="sector-toggle-hint" data-ar="التفاصيل ⌄" data-en="Details ⌄">التفاصيل ⌄</span>
-                            </div>
+                            <h3 data-ar="التعدين والمقاولات" data-en="Mining & Contracting">التعدين والمقاولات</h3>
                             <p data-ar="أنشطة التعدين والمقاولات المتنوعة." data-en="Mining activities and various contracting.">أنشطة التعدين والمقاولات المتنوعة.</p>
                         </div>
                     </button>
@@ -459,21 +418,18 @@
     <section class="section light-section" id="department-profile">
         <div class="container">
             <div class="section-heading">
-                <span data-ar="قسم البرمجيات والحلول الرقمية" data-en="SOFTWARE & DIGITAL SOLUTIONS">قسم البرمجيات والحلول الرقمية</span>
-                <h2 data-ar="استكشف أقسام الملف التعريفي (01 - 25)" data-en="Explore Department Profile Sections (01 - 25)">استكشف أقسام الملف التعريفي (01 - 25)</h2>
+                <span data-ar="الملف التعريفي للقسم" data-en="DEPARTMENT PROFILE">الملف التعريفي للقسم</span>
+                <h2 data-ar="استكشف أقسام الملف التعريفي" data-en="Explore the Department Profile">استكشف أقسام الملف التعريفي</h2>
                 <div class="heading-line"></div>
             </div>
 
             <div class="software-hub-card">
-                <button class="software-hub-header" id="softwareHubToggle" type="button" aria-expanded="true" aria-controls="softwareHubBody">
-                    <div>
-                        <h3 data-ar="قسم البرمجيات والحلول الرقمية" data-en="Software & Digital Solutions">قسم البرمجيات والحلول الرقمية</h3>
-                        <p data-ar="اضغط لفتح أو إغلاق جميع محاور الملف التعريفي من 01 إلى 25" data-en="Click to expand or collapse all profile sections from 01 to 25">اضغط لفتح أو إغلاق جميع محاور الملف التعريفي من 01 إلى 25</p>
-                    </div>
-                    <span class="software-hub-badge" data-ar="01 - 25 قسم" data-en="01 - 25 Sections">01 - 25 قسم</span>
+                <button class="software-hub-header" id="softwareHubToggle" type="button" aria-expanded="false" aria-controls="softwareHubBody">
+                    <h3 data-ar="قسم البرمجيات والحلول الرقمية" data-en="Software & Digital Solutions">قسم البرمجيات والحلول الرقمية</h3>
+                    <span class="software-hub-arrow">⌄</span>
                 </button>
 
-                <div class="software-hub-body" id="softwareHubBody">
+                <div class="software-hub-body" id="softwareHubBody" hidden>
                     <div class="profile-accordion">
                         <article class="profile-item">
                             <button class="profile-trigger" type="button" aria-expanded="false" aria-controls="profile-01">
@@ -815,7 +771,7 @@
             <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
             <a href="#sectors" data-ar="قطاعاتنا" data-en="Sectors">قطاعاتنا</a>
             <a href="#digital" data-ar="الحلول الرقمية" data-en="Digital">الحلول الرقمية</a>
-            <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
+            <a href="#contact" data-en="Contact">تواصل</a>
         </div>
     </div>
     <div class="copyright">© <span id="year"></span> AFRODAR. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></div>
